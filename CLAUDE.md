@@ -124,6 +124,7 @@ Claude will:
   tone: null,                  // "ink" | "warm" | "sand" | "accent" — or omit
   sourceUrl: "https://...",    // original source URL
   sourceLabel: "Author · Publication",
+  tweet: "...",                // suggested tweet — use [link] as placeholder for the post URL
   body: [                      // array of paragraph strings — omit for 'thought' type
     "First paragraph.",
     "Second paragraph.",

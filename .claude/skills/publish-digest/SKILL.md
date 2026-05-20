@@ -47,6 +47,7 @@ For each approved item, produce a post object in this format:
   ],
   sourceUrl: "https://...",    // original URL — include this so the source is credited
   sourceLabel: "...",          // e.g. "Lenny's Newsletter", "Twitter · @shreyas"
+  tweet: "...",                // suggested tweet text from the review file — include [link] placeholder
 }
 ```
 

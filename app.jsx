@@ -195,7 +195,10 @@ function ExpandedView({ post, cat, subLabel, onClose }) {
   };
 
   const shareX = () => {
-    const params = new URLSearchParams({ url: shareUrl, text: post.title });
+    const text = post.tweet
+      ? post.tweet.replace('[link]', shareUrl)
+      : `${post.title} ${shareUrl}`;
+    const params = new URLSearchParams({ text });
     window.open(`https://twitter.com/intent/tweet?${params}`, '_blank', 'noopener,width=600,height=400');
   };
 

@@ -69,6 +69,24 @@ Run at least 2–3 searches per category:
 **Sales:** `selling AI enterprise`, `AI pricing model`, `AI procurement objections`
 **Operations:** `AI inference cost control`, `AI ops team`, `LLM cost per user`
 
+## Writing the tweet
+
+Every item must include a suggested tweet. Rules:
+
+- **Under 280 characters** including the URL placeholder `[link]` (count it as 24 chars)
+- **Lead with the insight, not the source.** Don't start with "Great article by…" — start with the provocative claim or surprising stat
+- **Specific over general.** "87% of enterprise buyers want fixed pricing" beats "AI pricing is changing"
+- **One idea per tweet.** No lists, no thread bait unless the content genuinely calls for it
+- **Match the site voice:** direct, practitioner-first, no hype
+- **End with pull** — a question, a sharp implication, or a "this changes X" statement that makes someone want to click
+- Hashtags: 0–1 maximum, only if genuinely useful (e.g. `#prodmgmt`, `#llmops`). Never generic (`#AI #tech`)
+
+Good example:
+> BCG data: orgs using AI strategically capture 3.5x more value than those chasing tactical wins. The sprint-and-ship teams are already behind. [link]
+
+Bad example:
+> Great read on AI strategy! So many insights here 🔥 Check it out! #AI #strategy [link]
+
 ## Output format
 
 Save the result to: `reviews/YYYY-MM-DD.md` (today's date).
@@ -94,7 +112,7 @@ Each category section must include a `· Video ·` item using this format:
 - **Why publish:** One sentence on why this matters.
 - **Suggested site title:** "..."
 - **Suggested dek:** "..."
-- **Read time:** N min
+- **Suggested tweet:** "... [link]"
 - **Recommended post type:** essay | note | thought | case-study
 
 ---
@@ -108,6 +126,7 @@ Each category section must include a `· Video ·` item using this format:
 - **Why publish:** One sentence on why this is the best video pick this week.
 - **Suggested site title:** "..."
 - **Suggested dek:** "..."
+- **Suggested tweet:** "... [link]"
 - **Video label:** e.g. "Talk · Re:Design Berlin" or "Walkthrough · Matt Pocock"
 - **Recommended post type:** video
 
