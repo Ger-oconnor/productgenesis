@@ -404,7 +404,7 @@ function AboutBlock() {
         <div className="portrait">GO</div>
         <div>
           <h3>Gerald O'Connor — <em>Hong Kong</em></h3>
-          <p>I work at HSBC in Hong Kong as an AI Ambassador, helping teams understand what AI actually means for how they build, ship, and operate products. I study at HKU Business School, where I graduated with Distinction and as Valedictorian of my cohort in 2025.</p>
+          <p>My mission is to master the art of how companies operate to embody grit, integrity and empathy, pulling 100% in one direction in service of their clients and staff.</p>
           <p>Product Genesis is where I think in public. It's a daily digest of what's worth knowing at the intersection of AI and product — curated, synthesised, and written for practitioners, not spectators.</p>
           <div className="cta-row">
             <a className="pg-cta" href="https://www.linkedin.com/in/geraldoconnor1/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn →</a>
