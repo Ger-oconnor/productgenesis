@@ -530,7 +530,6 @@ function App() {
         );
       })}
 
-      <Newsletter />
       <AboutBlock />
 
       <footer className="pg-footer">
