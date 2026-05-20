@@ -401,20 +401,13 @@ function AboutBlock() {
         </div>
       </div>
       <div className="about-row">
-        <div className="portrait">PORTRAIT</div>
+        <div className="portrait">GO</div>
         <div>
-          <h3>An advisory practice for teams shipping <em>product into the unknown.</em></h3>
-          <p>Product Genesis is a small consulting practice helping product leaders rebuild their craft for the age of AI — across vision, strategy, development, marketing, sales, and operations.</p>
-          <p>We run strategy sprints, audit AI features, embed with teams for a quarter, and write field notes from the work. Most clients find us through the writing on this site.</p>
-          <div className="stats">
-            <div className="stat"><div className="n">38</div><div className="k">Teams advised</div></div>
-            <div className="stat"><div className="n">12</div><div className="k">Strategy sprints</div></div>
-            <div className="stat"><div className="n">4.8k</div><div className="k">Subscribers</div></div>
-            <div className="stat"><div className="n">'22</div><div className="k">Since</div></div>
-          </div>
+          <h3>Gerald O'Connor — <em>Hong Kong</em></h3>
+          <p>I work at HSBC in Hong Kong as an AI Ambassador, helping teams understand what AI actually means for how they build, ship, and operate products. I study at HKU Business School, where I graduated with Distinction and as Valedictorian of my cohort in 2025.</p>
+          <p>Product Genesis is where I think in public. It's a daily digest of what's worth knowing at the intersection of AI and product — curated, synthesised, and written for practitioners, not spectators.</p>
           <div className="cta-row">
-            <button className="pg-cta">Book a call →</button>
-            <button className="pg-cta ghost">Read the bio</button>
+            <a className="pg-cta" href="https://www.linkedin.com/in/geraldoconnor1/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn →</a>
           </div>
         </div>
       </div>

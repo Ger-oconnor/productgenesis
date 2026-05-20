@@ -397,11 +397,11 @@ img { max-width: 100%; display: block; }
 .about-row { display: grid; grid-template-columns: 180px 1fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
 @media (max-width: 640px) { .about-row { grid-template-columns: 1fr; } }
 .portrait {
-  width: 180px; height: 220px; border-radius: var(--radius);
-  background: linear-gradient(135deg, var(--accent-soft), transparent 60%), repeating-linear-gradient(45deg, var(--bg-3) 0 6px, var(--bg-2) 6px 12px);
-  display: grid; place-items: end center; padding-bottom: 12px;
-  font-family: var(--mono); font-size: 10px; color: var(--ink-mute);
-  letter-spacing: .08em; border: 1px solid var(--rule);
+  width: 180px; height: 180px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  display: grid; place-items: center;
+  font-family: var(--display); font-size: 48px; font-weight: 700;
+  color: #fff; letter-spacing: -0.02em; flex-shrink: 0;
 }
 .about-row h3 { font-size: clamp(24px, 3vw, 32px); font-weight: 600; letter-spacing: -0.02em; margin: 0 0 16px; line-height: 1.2; }
 .about-row h3 em { font-family: var(--display); font-style: italic; font-weight: 500; color: var(--accent); }
