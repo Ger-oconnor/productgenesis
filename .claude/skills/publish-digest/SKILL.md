@@ -33,7 +33,7 @@ For each approved item, produce a post object in this format:
   id: "v4",                    // unique — check existing IDs first
   cat: "vision",               // vision | strategy | development | marketing | sales | operations
   sub: null,                   // only for development: "discovery" | "dev" | "testing" | "uiux" | "cicd"
-  type: "essay",               // essay | note | video | case-study | thought
+  type: "essay",               // essay | note | video | case-study | thought | story
   title: "...",                // from "Suggested site title" in the review
   dek: "...",                  // from "Suggested dek" in the review
   author: "Genesis",
@@ -48,6 +48,8 @@ For each approved item, produce a post object in this format:
   sourceUrl: "https://...",    // original URL — include this so the source is credited
   sourceLabel: "...",          // e.g. "Lenny's Newsletter", "Twitter · @shreyas"
   tweet: "...",                // suggested tweet text from the review file — include [link] placeholder
+  // Story-only:
+  // centralMessage: "...",   // one sentence — the throughline, from the review brief
 }
 ```
 
@@ -62,6 +64,8 @@ For each approved item, produce a post object in this format:
 **For video:** 1 paragraph describing what the video covers and who it's for. Include `videoLabel` and `videoLength` fields if you can determine them.
 
 **For case study:** 3–4 paragraphs. Setup (what was the problem), approach (what they did), result (what happened), lesson (what to take away).
+
+**For story:** Use the `write-story` skill. Take the `centralMessage` from the review brief. The body must be 500–600 words, follow SCR structure, open with a strong hook, and include at least one direct quote from the source.
 
 Fetch the source URL if needed to write an accurate body. Write in the Product Genesis voice: direct, specific, no hype, practitioner-first.
 

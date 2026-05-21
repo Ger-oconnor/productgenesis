@@ -44,13 +44,29 @@ Each category must also include exactly one video pick. Search YouTube for the m
 
 For each video, record: title, channel, YouTube URL, approximate length (from search metadata if visible), and upload date.
 
+## Hard rules — enforce before selecting any item
+
+### 1. Freshness cap — 7 days maximum
+**No item may be older than 7 days from today's date.** This applies to all content types: written articles, tweets, newsletters, podcast episodes, and videos. If the only available video is older than 7 days, leave the video slot empty rather than include stale content. Do not extend the window beyond 7 days under any circumstances.
+
+### 2. No duplicates — check data.js before finalising
+**Before writing the review file, read `data.js` and extract every `sourceUrl` already in the site.** If a candidate item's URL matches any existing `sourceUrl`, skip it — even if it's an excellent piece. The same story must never appear twice on the site. This check applies to all content types.
+
+```
+// Pseudocode for dedup check
+existingUrls = all sourceUrl values in data.js
+for each candidate:
+  if candidate.url in existingUrls → skip
+  else → include
+```
+
 ## Quality signals
 
 For all content:
 - Credible practitioner perspective (not generic AI commentary)
 - Concrete and specific — not "AI is changing everything"
 - Engagement relative to audience size
-- Freshness (24h for written; 7 days for video)
+- Freshness (must be within 7 days — see hard rule above)
 
 Aim for 3–5 written items + 1 video per category. Curated, not exhaustive.
 
@@ -108,12 +124,13 @@ Each category section must include a `· Video ·` item using this format:
 ### V1 · Essay · [Short label]
 - [ ] **Approve for publishing**
 - **Source:** [Title](url) · Author · Publication
-- **Type:** essay | note | thought | case-study
+- **Type:** essay | note | thought | case-study | story
 - **Why publish:** One sentence on why this matters.
 - **Suggested site title:** "..."
 - **Suggested dek:** "..."
 - **Suggested tweet:** "... [link]"
-- **Recommended post type:** essay | note | thought | case-study
+- **Recommended post type:** essay | note | thought | case-study | story
+- **Suggested central message:** "..."   ← include only when Recommended post type is story
 
 ---
 
