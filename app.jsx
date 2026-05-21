@@ -440,6 +440,17 @@ function App() {
   };
 
   useEffect(() => {
+    if (expandedId) {
+      const tryScroll = (attempts = 0) => {
+        const el = document.getElementById(`post-${expandedId}`);
+        if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+        else if (attempts < 10) { setTimeout(() => tryScroll(attempts + 1), 100); }
+      };
+      setTimeout(() => tryScroll(), 100);
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
     document.documentElement.setAttribute('data-theme', t.dark ? 'dark' : 'light');
   }, [t.dark]);
 
