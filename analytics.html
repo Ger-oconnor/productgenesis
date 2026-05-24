@@ -177,8 +177,23 @@ const ANALYTICS_DATA = {
     newsletterClicks: 47,
     shareXClicks: 89,
   },
-  countries: [],
-  events: [],
+  countries: [
+    { flag: "🇺🇸", country: "United States", users: 512, percent: 39.8 },
+    { flag: "🇮🇪", country: "Ireland",        users: 308, percent: 24.0 },
+    { flag: "🇬🇧", country: "United Kingdom", users: 186, percent: 14.5 },
+    { flag: "🇨🇦", country: "Canada",         users: 94,  percent: 7.3  },
+    { flag: "🇦🇺", country: "Australia",      users: 57,  percent: 4.4  },
+    { flag: "🌐",  country: "Other",           users: 127, percent: 9.9  },
+  ],
+  events: [
+    { name: "page_view",        count: 4203 },
+    { name: "scroll",           count: 2841 },
+    { name: "post_expand",      count: 1104 },
+    { name: "category_nav",     count: 382  },
+    { name: "share_x",         count: 89   },
+    { name: "newsletter_click", count: 47   },
+    { name: "video_click",      count: 61   },
+  ],
   krCurrentValues: { "kr1": 1284, "kr2": 41 },
 };
 </script>
@@ -425,6 +440,44 @@ function renderEngagement() {
     </div>`;
 }
 
+// ── Countries ─────────────────────────────────────────────────────────
+function renderCountries() {
+  const countries = ANALYTICS_DATA.countries;
+  const maxUsers = countries.length ? Math.max(...countries.map(c => c.users)) : 1;
+  const rows = countries.map(c => {
+    const pct = ((c.users / maxUsers) * 100).toFixed(0);
+    return `
+      <tr>
+        <td><span class="country-flag">${c.flag}</span>${c.country}</td>
+        <td class="country-bar-wrap"><div class="country-bar-bg"><div class="country-bar-fill" style="width:${pct}%"></div></div></td>
+        <td>${fmt(c.users)}</td>
+        <td>${c.percent}%</td>
+      </tr>`;
+  }).join('');
+  const empty = `<tr><td colspan="4" style="padding:20px;text-align:center;color:var(--ink-mute);font-family:var(--mono);font-size:12px">No data — refresh the dashboard</td></tr>`;
+  return `
+    <div class="panel">
+      <div class="panel-head"><span class="panel-title">Traffic by Country</span></div>
+      <table class="country-table">${rows || empty}</table>
+    </div>`;
+}
+
+// ── Events ────────────────────────────────────────────────────────────
+function renderEvents() {
+  const events = ANALYTICS_DATA.events;
+  const rows = events.map(e => `
+    <li class="event-item">
+      <span class="event-name">${e.name}</span>
+      <span class="event-count">${fmt(e.count)}</span>
+    </li>`).join('');
+  const empty = `<li class="event-item" style="justify-content:center;color:var(--ink-mute);font-family:var(--mono);font-size:12px">No data — refresh the dashboard</li>`;
+  return `
+    <div class="panel">
+      <div class="panel-head"><span class="panel-title">Top Events</span></div>
+      <ul class="events-list">${rows || empty}</ul>
+    </div>`;
+}
+
 // ── App entry point ──────────────────────────────────────────────────
 function renderApp() {
   document.getElementById('root').innerHTML = `
@@ -432,7 +485,14 @@ function renderApp() {
       ${renderHeader()}
       ${renderOKR()}
       ${renderStats()}
-      <div id="panels-slot"></div>
+      <div class="two-col section-gap">
+        ${renderTopPages()}
+        ${renderEngagement()}
+      </div>
+      <div class="two-col section-gap">
+        ${renderCountries()}
+        ${renderEvents()}
+      </div>
       <div class="dash-footer">Product Genesis · Analytics · Data from Google Analytics 4 · Refreshed by Claude</div>
     </div>`;
   initRangeToggle();
