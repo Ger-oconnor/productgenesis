@@ -156,10 +156,10 @@ const ANALYTICS_DATA = {
   refreshed: "—",
   range: "28d",
   stats: {
-    activeUsers: 0, activeUsersDelta: 0,
-    sessions: 0,    sessionsDelta: 0,
-    pageViews: 0,   pageViewsDelta: 0,
-    bounceRate: 0,  bounceRateDelta: 0,
+    activeUsers: 1284, activeUsersDelta: 18,
+    sessions: 1841,    sessionsDelta: 12,
+    pageViews: 4203,   pageViewsDelta: 24,
+    bounceRate: 41,    bounceRateDelta: -6,
   },
   topPages: [],
   engagement: {
@@ -186,7 +186,79 @@ const OKR_DATA = {
 <!-- OKR_DATA:END -->
 
 <script>
-// render engine — added in subsequent tasks
+// ── helpers ──────────────────────────────────────────────────────────
+function fmt(n) {
+  if (n === undefined || n === null || n === 0) return '—';
+  return Number(n).toLocaleString();
+}
+function fmtDelta(n, unit, invert) {
+  if (!n) return '<span class="delta-neutral">—</span>';
+  const improved = invert ? n < 0 : n > 0;
+  const cls = improved ? 'delta-up' : 'delta-down';
+  const arrow = n > 0 ? '↑' : '↓';
+  return `<span class="${cls}">${arrow} ${Math.abs(n)}${unit} vs prev period</span>`;
+}
+function barFill(delta) {
+  return Math.min(99, Math.abs(delta || 0) * 3 + 30);
+}
+
+// ── Header ───────────────────────────────────────────────────────────
+function renderHeader() {
+  const { refreshed, range } = ANALYTICS_DATA;
+  const btn = (r) => `<button class="range-btn${range === r ? ' active' : ''}" data-range="${r}">${r}</button>`;
+  return `
+    <div class="dash-header">
+      <div>
+        <div class="dash-site">Product Genesis</div>
+        <div class="dash-heading">Site Analytics</div>
+        <div class="dash-updated">Last refreshed: ${refreshed}</div>
+      </div>
+      <div class="range-toggle">${btn('7d')}${btn('28d')}${btn('90d')}</div>
+    </div>`;
+}
+
+// ── Stat cards ───────────────────────────────────────────────────────
+function renderStats() {
+  const s = ANALYTICS_DATA.stats;
+  const card = ({ label, value, delta, unit, invert, barColor }) => `
+    <div class="stat-card">
+      <div class="stat-label">${label}</div>
+      <div class="stat-value">${value}</div>
+      <div class="stat-delta">${fmtDelta(delta, unit, invert)}</div>
+      <div class="stat-bar"><div class="stat-bar-fill" style="width:${barFill(delta)}%;background:${barColor || 'var(--accent)'}"></div></div>
+    </div>`;
+  return `
+    <div class="stat-grid">
+      ${card({ label: 'Active Users', value: fmt(s.activeUsers), delta: s.activeUsersDelta, unit: '%' })}
+      ${card({ label: 'Sessions',     value: fmt(s.sessions),    delta: s.sessionsDelta,    unit: '%' })}
+      ${card({ label: 'Page Views',   value: fmt(s.pageViews),   delta: s.pageViewsDelta,   unit: '%' })}
+      ${card({ label: 'Bounce Rate',  value: s.bounceRate ? s.bounceRate + '%' : '—', delta: s.bounceRateDelta, unit: 'pp', invert: true, barColor: 'var(--amber)' })}
+    </div>`;
+}
+
+// ── App entry point ──────────────────────────────────────────────────
+function renderApp() {
+  document.getElementById('root').innerHTML = `
+    <div class="page">
+      ${renderHeader()}
+      <div id="okr-slot"></div>
+      ${renderStats()}
+      <div id="panels-slot"></div>
+      <div class="dash-footer">Product Genesis · Analytics · Data from Google Analytics 4 · Refreshed by Claude</div>
+    </div>`;
+  initRangeToggle();
+}
+
+function initRangeToggle() {
+  document.querySelectorAll('.range-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.range-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', renderApp);
 </script>
 </body>
 </html>
