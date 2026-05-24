@@ -9,3 +9,6 @@ Thumbs.db
 
 # Uploads (binary assets — add manually if needed)
 uploads/
+
+# Analytics dashboard — contains live GA traffic data, regenerated locally by Claude
+analytics.html
