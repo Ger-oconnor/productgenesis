@@ -172,7 +172,7 @@ const ANALYTICS_DATA = {
   },
   countries: [],
   events: [],
-  krCurrentValues: {},
+  krCurrentValues: { "kr1": 1284, "kr2": 41 },
 };
 </script>
 <!-- ANALYTICS_DATA:END -->
@@ -180,7 +180,45 @@ const ANALYTICS_DATA = {
 <!-- OKR_DATA:BEGIN -->
 <script>
 const OKR_DATA = {
-  objectives: [],
+  objectives: [
+    {
+      id: "obj1",
+      quarter: "Q2 2026",
+      icon: "🎯",
+      text: "Grow Product Genesis into a destination for 5,000 active product builders per month",
+      keyResults: [
+        {
+          id: "kr1",
+          description: "Reach 3,500 monthly active users",
+          metricLabel: "Active Users",
+          target: 3500,
+          targetDate: "30 Jun 2026",
+          confidence: "med",
+          isPercent: false,
+          invertProgress: false,
+          steps: [
+            { title: "Launch daily digest workflow", description: "Publish curated content 5 days/week to build habit-forming visit cadence.", date: "10 May 2026", status: "done" },
+            { title: "Publish to 3 distribution channels", description: "Cross-post digests to LinkedIn, X, and one newsletter to drive referral traffic.", date: "1 Jun 2026", status: "active" },
+            { title: "SEO: optimise top 10 posts", description: "Add meta descriptions, structured headings, and internal links to highest-traffic posts.", date: "20 Jun 2026", status: "pending" }
+          ]
+        },
+        {
+          id: "kr2",
+          description: "Reduce bounce rate below 30%",
+          metricLabel: "Bounce Rate",
+          target: 30,
+          targetDate: "30 Jun 2026",
+          confidence: "low",
+          isPercent: true,
+          invertProgress: true,
+          steps: [
+            { title: "Add related posts to each article", description: "Surface 3 related posts at the bottom of every expanded post to encourage next reads.", date: "5 Jun 2026", status: "pending" },
+            { title: "Improve above-the-fold hook", description: "Rewrite hero dek and category intros to immediately signal value to new visitors.", date: "15 Jun 2026", status: "pending" }
+          ]
+        }
+      ]
+    }
+  ]
 };
 </script>
 <!-- OKR_DATA:END -->
@@ -236,17 +274,111 @@ function renderStats() {
     </div>`;
 }
 
+// ── OKR section ──────────────────────────────────────────────────────
+function confClass(c) {
+  return { high: 'conf-high', med: 'conf-med', low: 'conf-low' }[c] || 'conf-med';
+}
+function confLabel(c) {
+  return { high: 'High', med: 'Med', low: 'Low' }[c] || c;
+}
+
+function renderStep(step, index) {
+  const dotClass = step.status === 'done' ? 'done' : step.status === 'active' ? 'active' : '';
+  const dotInner = step.status === 'done' ? '✓' : String(index + 1);
+  const statusSuffix = step.status === 'done' ? ' · Complete' : step.status === 'active' ? ' · In progress' : '';
+  return `
+    <li class="step-item">
+      <div class="step-dot ${dotClass}">${dotInner}</div>
+      <div class="step-content">
+        <div class="step-title">${step.title}</div>
+        <div class="step-desc">${step.description}</div>
+        <div class="step-date">${step.date}${statusSuffix}</div>
+      </div>
+    </li>`;
+}
+
+function renderKR(kr, index) {
+  const current = ANALYTICS_DATA.krCurrentValues[kr.id] ?? 0;
+  const pct = kr.target > 0 ? Math.min(100, (current / kr.target) * 100).toFixed(0) : 0;
+  const barColor = kr.invertProgress ? 'var(--amber)' : 'var(--accent)';
+  const currentDisplay = kr.isPercent ? (current || '—') + (current ? '%' : '') : fmt(current);
+  const targetDisplay  = kr.isPercent ? '< ' + kr.target + '%' : fmt(kr.target);
+  const stepsHtml = (kr.steps || []).map((s, i) => renderStep(s, i)).join('');
+  return `
+    <li class="kr-item">
+      <div class="kr-row">
+        <div class="kr-num">${index + 1}</div>
+        <div class="kr-main">
+          <div class="kr-description">${kr.description}</div>
+          <div class="kr-metric-row">
+            <span class="kr-metric-tag">${kr.metricLabel}</span>
+            <div class="kr-progress-wrap">
+              <div class="kr-progress-track">
+                <div class="kr-progress-fill" style="width:${pct}%;background:${barColor}"></div>
+              </div>
+              <div class="kr-values"><strong>${currentDisplay}</strong> / ${targetDisplay}</div>
+            </div>
+          </div>
+        </div>
+        <div class="kr-date-chip">${kr.targetDate}</div>
+        <div class="confidence-chip ${confClass(kr.confidence)}">${confLabel(kr.confidence)}</div>
+        <button class="steps-btn" data-kr-id="${kr.id}" title="View action steps">▶</button>
+      </div>
+      <div class="steps-panel" id="steps-${kr.id}">
+        <ul class="steps-list">${stepsHtml}</ul>
+      </div>
+    </li>`;
+}
+
+function renderObjective(obj) {
+  const krsHtml = (obj.keyResults || []).map((kr, i) => renderKR(kr, i)).join('');
+  return `
+    <div class="okr-section">
+      <div class="okr-header">
+        <div style="display:flex;align-items:center;gap:12px">
+          <span class="okr-badge">OKR</span>
+          <span class="okr-section-title">Objectives & Key Results</span>
+        </div>
+        <button class="okr-add-btn">+ Add via Claude</button>
+      </div>
+      <div class="objective-row">
+        <div class="obj-icon">${obj.icon || '🎯'}</div>
+        <div>
+          <div class="obj-label">Objective · ${obj.quarter}</div>
+          <div class="obj-text">${obj.text}</div>
+        </div>
+      </div>
+      <ul class="kr-list">${krsHtml}</ul>
+    </div>`;
+}
+
+function renderOKR() {
+  return (OKR_DATA.objectives || []).map(renderObjective).join('');
+}
+
+function initAccordions() {
+  document.querySelectorAll('.steps-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = document.getElementById('steps-' + btn.dataset.krId);
+      const open = panel.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      btn.textContent = open ? '▼' : '▶';
+    });
+  });
+}
+
 // ── App entry point ──────────────────────────────────────────────────
 function renderApp() {
   document.getElementById('root').innerHTML = `
     <div class="page">
       ${renderHeader()}
-      <div id="okr-slot"></div>
+      ${renderOKR()}
       ${renderStats()}
       <div id="panels-slot"></div>
       <div class="dash-footer">Product Genesis · Analytics · Data from Google Analytics 4 · Refreshed by Claude</div>
     </div>`;
   initRangeToggle();
+  initAccordions();
 }
 
 function initRangeToggle() {
