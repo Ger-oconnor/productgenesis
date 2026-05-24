@@ -150,6 +150,43 @@ body { font-family: var(--sans); background: var(--bg-2); color: var(--ink); min
 </head>
 <body>
 <div id="root"></div>
-<!-- DATA AND RENDER SCRIPT — added in subsequent tasks -->
+<!-- ANALYTICS_DATA:BEGIN -->
+<script>
+const ANALYTICS_DATA = {
+  refreshed: "—",
+  range: "28d",
+  stats: {
+    activeUsers: 0, activeUsersDelta: 0,
+    sessions: 0,    sessionsDelta: 0,
+    pageViews: 0,   pageViewsDelta: 0,
+    bounceRate: 0,  bounceRateDelta: 0,
+  },
+  topPages: [],
+  engagement: {
+    avgSessionDuration: "—", avgSessionDurationDeltaSecs: 0,
+    pagesPerSession: 0,      pagesPerSessionDelta: 0,
+    newUsersPercent: 0,      returningUsersPercent: 0,
+    newUsersPrevPercent: 0,
+    newsletterClicks: 0,
+    shareXClicks: 0,
+  },
+  countries: [],
+  events: [],
+  krCurrentValues: {},
+};
+</script>
+<!-- ANALYTICS_DATA:END -->
+
+<!-- OKR_DATA:BEGIN -->
+<script>
+const OKR_DATA = {
+  objectives: [],
+};
+</script>
+<!-- OKR_DATA:END -->
+
+<script>
+// render engine — added in subsequent tasks
+</script>
 </body>
 </html>
