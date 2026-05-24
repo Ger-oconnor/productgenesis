@@ -161,14 +161,21 @@ const ANALYTICS_DATA = {
     pageViews: 4203,   pageViewsDelta: 24,
     bounceRate: 41,    bounceRateDelta: -6,
   },
-  topPages: [],
+  topPages: [
+    { path: "/", title: "Homepage", cat: null, views: 1021 },
+    { path: "/post/why-ai-products-fail", title: "Why AI Products Fail", cat: "vision", views: 736 },
+    { path: "/post/the-moat-myth", title: "The Moat Myth", cat: "strategy", views: 524 },
+    { path: "/post/evals-that-work", title: "Evals That Actually Work", cat: "dev", views: 391 },
+    { path: "/post/ai-pricing", title: "AI Pricing Strategies", cat: "strategy", views: 298 },
+    { path: "/post/gtm-loop", title: "Building Your GTM Loop", cat: "marketing", views: 227 },
+  ],
   engagement: {
-    avgSessionDuration: "—", avgSessionDurationDeltaSecs: 0,
-    pagesPerSession: 0,      pagesPerSessionDelta: 0,
-    newUsersPercent: 0,      returningUsersPercent: 0,
-    newUsersPrevPercent: 0,
-    newsletterClicks: 0,
-    shareXClicks: 0,
+    avgSessionDuration: "3:42", avgSessionDurationDeltaSecs: 18,
+    pagesPerSession: 2.28,      pagesPerSessionDelta: 0.3,
+    newUsersPercent: 68,        returningUsersPercent: 32,
+    newUsersPrevPercent: 71,
+    newsletterClicks: 47,
+    shareXClicks: 89,
   },
   countries: [],
   events: [],
@@ -365,6 +372,57 @@ function initAccordions() {
       btn.textContent = open ? '▼' : '▶';
     });
   });
+}
+
+// ── Top Pages ─────────────────────────────────────────────────────────
+function renderTopPages() {
+  const pages = ANALYTICS_DATA.topPages;
+  const maxViews = pages.length ? Math.max(...pages.map(p => p.views)) : 1;
+  const rows = pages.map(p => {
+    const pct = ((p.views / maxViews) * 100).toFixed(0);
+    const pill = p.cat ? `<span class="page-cat-pill">${p.cat}</span>` : '';
+    return `
+      <tr>
+        <td>${p.title}${pill}</td>
+        <td class="page-bar-cell"><div class="page-mini-bar"><div class="page-mini-bar-fill" style="width:${pct}%"></div></div></td>
+        <td>${fmt(p.views)}</td>
+      </tr>`;
+  }).join('');
+  const empty = `<tr><td colspan="3" style="padding:20px;text-align:center;color:var(--ink-mute);font-family:var(--mono);font-size:12px">No data — refresh the dashboard</td></tr>`;
+  return `
+    <div class="panel">
+      <div class="panel-head"><span class="panel-title">Top Pages</span></div>
+      <table class="pages-table">${rows || empty}</table>
+    </div>`;
+}
+
+// ── Engagement ────────────────────────────────────────────────────────
+function renderEngagement() {
+  const e = ANALYTICS_DATA.engagement;
+  const durDelta = e.avgSessionDurationDeltaSecs
+    ? `${e.avgSessionDurationDeltaSecs > 0 ? '↑' : '↓'} ${Math.abs(e.avgSessionDurationDeltaSecs)}s`
+    : '—';
+  const ppsDelta = e.pagesPerSessionDelta
+    ? `${e.pagesPerSessionDelta > 0 ? '↑' : '↓'} ${Math.abs(e.pagesPerSessionDelta).toFixed(1)}`
+    : '—';
+  const newPrev = e.newUsersPrevPercent || '—';
+  const retPrev = e.newUsersPrevPercent ? 100 - e.newUsersPrevPercent : '—';
+  const row = (metric, sub, value, small) => `
+    <li class="eng-item">
+      <div><div class="eng-metric">${metric}</div><div class="eng-sub">${sub}</div></div>
+      <div class="eng-value">${value}<small>${small}</small></div>
+    </li>`;
+  return `
+    <div class="panel">
+      <div class="panel-head"><span class="panel-title">Engagement</span></div>
+      <ul class="eng-list">
+        ${row('Avg Session Duration', 'time on site per visit', e.avgSessionDuration || '—', durDelta)}
+        ${row('Pages / Session', 'avg posts read per visit', e.pagesPerSession || '—', ppsDelta)}
+        ${row('New vs Returning', 'user type split', `${e.newUsersPercent || '—'}/${e.returningUsersPercent || '—'}%`, `vs ${newPrev}/${retPrev}%`)}
+        ${row('Newsletter Clicks', 'sign-up link taps', fmt(e.newsletterClicks), 'events')}
+        ${row('X Share Clicks', 'tweet button taps', fmt(e.shareXClicks), 'events')}
+      </ul>
+    </div>`;
 }
 
 // ── App entry point ──────────────────────────────────────────────────
