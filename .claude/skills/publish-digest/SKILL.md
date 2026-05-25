@@ -47,27 +47,27 @@ For each approved item, produce a post object in this format:
   ],
   sourceUrl: "https://...",    // original URL — include this so the source is credited
   sourceLabel: "...",          // e.g. "Lenny's Newsletter", "Twitter · @shreyas"
-  tweet: "...",                // suggested tweet text from the review file — include [link] placeholder
+  tweet: "...",                // tweet text with the full post URL substituted in — NEVER use [link] placeholder
+                               // Format: "https://productgenesis.ai/#post-{id}" where {id} is this post's id field
+                               // e.g. for id "v4": "...insight... https://productgenesis.ai/#post-v4"
   // Story-only:
   // centralMessage: "...",   // one sentence — the throughline, from the review brief
 }
 ```
 
-### How to write the body
+### How to get the body
 
-**For thought / quick take:** No body needed — the dek is the post. Omit the `body` field.
+**The review file contains a pre-written draft body under each approved item.** Use that draft body directly — do not rewrite or regenerate it. Gerald read and approved the content as written.
 
-**For note:** 2–3 short paragraphs. Summarise the source's key insight in your own words. End with one sharp takeaway sentence.
+Look for the `**Draft body:**` section beneath each item's metadata. Copy the paragraphs as the `body` array, one string per paragraph.
 
-**For essay:** 3–5 paragraphs. Open with the problem or tension the source identifies. Cover the main argument. Pull one strong quote or stat if available. End with the implication for product teams.
-
-**For video:** 1 paragraph describing what the video covers and who it's for. Include `videoLabel` and `videoLength` fields if you can determine them.
-
-**For case study:** 3–4 paragraphs. Setup (what was the problem), approach (what they did), result (what happened), lesson (what to take away).
-
-**For story:** Use the `write-story` skill. Take the `centralMessage` from the review brief. The body must be 500–600 words, follow SCR structure, open with a strong hook, and include at least one direct quote from the source.
-
-Fetch the source URL if needed to write an accurate body. Write in the Product Genesis voice: direct, specific, no hype, practitioner-first.
+**If no Draft body is present** (older review file format): fetch the source URL and write the body fresh following these rules:
+- **thought / quick take:** No body — omit the `body` field.
+- **note:** 2–3 short paragraphs. Summarise the key insight. End with one sharp takeaway.
+- **essay:** 3–5 paragraphs. Problem → argument → evidence → product team implication.
+- **video:** 1 paragraph describing what the video covers and who it's for.
+- **case study:** Setup → approach → result → lesson.
+- **story:** Use the `write-story` skill with the `centralMessage` from the review brief.
 
 ## Step 4 — Insert into data.js, trim to 10 per category
 
