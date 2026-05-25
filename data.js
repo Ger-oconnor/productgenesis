@@ -69,7 +69,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://antmurphy.medium.com/how-product-is-changing-in-2026-78a08f150aca",
     sourceLabel: "Ant Murphy · Medium",
-    tweet: "94% of PMs use AI frequently and save 1-2 hours daily. 95% of enterprise AI pilots fail to deliver measurable ROI. The tool adoption is real. The practice change isn't. Ant Murphy on what PMs actually need to focus on in 2026. [link]",
+    tweet: "94% of PMs use AI frequently and save 1-2 hours daily. 95% of enterprise AI pilots fail to deliver measurable ROI. The tool adoption is real. The practice change isn't. Ant Murphy on what PMs actually need to focus on in 2026. https://productgenesis.ai/#post-v20",
     body: [
       "The headline that reframes the PM market in 2026 is not about layoffs or AI replacement — it's a paradox. 94% of product managers use AI frequently and report saving 1-2 hours a day. Yet 95% of enterprise AI pilots fail to deliver measurable ROI. Tool adoption is at an all-time high; practice transformation is not keeping pace. Ant Murphy's analysis of how product management is changing in 2026 centres on this gap, and on the four structural forces doing the actual reshaping.",
       "The first is the shift from growth to profit metrics. Companies that spent four years optimising for user acquisition are now being measured on revenue and margin. That changes what a product manager's success looks like — from shipping features that drive engagement to driving outcomes that show up in the P&L. The second is reduced empowerment: 84% of product teams worry their work won't succeed in market. Senior leadership is setting strategy top-down with more frequency, and PMs who built their value around autonomy and roadmap ownership are finding that ground has shifted. The third is the AI productivity paradox itself — time saved, value unclear. The fourth is role blurring: the emergence of \"Product Builder\" roles spanning product, design, and engineering in a single person.",
@@ -89,7 +89,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://designlab.com/blog/ai-in-ux-product-design-trends-2026",
     sourceLabel: "Designlab",
-    tweet: "83.5% of designers use ChatGPT. More than half are concerned about AI's impact on design quality. The question in 2026 isn't 'are you using AI?' — it's 'are you treating its output like junior work that needs critique?' [link]",
+    tweet: "83.5% of designers use ChatGPT. More than half are concerned about AI's impact on design quality. The question in 2026 isn't 'are you using AI?' — it's 'are you treating its output like junior work that needs critique?' https://productgenesis.ai/#post-v21",
     body: [
       "Designlab surveyed more than 200 UX and product designers for its 2026 AI report and found the conversation has shifted materially. 83.5% of respondents use ChatGPT more than any other AI tool. The question the industry is asking is no longer whether to use AI — that's settled. The question is whether the work is getting better.",
       "More than half of respondents expressed concern about AI's impact on design quality. The integration pattern that dominates 2026 is no longer experimentation — it's embedding AI directly into existing workflows, particularly within platforms like Figma, where the tool is already part of the daily design loop. The professional expectation that's crystallised: designers must treat AI outputs the way they would treat work from a junior colleague, requiring critique and evaluation before use. Prompting ability now determines output quality. Poor prompting yields generic results indistinguishable from anyone else's output.",
@@ -109,7 +109,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://medium.com/design-bootcamp/my-take-on-the-future-of-product-management-in-the-age-of-ai-9b9f7125818b",
     sourceLabel: "Edi Sipka · Medium",
-    tweet: "'I thought AI was going to replace product managers but we're more important than ever.' The shift: AI removes the cover of busy execution and exposes whether you can actually think about strategy. [link]",
+    tweet: "'I thought AI was going to replace product managers but we're more important than ever.' The shift: AI removes the cover of busy execution and exposes whether you can actually think about strategy. https://productgenesis.ai/#post-v22",
     body: [
       "One practitioner's observation sums up where the PM role stands in 2026: \"I thought AI was going to replace product managers but we're more important than ever.\" The reasoning that follows is more important than the conclusion. The PM role isn't protected because it's irreplaceable — it's protected because the thing AI is commoditising is execution, not direction, judgment, and clarity about what to build and why.",
       "What AI removes is the cover of execution busyness. In previous years, PMs could demonstrate value through the volume of artefacts produced, the number of meetings coordinated, the throughput of requirements documented. AI handles all of that at speed. What it cannot handle is deciding which problem is worth solving, building the business case for why now, and generating the clarity that a product team needs to build the right thing. The PM who built their value around process and throughput has lost their cover. The PM whose value was always in judgment has more leverage, not less.",
@@ -130,7 +130,7 @@ window.PG_POSTS = [
     videoLabel: "Talk · Sequoia AI Ascent 2026",
     sourceUrl: "https://www.youtube.com/watch?v=SlGRN8jh2RI",
     sourceLabel: "Boris Cherny · Sequoia AI Ascent 2026 · YouTube",
-    tweet: "Boris Cherny — creator of Claude Code — hasn't written a line of code in 2026. He ships dozens of PRs a day from his phone. When the person who built the tool doesn't use the old workflow, the old workflow is gone. [link]",
+    tweet: "Boris Cherny — creator of Claude Code — hasn't written a line of code in 2026. He ships dozens of PRs a day from his phone. When the person who built the tool doesn't use the old workflow, the old workflow is gone. https://productgenesis.ai/#post-v23",
     body: [
       "Anthropic's Boris Cherny, who built Claude Code, gave a talk at the Sequoia AI Ascent 2026 conference with a specific and striking claim: he hasn't written a single line of code in 2026, yet ships dozens of pull requests per day from his phone. The talk is the most concrete practitioner-level argument that coding as a daily practice has fundamentally changed — not as a prediction, but as a lived operational reality at the company building the tools. For product builders trying to understand what the shift from AI-assisted development to AI-native development actually looks like in practice, this is the primary source.",
     ],
@@ -148,7 +148,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://www.techradar.com/pro/designing-delight-what-product-engineering-looks-like-in-2026",
     sourceLabel: "TechRadar Pro",
-    tweet: "In an era of infinite AI creation, the real product advantage is choosing what matters — not making it faster. The craft is in the curation. [link]",
+    tweet: "In an era of infinite AI creation, the real product advantage is choosing what matters — not making it faster. The craft is in the curation. https://productgenesis.ai/#post-v16",
     body: [
       "When a nine-year-old can animate a story in minutes, creation speed stops being a competitive advantage. TechRadar's May 22 essay on product engineering in 2026 centres on a question most product teams haven't yet answered: if AI can produce anything, what does the human actually provide?",
       "The author's argument — built around a specific, concrete observation of her son's creative process — is that value has shifted from making things to choosing what matters. AI can animate an idea. It cannot generate the curiosity, the taste, or the sense of what would delight another person that makes the creation worth animating. The tool handles execution; the judgment about what to execute remains irreducibly human.",
@@ -168,7 +168,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://medium.com/data-science-collective/google-just-declared-war-on-every-tech-company-at-once-heres-everything-announced-at-i-o-2026-fa980c62ec9b",
     sourceLabel: "Data Science Collective · Medium",
-    tweet: "Google I/O 2026's real announcement wasn't any model. It was: 'AI is no longer a feature. It is the product itself.' 100 things launched to make one point. [link]",
+    tweet: "Google I/O 2026's real announcement wasn't any model. It was: 'AI is no longer a feature. It is the product itself.' 100 things launched to make one point. https://productgenesis.ai/#post-v17",
     body: [
       "Google I/O 2026 will be remembered less for any single announcement and more for the structural argument it made across all of them: artificial intelligence is no longer a feature you add to a product. It is the product. Gemini Omni, Gemini Spark, AI Mode in Search, the Universal Cart, the Daily Brief, the Android XR glasses — each is a distinct surface, but they share the same intelligence layer underneath, orchestrated by the same Antigravity agent harness.",
       "This matters for product teams building anything, not just those competing with Google. When the most dominant consumer tech company on earth re-architects its entire product portfolio around a single AI execution layer, it sets a template for what 'product' means going forward. The old model — build a UI, add an AI feature, ship — is over. The new model is: the AI behaviour is the product experience, and the UI is just the surface through which it's accessed.",
@@ -189,7 +189,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://root-nation.com/en/articles-en/analytics-en/en-google-i-o-2026-summary/",
     sourceLabel: "Root Nation",
-    tweet: "Google I/O 2026 in five product-builder takeaways: AI IS the product. Search is a decision engine now. Generative UI rolls out to everyone. One agent harness powers all of it. Thread: [link]",
+    tweet: "Google I/O 2026 in five product-builder takeaways: AI IS the product. Search is a decision engine now. Generative UI rolls out to everyone. One agent harness powers all of it. Thread: https://productgenesis.ai/#post-v18",
     body: [
       "Five things product builders need to take from Google I/O 2026. First: AI is no longer bolted onto the product — it IS the product. Every surface Google shipped at I/O runs on the same Antigravity agent harness, with Gemini as the shared intelligence layer. There's no longer a meaningful distinction between 'the product' and 'the AI' inside Google's portfolio.",
       "Second: Search has completed its shift from discovery to decision. AI Mode, information agents that monitor topics 24/7, and the Universal Cart aren't search improvements — they're a different kind of tool. Users don't arrive at a list of links and decide what to click. They describe what they want and get an outcome. Third: the interface itself is now generative. Generative UI rolls out to Search this summer, free, for everyone — meaning interfaces will adapt at runtime based on context and intent. Static page architecture is a design constraint that Google just removed from its own products. Product designers building fixed information architecture against a generative-interface competitor are operating at a disadvantage.",
@@ -209,7 +209,7 @@ window.PG_POSTS = [
     videoLabel: "Keynote · Dell Tech World 2026",
     sourceUrl: "https://www.youtube.com/watch?v=M1tetAL6RSc",
     sourceLabel: "Dell Technologies · YouTube",
-    tweet: "Dell Tech World 2026 Day 1 — Michael Dell on AI as enterprise infrastructure at scale. Not an AI demo. A keynote about what happens when every enterprise customer expects AI to run their operations. [link]",
+    tweet: "Dell Tech World 2026 Day 1 — Michael Dell on AI as enterprise infrastructure at scale. Not an AI demo. A keynote about what happens when every enterprise customer expects AI to run their operations. https://productgenesis.ai/#post-v19",
     body: [
       "Dell Tech World 2026 opened with a Day 1 keynote built around a single premise: AI is no longer a capability enterprises are evaluating. It is infrastructure they are deploying. Michael Dell and guests walked through what that transition looks like operationally — the hardware layer, the software integration, the enterprise workflows being redesigned around AI agents rather than AI features. This is a keynote for product leaders and enterprise builders who need to understand what the other side of the table expects from their AI products.",
     ],
@@ -227,7 +227,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://kenhuangus.substack.com/p/google-io-2026-was-not-just-a-model",
     sourceLabel: "Ken Huang · Substack",
-    tweet: "Google I/O 2026 wasn't a model launch. It was Google revealing a distributed agent runtime. The stack: Gemini 3.5 Flash + Antigravity + Gemini Spark + AI Mode. One coherent system. Product teams need to build for it. [link]",
+    tweet: "Google I/O 2026 wasn't a model launch. It was Google revealing a distributed agent runtime. The stack: Gemini 3.5 Flash + Antigravity + Gemini Spark + AI Mode. One coherent system. Product teams need to build for it. https://productgenesis.ai/#post-v13",
     body: [
       "Google's I/O 2026 wasn't a keynote about a new model. For most observers, the headline was Gemini 3.5 Flash and its benchmark improvements. For practitioners reading the architecture, something more significant was happening: Google was revealing a distributed agent runtime that connects Gemini 3.5 Flash, Antigravity, Gemini Spark, and AI Mode into a coherent system. The product boundary is shifting from individual apps to individual tasks — users specify outcomes, and the system orchestrates the tools, APIs, and workflows to deliver them.",
       "Antigravity is the clearest signal. It has evolved from a coding assistant into a work orchestration surface — a manager layer where developers dispatch agent work asynchronously and review verification artifacts rather than stepping through code line by line. Managed Agents extend this to enterprises via API: agents that reason, use tools, and execute code in isolated Linux environments, without building the underlying infrastructure. Gemini 3.5 Flash targets deployment-optimized frontier performance with 1M-token context windows and configurable reasoning depth — not a lightweight option, but a full agent backbone.",
@@ -247,7 +247,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://nextgenproductmanager.com/agentic-ai-for-product-managers/",
     sourceLabel: "Next Gen Product Manager",
-    tweet: "The average PM in 2026 uses 7 AI tools daily — double last year. But tool adoption ≠ practice change. Agentic playbooks are compressing 10-day product cycles to 3–4 days. Most teams haven't made that shift yet. [link]",
+    tweet: "The average PM in 2026 uses 7 AI tools daily — double last year. But tool adoption ≠ practice change. Agentic playbooks are compressing 10-day product cycles to 3–4 days. Most teams haven't made that shift yet. https://productgenesis.ai/#post-v14",
     body: [
       "The average product manager in 2026 uses seven AI tools daily — double the count from a year earlier. But tool adoption has outpaced practice change. Most PMs have added AI to their existing workflow: faster research, quicker first drafts, better meeting summaries. What they haven't done is restructure the work itself.",
       "The difference shows up in cycle times. Teams running agentic playbooks — workflows where agents handle research synthesis, requirement structuring, and stakeholder documentation — are compressing 10-day product cycles to 3–4 days. The constraint moves from information gathering to judgment: what to build, why now, what trade-off to accept. PMs whose value lived in coordination and throughput are being squeezed. PMs whose value lives in framing and decision quality are getting more leverage, not less.",
@@ -269,7 +269,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://news.microsoft.com/source/2026/05/21/ey-and-microsoft-announce-global-initiative-to-help-clients-scale-ai-enterprisewide-value-creation-and-move-beyond-experimentation/",
     sourceLabel: "Microsoft News",
-    tweet: "Microsoft and EY jointly committed $1B over 5 years to move enterprise AI from experimentation to production. EY's own internal deployment first: 95% faster finance ops, 90% less manual tax processing across 400,000+ employees. [link]",
+    tweet: "Microsoft and EY jointly committed $1B over 5 years to move enterprise AI from experimentation to production. EY's own internal deployment first: 95% faster finance ops, 90% less manual tax processing across 400,000+ employees. https://productgenesis.ai/#post-s21",
     body: [
       "Microsoft and EY announced a joint $1B initiative on May 21 that is structured differently from most enterprise AI partnerships. The model pairs Microsoft's Forward Deployed Engineers — teams with AI-native engineering capabilities — with EY's industry professionals bringing sector-specific expertise and change management experience. The target isn't a single function or pilot cohort; it spans Finance, Tax, Risk, HR, and Supply Chain across Financial Services, Industrials, Energy, Consumer, Retail, Government, and Healthcare.",
       "The \"Client Zero\" element is what makes the announcement credible. EY didn't sell this model to clients before running it internally. The results it's citing are from its own deployment: a 15% productivity boost from Copilot deployment across 150,000 employees, now scaling to 400,000+, with 95% faster finance operations and 90% reduction in manual tax document processing. The announcement tracks a consistent pattern in May 2026 — KPMG across 276,000 employees, PwC's Anthropic expansion — where the largest professional services firms are not experimenting with AI at the margins but committing it as operating infrastructure. For enterprise product teams selling to these firms, the baseline expectation for AI integration is rising with every partnership of this kind.",
@@ -288,7 +288,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/from-ai-table-stakes-to-ai-advantage-building-competitive-moats",
     sourceLabel: "McKinsey & Company",
-    tweet: "McKinsey maps three AI competitive advantages that actually compound: Amazon's data flywheel, DBS Bank's org velocity, John Deere's physical-world integration. The common thread: none are replicable by buying better models. [link]",
+    tweet: "McKinsey maps three AI competitive advantages that actually compound: Amazon's data flywheel, DBS Bank's org velocity, John Deere's physical-world integration. The common thread: none are replicable by buying better models. https://productgenesis.ai/#post-s22",
     body: [
       "McKinsey's analysis distinguishes between AI at table stakes — what everyone will have by end of 2026 — and AI as structural advantage. The difference is not which model you use. It is whether the AI investment compounds over time, and McKinsey identifies three mechanisms through which compounding actually occurs, illustrated by real deployments.",
       "The first is proprietary data moats. Amazon's product recommendations don't improve because Amazon has a better model — they improve because every purchase, click, and return generates training signal that its competitors cannot access. The data flywheel is the asset; the model is the tool that converts the data into business value. Companies trying to build AI advantage by optimising model selection are competing on the wrong dimension. The question is what data your product generates through use that no competitor can replicate.",
@@ -310,7 +310,7 @@ window.PG_POSTS = [
     videoLabel: "Keynote · Sequoia AI Ascent 2026",
     sourceUrl: "https://www.youtube.com/watch?v=LRo33rnv6rQ",
     sourceLabel: "Sequoia Capital · YouTube",
-    tweet: "Sequoia AI Ascent 2026: 'This is AGI.' Three partners on where economic value lands, which bets hold, and what to build into versus on top of. Worth watching before your next roadmap conversation. [link]",
+    tweet: "Sequoia AI Ascent 2026: 'This is AGI.' Three partners on where economic value lands, which bets hold, and what to build into versus on top of. Worth watching before your next roadmap conversation. https://productgenesis.ai/#post-s23",
     body: [
       "Sequoia's AI Ascent 2026 conference opened with a session titled 'This is AGI' — partners Pat Grady, Sonya Huang, and Konstantine Buhler making the structural argument for what the current AI moment means for product and company strategy. The talk covers where economic value accrues in an agentic stack, which types of AI bets are durable under continued model improvement, and what the firm is observing across its portfolio about which approaches compound versus which get commoditised. Sequoia has called major platform shifts before — mobile, cloud, SaaS — and the thesis they bring to AI is built from direct visibility into hundreds of companies navigating the transition. For product leaders who need a strategic frame for roadmap decisions rather than another technical overview, this is the talk to watch.",
     ],
@@ -328,7 +328,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://www.anthropic.com/news/anthropic-kpmg",
     sourceLabel: "Anthropic",
-    tweet: "KPMG just integrated Claude across 276,000 employees worldwide. Not a pilot — a global strategic alliance. Enterprise AI adoption just crossed from 'exploring' to 'all-in.' [link]",
+    tweet: "KPMG just integrated Claude across 276,000 employees worldwide. Not a pilot — a global strategic alliance. Enterprise AI adoption just crossed from 'exploring' to 'all-in.' https://productgenesis.ai/#post-s17",
     body: [
       "KPMG's global alliance with Anthropic, announced May 19, is notable less for the technology involved and more for what it signals about the pace of enterprise AI commitment. 276,000 people, across the firm's entire core business — not a pilot cohort, not a single practice area, but a workforce-wide integration of Claude into daily professional services work.",
       "This is the third major professional services firm in a month to make a structural AI commitment of this kind: PwC expanded its alliance with Anthropic on May 14, and Anthropic deepened its financial services push in early May. The pattern is clear. The largest professional services firms are no longer asking whether to integrate AI into their operating model. They are choosing which model and committing.",
@@ -348,7 +348,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://www.infosecurity-magazine.com/news/openai-daybreak-secure-by-design/",
     sourceLabel: "Infosecurity Magazine",
-    tweet: "OpenAI and Dell just shipped Codex to hybrid and on-premises enterprise environments. On-premises AI coding is now real. The cloud-only AI era has an enterprise ceiling — and they just raised it. [link]",
+    tweet: "OpenAI and Dell just shipped Codex to hybrid and on-premises enterprise environments. On-premises AI coding is now real. The cloud-only AI era has an enterprise ceiling — and they just raised it. https://productgenesis.ai/#post-s18",
     body: [
       "The OpenAI and Dell Technologies partnership announced May 18 is a product strategy story more than a technical one. Codex — OpenAI's autonomous coding agent — is now available on Dell's hybrid and on-premises infrastructure. For enterprise customers with data residency requirements, regulated industries, or simply a board-level mandate against sending proprietary codebases to third-party cloud APIs, this is the shift that makes AI-assisted development viable.",
       "The strategic implication is sharper than it first appears. Cloud-only AI products carry an enterprise ceiling: there is a meaningful segment of large enterprise buyers who cannot or will not send sensitive workloads to a cloud API. By partnering with Dell to run Codex in hybrid and on-premises environments, OpenAI is expanding its addressable enterprise market while simultaneously setting a standard that competing AI coding tools will need to match. Products like Cursor, Windsurf, and Claude Code — all currently cloud-first — will face increased pressure from enterprise buyers to offer similar data sovereignty options.",
@@ -367,7 +367,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://www.youtube.com/watch?v=9aa-etRsaLU",
     sourceLabel: "SAP · YouTube",
-    tweet: "SAP Sapphire 2026 named the next era: the Autonomous Enterprise. Humans set direction. AI executes. That's not a vision statement — it's a product architecture decision. [link]",
+    tweet: "SAP Sapphire 2026 named the next era: the Autonomous Enterprise. Humans set direction. AI executes. That's not a vision statement — it's a product architecture decision. https://productgenesis.ai/#post-s19",
     body: [
       "SAP Sapphire 2026 in Orlando introduced a framing that product and enterprise leaders should take seriously: the Autonomous Enterprise. The concept is precise, not vague — it describes an operating model in which human teams set strategic direction, goals, and constraints, while AI agents execute the work required to get there. It is not 'AI-assisted' work. It is AI-executed work under human governance.",
       "The distinction matters for product strategy. An AI-assisted workflow still centres the human as the primary actor, with AI handling parts of the execution — drafting a first pass, summarising a document, suggesting next steps. An autonomous workflow inverts this: AI is the primary executor, and the human's job is to define the parameters, review the outcomes, and intervene when the agent hits the limits of its instructions. That requires a different product architecture, a different trust model, and a different conversation about accountability.",
@@ -389,7 +389,7 @@ window.PG_POSTS = [
     videoLabel: "Keynote · SAP Sapphire 2026",
     sourceUrl: "https://www.youtube.com/watch?v=9aa-etRsaLU",
     sourceLabel: "SAP · YouTube",
-    tweet: "SAP Sapphire 2026 keynote on the Autonomous Enterprise — full session. Humans govern. AI executes. The enterprise software model just changed. [link]",
+    tweet: "SAP Sapphire 2026 keynote on the Autonomous Enterprise — full session. Humans govern. AI executes. The enterprise software model just changed. https://productgenesis.ai/#post-s20",
     body: [
       "The SAP Sapphire 2026 opening keynote introduced the Autonomous Enterprise as the organising concept for the next decade of enterprise software. SAP's CEO and product leadership walked through what this means in practice: AI agents executing core business workflows — finance, supply chain, HR, procurement — while human teams govern direction, approve exceptions, and maintain accountability. The session is essential viewing for anyone designing enterprise products or building on top of enterprise platforms, because SAP is setting the expectation for what their 300 million users will soon experience as normal.",
     ],
@@ -407,7 +407,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://www.greenbook.org/insights/artificial-intelligence-and-machine-learning/in-the-age-of-ai-point-of-view-is-the-only-moat-left",
     sourceLabel: "Greenbook",
-    tweet: "AI commoditises research. It commoditises execution. It doesn't commoditise a genuine, defensible point of view. Most products don't have one — and now that gap shows. [link]",
+    tweet: "AI commoditises research. It commoditises execution. It doesn't commoditise a genuine, defensible point of view. Most products don't have one — and now that gap shows. https://productgenesis.ai/#post-s13",
     body: [
       "The traditional competitive advantages in AI-saturated markets are collapsing faster than most product teams have acknowledged. Norbert Sari's analysis identifies the specific mechanisms: proprietary datasets are no longer defensible because AI can synthesize comparable signals from public sources, and 'full-service' positioning signals commoditisation rather than competence to buyers who now arrive with 83% of their purchase requirements already defined before contacting a salesperson.",
       "The AI infrastructure bet fails for the same reason. Gartner projects that over 80% of enterprises will have used GenAI APIs in production environments in 2026. When your differentiator is accessible to every competitor with a credit card, it's table stakes. What AI cannot replicate is a genuine, intellectually defensible point of view: a specific stance on how markets function, what the right approach to a problem is, and why your methodology produces better outcomes than the alternatives.",
@@ -428,7 +428,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://www.morningstar.com/markets/what-ai-means-software-companies-moats",
     sourceLabel: "Morningstar",
-    tweet: "Morningstar ran the data on which software moats survive AI. Network effects: holding. Seat-based licenses and workflow automation: collapsing. The pattern tells you exactly what kind of product is worth building right now. [link]",
+    tweet: "Morningstar ran the data on which software moats survive AI. Network effects: holding. Seat-based licenses and workflow automation: collapsing. The pattern tells you exactly what kind of product is worth building right now. https://productgenesis.ai/#post-s14",
     body: [
       "Morningstar's economic moat methodology — developed to evaluate which company advantages persist under competitive pressure — is being applied directly to AI's disruptive effects on software categories. The findings reveal a pattern that has direct implications for product architecture decisions: not all moats are responding to AI pressure equally.",
       "Network effects are holding. Products where value increases with each additional user — marketplaces, platforms, communication tools — retain their structural advantage because AI doesn't degrade the underlying network dynamic. What is collapsing is the seat-based license as a moat: when an AI agent can do the work of multiple users on a single license, the headcount rationale for per-seat pricing disappears, and with it the switching cost that kept customers locked in. Payroll, IT services, and workflow automation tools built on human labor are under the most severe pressure — they monetise the thing AI is eliminating.",
@@ -448,7 +448,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://www.codurance.com/publications/beyond-functionality-building-durable-moats-in-the-ai-era",
     sourceLabel: "Codurance",
-    tweet: "Company A: generic AI chatbot, 40% savings, copied in 90 days. Company B: 5 years of proprietary data + deep CRM integration, 70% savings + new revenue, years to replicate. Same category. Same models. Very different strategy. [link]",
+    tweet: "Company A: generic AI chatbot, 40% savings, copied in 90 days. Company B: 5 years of proprietary data + deep CRM integration, 70% savings + new revenue, years to replicate. Same category. Same models. Very different strategy. https://productgenesis.ai/#post-s15",
     body: [
       "Codurance's analysis of AI moat-building lands on the most useful contrast available right now: Company A deployed a generic AI chatbot, achieved a 40% cost reduction, and was replicated by a competitor within 90 days. Company B fine-tuned on five years of proprietary customer data, built deep CRM integrations, achieved 70% cost savings plus new revenue streams, and created something that would take a well-resourced competitor years to match. Same category. Same foundation model access. Entirely different outcome.",
       "The difference is what was built around the model, not the model itself. Company B's advantage compounds across three sources: proprietary data that competitors cannot replicate (five years of domain-specific interactions), deep workflow integration that makes the system difficult to remove, and niche market specialization with domain-trained capabilities that generic systems can't match at the same quality level. None of these are accessible by accessing a better model. They require time, customer relationships, and a willingness to build things competitors won't copy in a sprint.",
@@ -470,7 +470,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://blog.google/innovation-and-ai/technology/developers-tools/managed-agents-gemini-api/",
     sourceLabel: "Google",
-    tweet: "Google's Managed Agents API: one API call provisions a fully operational sandboxed Linux agent — tool execution, persistent state, managed infrastructure. The hardest part of building production AI agents just became a managed service. [link]",
+    tweet: "Google's Managed Agents API: one API call provisions a fully operational sandboxed Linux agent — tool execution, persistent state, managed infrastructure. The hardest part of building production AI agents just became a managed service. https://productgenesis.ai/#post-d27",
     body: [
       "The hardest engineering problem in agentic development in 2025 was not the model — it was the infrastructure. Building a production-ready agent required sandboxed execution environments, persistent state management across turns, tool execution infrastructure, and security controls that didn't expose sensitive workloads. Most teams either built this themselves at significant cost or limited their agent deployments to avoid it.",
       "Google's Managed Agents in the Gemini API changes the equation. A single API call provisions a fully operational sandboxed Linux agent: isolated execution environment, tool execution infrastructure, persistent state across API calls, and managed security controls — all provided as a managed service. The agent runs inside a Google-managed container; the developer provides the goal and reviews the output. Every consumer product Google shipped at I/O — Gemini Spark, AI Mode in Search, Daily Brief — runs on the same infrastructure. The API is now available to every developer on the Gemini API. For teams evaluating when to move from prototyped agents to production-ready agentic workflows, this is the announcement that changes the cost-benefit calculation.",
@@ -489,7 +489,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://dev.to/yujia_zhang_0328/openais-promptfoo-deal-puts-evaluation-and-red-teaming-at-the-centre-of-the-agent-stack-2208",
     sourceLabel: "DEV Community",
-    tweet: "OpenAI acquired Promptfoo — the leading LLM red-teaming tool. The signal: evals and red-teaming are moving from engineering nice-to-have to compliance requirement. The model provider now owns the testing layer. [link]",
+    tweet: "OpenAI acquired Promptfoo — the leading LLM red-teaming tool. The signal: evals and red-teaming are moving from engineering nice-to-have to compliance requirement. The model provider now owns the testing layer. https://productgenesis.ai/#post-d28",
     body: [
       "OpenAI's acquisition of Promptfoo — the most widely adopted open-source framework for LLM evaluation and red-teaming — is being read primarily as a developer tooling story. The more important read is a governance one. When the company that builds the model acquires the leading tool for testing that model's safety and reliability, the signal is that evaluation is no longer peripheral to model deployment. It is part of the core accountability stack.",
       "Promptfoo exists because the failure modes of LLM systems are not self-revealing in the way that traditional software bugs are. A broken deterministic function throws an error. An LLM that gives subtly wrong answers under specific prompt conditions can pass every standard integration test and still cause real harm in production. Red-teaming — systematically probing a model for failure modes before deployment — is the practice that catches what unit tests miss. Teams that treat red-teaming as an optional hardening step are making a decision about acceptable risk, not about technical overhead.",
@@ -510,7 +510,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://blog.jetbrains.com/pycharm/2026/05/llm-evaluation-and-ai-observability-for-agent-monitoring/",
     sourceLabel: "JetBrains PyCharm Blog",
-    tweet: "Eval tells you if an agent CAN work. Observability tells you if it IS working, right now, in production. Most teams have one. Almost none have both. JetBrains on why the distinction matters and what each actually requires. [link]",
+    tweet: "Eval tells you if an agent CAN work. Observability tells you if it IS working, right now, in production. Most teams have one. Almost none have both. JetBrains on why the distinction matters and what each actually requires. https://productgenesis.ai/#post-d29",
     body: [
       "LLM evaluation and AI observability address different failure modes, and conflating them is one of the most common gaps in production AI monitoring in 2026. Evaluation is pre-deployment and benchmark-based: you run a set of test cases, compare outputs to expected results, and determine whether the agent meets a quality threshold before it ships. It tells you whether an agent can work under the conditions you anticipated. Observability is post-deployment and continuous: it monitors the agent's behaviour in production, tracks performance metrics over time, and surfaces drift before users experience it. It tells you whether the agent is working right now, under the actual conditions of real use.",
       "The practical gap is that teams tend to build one or the other. Teams with strong eval infrastructure ship agents that pass benchmarks but have no early warning system when production traffic reveals a failure mode the evals didn't anticipate. Teams with observability dashboards can see what agents are doing but have no systematic way to know whether they're doing it correctly. The JetBrains analysis identifies the specific monitoring points that observability needs to cover for agent systems: tool call success rates, reasoning quality signals, latency distributions across agent steps, and the pattern of intermediate outputs that precede final failures. These require different instrumentation from standard application monitoring, and building them after a production incident is significantly more expensive than building them before deployment.",
@@ -532,7 +532,7 @@ window.PG_POSTS = [
     videoLength: "75:00",
     sourceUrl: "https://www.youtube.com/watch?v=aqmpZocmR8o",
     sourceLabel: "Google · YouTube",
-    tweet: "The Google I/O '26 Developer Keynote — separate from the consumer keynote, and more useful for builders. Antigravity 2.0, Managed Agents API, WebMCP, the full agentic stack. 75 minutes. [link]",
+    tweet: "The Google I/O '26 Developer Keynote — separate from the consumer keynote, and more useful for builders. Antigravity 2.0, Managed Agents API, WebMCP, the full agentic stack. 75 minutes. https://productgenesis.ai/#post-d30",
     body: [
       "Google I/O 2026's Developer Keynote is a different session from the Sundar Pichai consumer keynote — and for teams building on Google's developer platform, the more immediately useful one. It runs through the complete agentic development stack: Antigravity 2.0 and its agent orchestration architecture, the new Managed Agents API (single API call to provision a sandboxed agent), WebMCP for browser-native agent integration, Gemini 3.5 Flash as the API backbone, Android Studio's stable AI agent CLI, and Firebase Genkit middleware with composable hooks at the model, tool, and generate layers. The keynote is worth watching in full for engineering and product teams evaluating which parts of Google's agentic stack are mature enough for production use in 2026 versus which are still early access. It shows the architecture decisions, not just the headline features.",
     ],
@@ -550,7 +550,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://techcrunch.com/2026/05/19/google-launches-antigravity-2-0-with-an-updated-desktop-app-and-cli-tool-at-io-2026/",
     sourceLabel: "TechCrunch",
-    tweet: "Google Antigravity 2.0 centres the agent, not the editor. You describe what to build. Subagents execute in parallel. The IDE as the unit of work just ended. Launched May 19. [link]",
+    tweet: "Google Antigravity 2.0 centres the agent, not the editor. You describe what to build. Subagents execute in parallel. The IDE as the unit of work just ended. Launched May 19. https://productgenesis.ai/#post-d22",
     body: [
       "Google shipped Antigravity 2.0 on May 19, and the name understates what it is. It is not an update to a coding assistant. It is a shift in the fundamental unit of developer work — from editing code in an IDE to orchestrating agents that write, test, and deploy code on your behalf.",
       "Antigravity 2.0 ships simultaneously as a desktop application, a CLI (`agy`), an SDK, a Managed Agents API tier inside the Gemini API, and an enterprise deployment path. Each surface does the same thing: you describe a goal, and the platform spins up specialised subagents to tackle it in parallel, within a sandboxed Linux container managed by Google. The desktop app is not where you write code — it is where you review, direct, and approve what the agents produced. Every consumer product Google launched at I/O — Gemini Spark, AI Mode in Search, Daily Brief — runs on the same Antigravity agent harness internally.",
@@ -570,7 +570,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://9to5mac.com/2026/05/19/anthropic-enhances-claude-managed-agents-with-two-new-privacy-and-security-features/",
     sourceLabel: "9to5Mac",
-    tweet: "Anthropic added MCP tunnels + self-hosted sandboxes to Claude agents. Your agents now reach private internal services and execute tools inside your own infrastructure. The data never leaves. [link]",
+    tweet: "Anthropic added MCP tunnels + self-hosted sandboxes to Claude agents. Your agents now reach private internal services and execute tools inside your own infrastructure. The data never leaves. https://productgenesis.ai/#post-d23",
     body: [
       "Anthropic's May 19 update to Claude Managed Agents addressed the two most common enterprise objections to autonomous agent deployment. First: MCP tunnels allow agents to reach Model Context Protocol servers inside private networks without exposing those servers to the public internet. An agent that needs to query an internal database, access a private API, or interact with a service behind a firewall can now do so through a secure tunnel — without that service needing an internet-facing endpoint.",
       "Second: self-hosted sandboxes allow the execution environment for agent tools to run inside the customer's own infrastructure, while Anthropic's orchestration layer remains cloud-based. The result is that sensitive files, packages, and services remain within the enterprise's own boundaries — under their own security and runtime controls — while Claude manages the agent logic. Together, these two features address the data sovereignty and compliance concerns that have prevented regulated industries from deploying AI agents in production. The update makes Claude Managed Agents viable for financial services, healthcare, legal, and other sectors where data residency is a hard requirement, not a preference.",
@@ -589,7 +589,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://dev.to/genisyscodes/-rise-of-the-managed-agent-why-antigravity-20-is-google-io-2026s-most-critical-developer-68f",
     sourceLabel: "DEV Community",
-    tweet: "Developers are becoming System Architects and Prompt Directors — not a metaphor, that's the literal job shift Antigravity 2.0 forces. The IDE is no longer the centre of gravity. [link]",
+    tweet: "Developers are becoming System Architects and Prompt Directors — not a metaphor, that's the literal job shift Antigravity 2.0 forces. The IDE is no longer the centre of gravity. https://productgenesis.ai/#post-d24",
     body: [
       "The most important sentence in the DEV Community's Antigravity 2.0 analysis is not about a feature. It is about a role: developers are no longer primary authors of code — they are architects of agent systems. Antigravity 2.0 does not make developers faster at writing code. It makes the writing of code something agents do, within Google-managed sandboxed Linux containers, while the developer describes goals, reviews outputs, and intervenes when agents fail silently.",
       "The key technical insight is the managed container. Google handles the isolated execution environment for developers, eliminating the need to build custom execution infrastructure. Agents have persistent state across API calls. Multi-turn development sessions work without the developer rebuilding context. The workflow span connects mobile prototyping in AI Studio directly to local Antigravity debugging — the same intelligence layer, accessed at different points in the development loop. Gemini 3.5 Flash, which powers the platform, operates four times faster than competing models, making the agent-first workflow feel responsive rather than batch-scheduled.",
@@ -610,7 +610,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://developers.googleblog.com/all-the-news-from-the-google-io-2026-developer-keynote/",
     sourceLabel: "Google Developers Blog",
-    tweet: "Every developer-facing announcement from Google I/O 2026: Antigravity CLI, Gemini 3.5 Flash API, LlamaIndex agents integration, Android Studio AI agent CLI, Genkit middleware. A lot shipped. [link]",
+    tweet: "Every developer-facing announcement from Google I/O 2026: Antigravity CLI, Gemini 3.5 Flash API, LlamaIndex agents integration, Android Studio AI agent CLI, Genkit middleware. A lot shipped. https://productgenesis.ai/#post-d25",
     body: [
       "Google's I/O 2026 developer keynote was one of the densest in recent memory, spanning model releases, platform upgrades, framework integrations, and new tooling across mobile, cloud, and agent development. The headline is Antigravity 2.0 — the shift from IDE-centric coding assistance to agent-first development orchestration — but it sits alongside a series of concrete shipping announcements that are relevant to different parts of the development stack.",
       "On the model side: Gemini 3.5 Flash, co-developed using Antigravity itself, is now generally available in the Gemini API and AI Studio. It outperforms Gemini 3.1 Pro on agentic and coding benchmarks at Flash-series speed. On the framework side: LlamaIndex shipped integration with Google's new Agents API on May 20, exposing LlamaParse over unstructured documents inside sandboxed Linux environments, alongside ParseBench for evaluating document parsing quality. On the mobile side: Android Studio's stable AI agent CLI enables agents to handle the full Android development loop — downloading the SDK, running apps on device, iterating on feedback — without a developer manually orchestrating each step.",
@@ -631,7 +631,7 @@ window.PG_POSTS = [
     videoLabel: "Tutorial · Google Antigravity",
     sourceUrl: "https://www.youtube.com/watch?v=_G00r4phw-Y",
     sourceLabel: "YouTube",
-    tweet: "Google Antigravity 2.0 just launched. Here's the full hands-on tutorial — from setup to deployed app. Agents, parallel subagents, the CLI, the whole thing. [link]",
+    tweet: "Google Antigravity 2.0 just launched. Here's the full hands-on tutorial — from setup to deployed app. Agents, parallel subagents, the CLI, the whole thing. https://productgenesis.ai/#post-d26",
     body: [
       "Google Antigravity 2.0 launched on May 19, and this full tutorial walks through what it actually takes to build an app on the platform — from installation through the CLI and desktop app, to deploying a working agent-driven application. The walkthrough demonstrates the shift from traditional code-editing to agent orchestration in practice: you describe what to build, the platform spins up specialised subagents, and your job becomes reviewing, directing, and approving outputs. For developers evaluating whether Antigravity 2.0 belongs in their toolkit, this is the fastest path from announcement to informed opinion.",
     ],
@@ -649,7 +649,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://www.langchain.com/state-of-agent-engineering",
     sourceLabel: "LangChain",
-    tweet: "57% of engineering teams have AI agents in production. The top blocker isn't capability — it's quality at 32%. And 5% of all LLM spans still error out, mostly from rate limits. Here's the full field picture. [link]",
+    tweet: "57% of engineering teams have AI agents in production. The top blocker isn't capability — it's quality at 32%. And 5% of all LLM spans still error out, mostly from rate limits. Here's the full field picture. https://productgenesis.ai/#post-d18",
     body: [
       "LangChain surveyed over 1,300 professionals for their State of Agent Engineering report, and the production momentum is clear: 57% of teams now have agents in production, up from 51% the previous year. Large enterprises — teams above 10,000 employees — are leading at 67% production adoption versus 50% for smaller companies. The field has moved past the experimental phase. The bottleneck has shifted to what happens after deployment.",
       "Quality is the primary blocker at 32% of responses, with response time second at 20%. Notably, cost concerns have declined — falling model prices have reduced financial anxiety relative to performance and reliability. The infrastructure picture shows that 89% of teams have implemented observability for tracing agent reasoning and tool usage, but evaluation adoption lags: only 52% run offline testing and 37% have online monitoring. Teams can see what agents are doing, but most aren't measuring whether they're doing it correctly.",
@@ -671,7 +671,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://www.globenewswire.com/news-release/2026/05/17/3296252/0/en/publicis-to-acquire-liveramp-to-accelerate-data-co-creation-for-smarter-agents.html",
     sourceLabel: "GlobeNewswire",
-    tweet: "Publicis is acquiring LiveRamp for $2.5B. Their stated rationale: 'to accelerate data co-creation for smarter agents.' The largest ad holding company is positioning for the agentic era of marketing, not just AI-assisted execution. [link]",
+    tweet: "Publicis is acquiring LiveRamp for $2.5B. Their stated rationale: 'to accelerate data co-creation for smarter agents.' The largest ad holding company is positioning for the agentic era of marketing, not just AI-assisted execution. https://productgenesis.ai/#post-m21",
     body: [
       "Publicis Groupe announced on May 17 that it is acquiring LiveRamp — the leading data collaboration and connectivity platform — in an all-cash deal with a total equity value of $2.546 billion. The strategic rationale is the most important part of the announcement: Publicis describes the acquisition as positioning the group 'for the agentic era of marketing data,' with the combined entity designed to enable AI agents to operate across channels using connected, permissioned first-party data at scale.",
       "LiveRamp's core product is data connectivity — helping brands and publishers match, share, and activate first-party audience data across platforms without exposing PII. In a world where third-party cookies are gone and walled garden data is siloed, the ability to connect first-party data across networks is the foundational infrastructure for any meaningful AI-driven marketing personalisation. Publicis's thesis is that as marketing execution shifts from human-driven campaigns to AI agent-driven campaigns, the data layer becomes the primary competitive asset — and owning it creates an advantage that pure media spend cannot replicate. The implication for marketing teams building their AI stack: the race is not between AI tools, it is between data networks. First-party data connectivity is the moat.",
@@ -690,7 +690,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://later.com/blog/creator-aeo-marketing/",
     sourceLabel: "Later",
-    tweet: "Brand's own sites: 5-10% of what AI search references. Third-party creator content: the other 90-95%. Creator AEO is the AI search optimisation play most brands haven't started yet. Later on how to build it. [link]",
+    tweet: "Brand's own sites: 5-10% of what AI search references. Third-party creator content: the other 90-95%. Creator AEO is the AI search optimisation play most brands haven't started yet. Later on how to build it. https://productgenesis.ai/#post-m22",
     body: [
       "The answer engine optimisation conversation in 2026 has focused heavily on what brands can do with their own properties — structured data, authoritative content, specific question-answer formats. That focus is misallocated. A brand's own sites and properties account for just 5-10% of the sources that AI search systems reference when generating answers about a brand or product category. Third-party content accounts for the remaining 90-95%.",
       "Creator AEO is the practice of systematically building brand presence in AI search through creator-generated content — sponsored articles, video reviews, social content, and podcasts — that AI systems are trained on and cite in responses. The mechanism is distinct from traditional creator marketing: it's not about reach or engagement metrics, but about establishing brand presence in the sources that AI search crawls and weights heavily. Critically, sponsored creator content is not flagged as paid advertising to LLM crawlers, which means it carries the same citation weight as independent editorial coverage. Brands that have mapped their AI search presence typically find that their citation rate correlates most strongly with third-party mentions in high-credibility contexts — not with their SEO-optimised owned properties. The teams building systematic creator AEO programmes now will have a structural advantage in AI search visibility before it becomes a standard marketing investment.",
@@ -711,7 +711,7 @@ window.PG_POSTS = [
     videoLength: "90:00",
     sourceUrl: "https://www.youtube.com/watch?v=T9585JkTPp8",
     sourceLabel: "Google · YouTube",
-    tweet: "Google Marketing Live 2026 full keynote is live — the advertising companion to I/O. Conversational Discovery ads, AI Shopping, Business Agent for Leads, Ask Advisor. If you're managing Google spend in 2026, this is the session. [link]",
+    tweet: "Google Marketing Live 2026 full keynote is live — the advertising companion to I/O. Conversational Discovery ads, AI Shopping, Business Agent for Leads, Ask Advisor. If you're managing Google spend in 2026, this is the session. https://productgenesis.ai/#post-m23",
     body: [
       "Google Marketing Live 2026 — Google's annual advertising conference — ran alongside I/O on May 20 and announced the advertising-specific implications of the same AI infrastructure shift the consumer keynote introduced. The full keynote covers what these changes look like for marketing and commerce: Conversational Discovery ads that let buyers research and compare products through a dialogue rather than a static ad, AI-Powered Shopping ads with Gemini-generated product explainers, Business Agent for Leads replacing static lead forms with a live qualifying conversation inside the ad unit, and Ask Advisor — a unified Gemini-powered agent connecting Ads, Analytics, Merchant Center, and Google Marketing Platform data into a single natural-language interface. For any marketing team managing Google Ads spend, GML 2026 is where the product decisions that will affect campaign performance through Q3-Q4 were announced.",
     ],
@@ -729,7 +729,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://martech.org/the-latest-ai-powered-martech-news-and-releases/",
     sourceLabel: "MarTech",
-    tweet: "The AI marketing stack is rewiring around MCP. Pacvue now feeds retail media data directly into ChatGPT, Claude, and Gemini. The era of isolated dashboards is ending. [link]",
+    tweet: "The AI marketing stack is rewiring around MCP. Pacvue now feeds retail media data directly into ChatGPT, Claude, and Gemini. The era of isolated dashboards is ending. https://productgenesis.ai/#post-m17",
     body: [
       "Four AI marketing product releases in one week tell a consistent story: the marketing data stack is being rewired around the Model Context Protocol, with data flowing directly into AI assistants rather than sitting in separate dashboards. The most concrete example is Pacvue's Report MCP, announced May 21. It connects retail media data — share of voice, ad spend pacing across Amazon and Walmart, performance trends — directly to ChatGPT, Claude, Gemini, and Copilot. A marketer can now request a competitive analysis in plain English and receive a structured report from their live retail media data, without switching tools.",
       "Three more releases from the same week fill in the pattern. Adzymic launched AgenX, an autonomous ad layout agent that generates and tests ad creative variants without human input on each iteration. AIEthos released brand visibility tracking across AI systems — answering the question 'does ChatGPT, Perplexity, or Claude know my brand, and in what context?' that most marketing teams don't yet have tooling to answer. And Canva rolled out AI asset creation integrated into Claude for Small Business, embedding creative production directly into a workflow tool rather than requiring a separate design application.",
@@ -749,7 +749,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://blog.google/products-and-platforms/products/search/search-io-2026/",
     sourceLabel: "Google Blog",
-    tweet: "Google Search after I/O 2026: AI Mode as default. Information agents running 24/7. Universal Cart for agentic commerce. Content designed for the old Search is already misaligned. [link]",
+    tweet: "Google Search after I/O 2026: AI Mode as default. Information agents running 24/7. Universal Cart for agentic commerce. Content designed for the old Search is already misaligned. https://productgenesis.ai/#post-m18",
     body: [
       "Google's I/O 2026 Search updates are not a set of features. They are an architectural change in how the product works, and the marketing implications are significant. The most consequential announcement is AI Mode as the primary interface — not an opt-in lab experiment, but the default. Users who want a list of blue links can find them, but the default experience is a multi-turn conversational session with an AI that can take actions, not just return results.",
       "This changes content marketing at the discovery layer. Content designed to rank for a keyword now needs to be designed to be cited in an answer. The difference is not just stylistic — it requires content that is specific, well-structured, and carries enough authoritative signal (author credentials, recency, publisher reputation) that Google's AI is willing to surface it in a generated answer. Generic content that matches keywords but provides thin information is less useful to an AI answering a question than it was to a user scanning search results.",
@@ -769,7 +769,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://sparknovus.com/blog/top-10-ai-driven-marketing-shifts-to-watch-closely-in-2026",
     sourceLabel: "Spark Novus",
-    tweet: "Your brand might be invisible to ChatGPT, Perplexity, and Gemini — or worse, misrepresented. AIEthos launched this week to track brand visibility across AI systems. Most marketing teams haven't started measuring this. [link]",
+    tweet: "Your brand might be invisible to ChatGPT, Perplexity, and Gemini — or worse, misrepresented. AIEthos launched this week to track brand visibility across AI systems. Most marketing teams haven't started measuring this. https://productgenesis.ai/#post-m19",
     body: [
       "When a buyer asks ChatGPT to recommend a product category, the AI draws on its training data, its retrieval results, and the signals baked into its weights — not on your SEO rankings. Most brands have no visibility into how they appear, or whether they appear at all, in AI-mediated discovery conversations. AIEthos, released this week, is the first tool specifically designed to track brand visibility across AI systems including ChatGPT, Perplexity, Claude, and Google Gemini.",
       "The problem it solves is concrete. A brand that ranks highly on Google Search may be invisible or misrepresented in AI Search, because the factors that drive AI citation are different from the factors that drive keyword ranking. AI systems tend to surface brands that are mentioned frequently in high-quality contexts, that have strong first-party content, and that carry authority signals in the specific domain the user is asking about. Brands that relied on paid search visibility, backlink manipulation, or keyword optimisation to rank may find that their AI search presence is materially worse than their organic search presence.",
@@ -790,7 +790,7 @@ window.PG_POSTS = [
     videoLabel: "Analysis · AI Search Advertising 2026",
     sourceUrl: "https://www.youtube.com/watch?v=j396naFKP7A",
     sourceLabel: "YouTube",
-    tweet: "Ads are landing inside AI Search — ChatGPT, Google, Perplexity each doing it differently. If you're planning Q3-Q4 marketing budgets and haven't mapped this yet, now's the time. [link]",
+    tweet: "Ads are landing inside AI Search — ChatGPT, Google, Perplexity each doing it differently. If you're planning Q3-Q4 marketing budgets and haven't mapped this yet, now's the time. https://productgenesis.ai/#post-m20",
     body: [
       "The AI search advertising market opened in 2026 in three different directions simultaneously. OpenAI launched a self-serve ChatGPT Ads Manager in May with CPC bidding and no minimum spend — meaning any advertiser can now run campaigns inside ChatGPT conversations. Google is testing sponsored answers in AI Mode, with a model that integrates ads into the generated response rather than running alongside it. Perplexity has its own native ad unit designed specifically for its intent-first query style. This video maps the emerging landscape across all three — what each model looks like for advertisers, how bidding and targeting differ, and what the performance metrics tell us about buyer intent in AI-mediated search. Essential viewing for any marketing team that needs to decide where to allocate paid budget in a world where AI is the primary search interface.",
     ],
@@ -808,7 +808,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://harmelin.com/media-magnified/possible-2026-ai-future-of-marketing/",
     sourceLabel: "Harmelin Media",
-    tweet: "POSSIBLE 2026: 'The opportunity lives for leaders who can translate new AI capability into clearer strategy and stronger customer experiences.' That's the whole conference compressed into one sentence. [link]",
+    tweet: "POSSIBLE 2026: 'The opportunity lives for leaders who can translate new AI capability into clearer strategy and stronger customer experiences.' That's the whole conference compressed into one sentence. https://productgenesis.ai/#post-m13",
     body: [
       "Terry Kawaja's framing at the POSSIBLE 2026 conference cut through the standard AI-in-marketing discourse: 'AI is not incremental; it's tectonic.' He identified three dimensions that separate AI from previous platform shifts — breadth (touching every role and workflow), depth (processing fragmented datasets into actionable signals), and severity (restructuring industry economics and value capture). This distinction matters because it rules out the 'wait and see' response most organisations give to incremental shifts.",
       "The conference highlighted a hierarchy of AI implementation that most marketing teams are stuck at the bottom of. Operational efficiency — workflow automation, time savings, output volume — is the first level. The transformation that actually changes competitive positioning happens at the second and third levels: creative optimization and, most significantly, changing how consumers interact with information. Conversational search through LLMs provides layered personal context that keyword-based queries never could. The targeting and conversion strategies built for keyword intent need to be rebuilt for conversational intent.",
@@ -828,7 +828,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://www.highspot.com/blog/go-to-market-strategy/",
     sourceLabel: "Highspot",
-    tweet: "AEO isn't SEO with a different acronym. The buyers arriving through ChatGPT Search, Perplexity, or Copilot have already done their research. Fewer clicks. Higher intent. Is your conversion funnel built for that? [link]",
+    tweet: "AEO isn't SEO with a different acronym. The buyers arriving through ChatGPT Search, Perplexity, or Copilot have already done their research. Fewer clicks. Higher intent. Is your conversion funnel built for that? https://productgenesis.ai/#post-m14",
     body: [
       "Answer Engine Optimization is the practice of optimizing for AI-mediated search — ChatGPT Search, Perplexity, Google AI Overviews — rather than blue-link results. The surface-level framing is that it's SEO for a new era. The more important insight is that it changes the buyer who arrives at your product. Research from Improvado's 2026 report shows AI-generated search traffic demonstrating 4.4× higher engagement value and 27% lower bounce rates compared to traditional organic traffic. Fewer people click through. The ones who do have already been pre-qualified.",
       "The structural shift is that AI search front-loads the research process. A buyer using Perplexity or ChatGPT Search asks multi-turn questions, synthesizes competing perspectives, and builds a position before they click anything. By the time they land on your product page, they've already evaluated your category. They know your competitors. They have a specific question, not a general interest. The conversion funnel built for top-of-funnel awareness and education doesn't match this buyer.",
@@ -848,7 +848,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://improvado.io/blog/ai-marketing-trends",
     sourceLabel: "Improvado",
-    tweet: "AI-driven personalization drives 40% more revenue than non-personalized equivalents. That number is what separates the real 2026 marketing trend from the noise. [link]",
+    tweet: "AI-driven personalization drives 40% more revenue than non-personalized equivalents. That number is what separates the real 2026 marketing trend from the noise. https://productgenesis.ai/#post-m15",
     body: [
       "Two numbers from Improvado's 2026 AI marketing trends report are specific enough to be actionable. First: AI-generated search traffic, despite representing smaller click volume than traditional organic, shows 4.4× higher engagement value and 27% lower bounce rates. The buyers arriving through AI-mediated search are pre-qualified in a way that traditional organic traffic never was. Second: products with AR try-on experiences show 94% higher interaction rates and 40% higher add-to-cart rates. These aren't directional claims — they're conversion data with a measurement basis.",
       "The broader operational shift the report documents is the move from AI as an optimization tool to AI as campaign infrastructure. 74% of enterprises now deploy revenue-generating AI, but only 31% have implemented formal AI ethics frameworks. Teams are scaling autonomous campaign management — audience discovery, creative testing, real-time budget reallocation — faster than the governance structures that would catch failures. The 25% faster execution and 40% quality improvement numbers are real. The governance gap is also real, and the regulatory environment is moving toward it.",
@@ -870,7 +870,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://technori.com/2026/05/25805-ai-sales-prospecting-problems/marcus/",
     sourceLabel: "Technori",
-    tweet: "AI prospecting's real problem: it can match filters but cannot understand buyer readiness. Accounts showing movement, urgency, or active interest are invisible to most AI tools. That's why the filter-matched list and the list worth calling are not the same list. [link]",
+    tweet: "AI prospecting's real problem: it can match filters but cannot understand buyer readiness. Accounts showing movement, urgency, or active interest are invisible to most AI tools. That's why the filter-matched list and the list worth calling are not the same list. https://productgenesis.ai/#post-sa19",
     body: [
       "The most common critique of AI prospecting tools in 2026 is that they produce high-volume, low-conversion outreach. The specific reason is more precise than 'AI doesn't personalise well.' AI can match filters: firmographic criteria, tech stack, growth signals, industry. What it cannot do is understand buyer readiness — whether an account is actively experiencing the problem your product solves, right now, in a way that makes them worth calling this week versus next quarter.",
       "Sales prospecting is fundamentally a timing problem. The account that's a perfect firmographic fit but isn't experiencing the trigger event that creates buying urgency is a cold call. The account that matches fewer filters but just hired a VP of Sales with a specific background, or just lost a key vendor contract, or just got a board mandate to reduce costs, is a warm one. AI systems that rely on demographic and firmographic matching generate the first list. Human SDRs who understand their buyers generate the second. The conversion rate gap between AI SDRs (typically 15%) and experienced human SDRs (25%+) traces almost entirely to this difference. The next generation of AI prospecting tools will need to understand not just who an account is, but what is happening inside it — and the signal sources for that level of understanding are still being built.",
@@ -889,7 +889,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://www.clarify.ai/blog/monthly-product-roundup-may-2026",
     sourceLabel: "Clarify",
-    tweet: "Clarify opened its Agents feature to early access this month — AI that researches accounts, drafts follow-ups, updates CRM records, and runs plays autonomously. Autonomous CRM just became available to startups, not just enterprises. [link]",
+    tweet: "Clarify opened its Agents feature to early access this month — AI that researches accounts, drafts follow-ups, updates CRM records, and runs plays autonomously. Autonomous CRM just became available to startups, not just enterprises. https://productgenesis.ai/#post-sa20",
     body: [
       "Clarify, which positions itself as the first autonomous CRM built for founder-led sales teams, opened its Agents feature for early access in May 2026. Agents operate in the background without human initiation: researching target accounts using public and proprietary signals, drafting follow-up messages based on interaction history, updating CRM records after meetings and calls, and running pre-configured sales plays without waiting for a rep to trigger them. The product also added database-level privacy controls, a Slack marketplace listing, and LinkedIn DM ingestion via Kondo.",
       "The significance is less about Clarify's specific feature set and more about what the launch signals for the CRM market. Autonomous CRM — where the system takes actions rather than just recording them — has until recently been available primarily in enterprise products built on Salesforce's Agentforce or ServiceNow's autonomous CRM infrastructure. Clarify's early access opening brings this architecture to early-stage teams with lean GTM motions and no dedicated RevOps function. For founders running sales without a full sales team, the question is no longer whether they can access autonomous CRM capability, but whether they can trust an agent to operate their sales workflow with sufficient reliability. That trust question is what early access is designed to answer.",
@@ -908,7 +908,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://www.gartner.com/en/newsroom/press-releases/2026-05-19-gartner-survey-finds-ai-saves-sellers-nearly-five-hours-per-week-yet-seventy-two-percent-of-sales-organizations-fail-to-reinvest-time-in-high-value-activities",
     sourceLabel: "Gartner",
-    tweet: "Gartner data from this week: AI saves sellers nearly 5 hours per week. 72% of sales orgs fail to reinvest that time in high-value work. The productivity paradox is real — and it's showing up in the numbers. [link]",
+    tweet: "Gartner data from this week: AI saves sellers nearly 5 hours per week. 72% of sales orgs fail to reinvest that time in high-value work. The productivity paradox is real — and it's showing up in the numbers. https://productgenesis.ai/#post-sa15",
     body: [
       "Gartner's CSO & Sales Leader Conference opened May 19 with data that frames the state of sales AI in 2026 precisely: AI is saving sellers time — nearly 5 hours per week. And 72% of sales organisations are failing to reinvest that time in work that actually moves revenue.",
       "The finding is counterintuitive only if you assume that productivity gains automatically translate to performance gains. They don't. Time freed by AI defaults to administrative tasks, internal meetings, and lower-value work unless the organisation actively redesigns seller workflows to redirect it toward high-value activities — deeper account research, multi-threaded relationship building, enterprise navigation. Gartner's data shows that organisations that do reinvest AI time savings are 2.2 times more likely to exceed customer growth goals and 3.1 times more likely to exceed lead-to-opportunity conversion goals. The gap between those numbers and the 72% who aren't capturing them represents the real sales AI opportunity in 2026.",
@@ -927,7 +927,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://www.gartner.com/en/newsroom/press-releases/2026-05-20-gartner-survey-finds-sixty-nine-percent-of-b-two-b-buyers-turn-to-sales-reps-to-validate-ai-generated-insights",
     sourceLabel: "Gartner",
-    tweet: "69% of B2B buyers turn to a sales rep to validate AI-generated insights before they trust them. AI isn't replacing the human — it's making the human meeting more important, not less. [link]",
+    tweet: "69% of B2B buyers turn to a sales rep to validate AI-generated insights before they trust them. AI isn't replacing the human — it's making the human meeting more important, not less. https://productgenesis.ai/#post-sa16",
     body: [
       "Gartner's May 20 data from the CSO & Sales Leader Conference settles a question that sales teams have been arguing about for two years: are sales reps becoming redundant as buyers do more research using AI? The answer, at least for now, is no — but the function of the rep has changed. 69% of B2B buyers turn to sales reps to validate AI-generated insights before making purchasing decisions. Only 33% of buyers rank supplier-provided AI as trustworthy. The human is the trust layer in a world where AI produces information.",
       "The implication for sales team design is concrete. Sellers are no longer needed to deliver information — the buyer arrives better-informed than ever, having done multi-turn AI research sessions before the first sales meeting. What sellers are needed for is validating that information, adding context the AI couldn't access (internal roadmap, relationship history, specific use case fit), and providing the human accountability that makes a purchasing decision feel safe. Sales teams that retrain around this function — moving from information delivery to expert validation — will outperform those that keep running product-feature demos at buyers who already know the product.",
@@ -946,7 +946,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://www.unifygtm.com/explore/best-ai-sdr-software-2026",
     sourceLabel: "Unify GTM",
-    tweet: "22% of sales teams have fully replaced human SDRs with AI. 45% run hybrid models. And only 2% successfully implement AI SDRs in a way that sticks. The SDR automation gap is the real story. [link]",
+    tweet: "22% of sales teams have fully replaced human SDRs with AI. 45% run hybrid models. And only 2% successfully implement AI SDRs in a way that sticks. The SDR automation gap is the real story. https://productgenesis.ai/#post-sa17",
     body: [
       "Unify GTM's 2026 analysis of the AI SDR market offers the data point that most vendors prefer not to publish: 22% of sales teams have fully replaced their human SDR function with AI. 45% are running hybrid models. And only 2% of companies have implemented AI SDRs in a way that actually produces durable results. The deployment rate looks like momentum. The success rate looks like a problem.",
       "The failure modes are predictable when you look at the use cases. AI SDRs excel at volume — executing 500 to 2,000 personalised sequences per day at a fraction of human cost. They struggle at anything requiring genuine relationship context, enterprise navigation, live objection handling, or the multi-threaded champion building that characterises complex B2B sales. The teams that succeed with AI SDRs tend to deploy them precisely: handling top-of-funnel prospecting and qualification for products with sub-$5,000 ACV, with human AEs taking over at the first positive reply. The teams that fail tend to deploy AI SDRs as a cost-reduction play and discover that the tools can't compensate for the relationship depth their human SDRs were providing further into the funnel.",
@@ -966,7 +966,7 @@ window.PG_POSTS = [
     videoLabel: "Guide · AI for RevOps",
     sourceUrl: "https://www.youtube.com/watch?v=KQVJ9mKQ8CI",
     sourceLabel: "YouTube",
-    tweet: "Practical guide to AI in RevOps — how it's changing CRM automation, lead routing, deal risk, and pipeline forecasting. Posted this week. [link]",
+    tweet: "Practical guide to AI in RevOps — how it's changing CRM automation, lead routing, deal risk, and pipeline forecasting. Posted this week. https://productgenesis.ai/#post-sa18",
     body: [
       "Revenue Operations has become one of the clearest proving grounds for AI in B2B sales, because the function's core tasks — CRM data management, lead routing, deal risk assessment, pipeline forecasting — are highly structured and highly data-dependent. This video is a practitioner-level walkthrough of how RevOps teams are actually using AI across these areas in 2026: not the vendor deck version, but the real operational questions — where AI produces reliable output, where it still requires human judgment, and how to build governance into an AI-augmented RevOps workflow without creating new bottlenecks.",
     ],
@@ -984,7 +984,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://monday.com/blog/crm-and-sales/ai-outreach-agents/",
     sourceLabel: "Monday CRM Blog",
-    tweet: "AI outreach agents improve from 22% to 34% response rate by Q2 — autonomously, without manual adjustment. So what does an SDR do in that world? The answer is more interesting than 'nothing.' [link]",
+    tweet: "AI outreach agents improve from 22% to 34% response rate by Q2 — autonomously, without manual adjustment. So what does an SDR do in that world? The answer is more interesting than 'nothing.' https://productgenesis.ai/#post-sa12",
     body: [
       "AI outreach agents are not more sophisticated automation sequences. They are systems that make decisions autonomously — choosing the channel, adapting messaging based on engagement data, and escalating to a human when the conversation reaches a complexity threshold. The distinction matters because it changes what the SDR is for. Teams running AI outreach agents report 40–60% improvements in response rates compared to traditional automation approaches. The agents learn from outcomes continuously: which subject lines generate opens, what messaging resonates with specific industries, when to follow up and when to wait.",
       "The time reallocation is significant. Sales development representatives on teams using outreach agents report reducing manual prospecting from 15–20 hours per week to 45–60 minutes. That freed capacity doesn't go away — it redirects to higher-judgment work: discovery calls, objection handling, relationship building at accounts the agent has already qualified. One implementation documented by Monday shows a 70% efficiency increase from automating administrative tasks, with team capacity redirecting to growth rather than operational maintenance.",
@@ -1004,7 +1004,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://www.sybill.ai/blogs/ai-sales-tools",
     sourceLabel: "Sybill",
-    tweet: "AI sales tools in 2026, tested and ranked: deal intelligence, call analysis, non-verbal buyer signals, CRM autofill. The ones actually getting used — not the ones getting sponsored coverage. [link]",
+    tweet: "AI sales tools in 2026, tested and ranked: deal intelligence, call analysis, non-verbal buyer signals, CRM autofill. The ones actually getting used — not the ones getting sponsored coverage. https://productgenesis.ai/#post-sa13",
     body: [
       "The AI sales tool landscape in 2026 has split into distinct layers that don't overlap. Sybill operates at the deal intelligence layer — analyzing verbal and non-verbal buyer signals in recorded calls, generating deal summaries, automating CRM updates, and allowing cross-deal querying. Apollo.io and Clay compete at the prospecting layer but solve different sub-problems: Apollo optimizes for speed and integrated workflow simplicity; Clay optimizes for data depth via 150+ enrichment sources. Choosing between them is a strategic choice about whether your prospecting bottleneck is volume or precision.",
       "The outbound execution layer shows similar specialization. Instantly.ai treats deliverability as the primary constraint, with unlimited email accounts and domain warm-up as its core offering — infrastructure-level tooling for teams whose deliverability is broken before anything else matters. Lavender solves a different problem earlier in the workflow: coaching email quality in real-time before sending, catching weak subject lines and unclear calls to action. Chili Piper operates at the conversion moment, eliminating scheduling friction when inbound interest is highest.",
@@ -1024,7 +1024,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://www.altahq.com/post/ai-driven-sales-acceleration-how-to-maximize-prospecting-in-2026",
     sourceLabel: "Alta HQ",
-    tweet: "AI adoption in sales is near-universal. Operationalization — where it actually compounds — is not. Alta HQ's 2026 data on which prospecting techniques are shortening cycles and which are just adding friction. [link]",
+    tweet: "AI adoption in sales is near-universal. Operationalization — where it actually compounds — is not. Alta HQ's 2026 data on which prospecting techniques are shortening cycles and which are just adding friction. https://productgenesis.ai/#post-sa14",
     body: [
       "AI-driven sales acceleration in 2026 is no longer a tool category — it's a revenue infrastructure question. Teams at the operationalization stage report 14–20 hours saved per rep per week, a 72% decrease in response times, and in documented cases, 145% pipeline growth within six months. Those numbers don't come from individual efficiency improvements. They come from AI running coordinated, multi-channel, adaptive prospecting at a scale no human team can replicate — choosing the channel, adapting messaging based on a prospect's behavior, and escalating to a human when the conversation gets complex.",
       "The AI prospecting gap that matters is not reach — it's signal quality. AI systems can process thousands of contacts daily, but the teams achieving durable results have defined their ideal customer profile with precision and built closed-loop learning systems that update that definition based on what actually converts. 'AI without clean, connected data just automates bad targeting faster' is how Alta frames it — a constraint that makes data infrastructure the highest-leverage investment before any prospecting tool choice.",
@@ -1043,7 +1043,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://r-sun.ai/insights/ai-driven-b2b-sales-2026",
     sourceLabel: "R-Sun AI",
-    tweet: "87% of sales orgs use AI. But 'using AI' mostly means a chat tool, not a workflow. Only 24% have agentic, workflow-level AI — the kind that compresses sales cycles by 25% and drives 7–25% revenue gains. The gap is closing fast. [link]",
+    tweet: "87% of sales orgs use AI. But 'using AI' mostly means a chat tool, not a workflow. Only 24% have agentic, workflow-level AI — the kind that compresses sales cycles by 25% and drives 7–25% revenue gains. The gap is closing fast. https://productgenesis.ai/#post-sa10",
     body: [
       "The divide in enterprise sales in 2026 is not between teams using AI and teams that are not. 87% of sales organisations now use AI in some form. The divide is between the 24% who have implemented agentic, workflow-level AI and the 63% who are using AI tools that do not compound — chat assistants, email drafters, the kind of tooling that makes an individual slightly faster without changing the underlying process.",
       "The performance gap between these two groups is significant. AI-augmented sales teams — where AI handles research, qualification, and follow-up autonomously — report 7% to 25% revenue gains compared to teams running manual processes. Sales cycles are 25% shorter. Win rates are up to 50% higher. These are not marginal efficiency improvements; they are changes to the competitive position of the team.",
@@ -1065,7 +1065,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://fortune.com/2026/05/22/microsoft-ai-cost-problem-tokens-agents/",
     sourceLabel: "Fortune",
-    tweet: "Microsoft cancelled most of its Claude Code licences. Uber burned its entire 2026 AI tools budget in 4 months. Fortune's data point product teams don't want to share internally: in many real enterprise scenarios, AI is more expensive than paying humans. [link]",
+    tweet: "Microsoft cancelled most of its Claude Code licences. Uber burned its entire 2026 AI tools budget in 4 months. Fortune's data point product teams don't want to share internally: in many real enterprise scenarios, AI is more expensive than paying humans. https://productgenesis.ai/#post-o18",
     body: [
       "Fortune's May 22 piece landed two specific, named data points into the enterprise AI cost conversation. Microsoft began cancelling most of its direct Claude Code licences — just six months after it opened access to thousands of engineers, project managers, and designers — moving them back toward GitHub Copilot CLI. The stated driver is cost: the economics of running frontier-model coding assistance at enterprise scale, without tight controls on usage, produced a bill that didn't match the productivity delivered.",
       "Uber's CTO Praveen Neppalli Naga told The Information that the firm had burned through its entire 2026 AI tools budget in four months. An Nvidia executive added: \"For my team, the cost of compute is far beyond the costs of the employees.\" The Fortune article doesn't argue that AI doesn't work. It argues that AI economics in enterprise environments are significantly more complicated than early productivity experiments suggested — and that the cost is arriving faster than the measurement frameworks needed to justify it. For operations teams managing AI spend, the Microsoft and Uber cases are the clearest signal yet that access controls, usage attribution, and cost governance need to be in place before AI tools scale, not after the first invoice arrives.",
@@ -1084,7 +1084,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-cost-crisis-hits-tech-giants-as-employee-tokenmaxxing-backfires-agentic-ai-eats-up-to-1000x-more-tokens-than-standard-ai-sparks-corporate-pullback-at-microsoft-meta-and-amazon",
     sourceLabel: "Tom's Hardware",
-    tweet: "Amazon: internal leaderboard tracking which employees use the most tokens. Meta: 60 trillion tokens in 30 days via 'Claudeonomics.' Employees tokenmaxxing to hit AI adoption targets — and now the corporate pullbacks are starting. [link]",
+    tweet: "Amazon: internal leaderboard tracking which employees use the most tokens. Meta: 60 trillion tokens in 30 days via 'Claudeonomics.' Employees tokenmaxxing to hit AI adoption targets — and now the corporate pullbacks are starting. https://productgenesis.ai/#post-o19",
     body: [
       "Tom's Hardware identified the specific mechanism that turned aggressive AI adoption targets into the AI cost crisis: 'tokenmaxxing' — employees using AI for as many tasks as possible to hit internal usage metrics, regardless of whether each use case delivered proportional value. The incentive structure was built deliberately. Amazon created an internal leaderboard tracking which employees consumed the most tokens, with a stated goal of getting 80%+ of developers using AI weekly. Meta ran a programme called 'Claudeonomics' that tracked token consumption as a productivity signal, generating 60 trillion tokens in a 30-day window.",
       "The problem with consumption-based measurement is that it measures the wrong thing. Tokens generated does not correlate with value delivered, particularly in agentic contexts where each reasoning step can consume far more context than a simple chat exchange. Agentic AI workloads can consume 100x to 1000x more tokens than single LLM queries for equivalent business outcomes — and employees optimising for token count have every incentive to use agentic workflows regardless of whether the task justifies them. The corporate pullbacks — Microsoft restricting Claude Code access, Amazon and Meta restricting internal dashboards — are the predictable response to realising that the measurement framework created the wrong behaviour. For operations leaders designing AI adoption programmes in 2026, the Tom's Hardware piece is the clearest argument for measuring outcomes, not consumption.",
@@ -1103,7 +1103,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://www.finout.io/blog/what-the-latest-ai-cost-disasters-are-teaching-finops-teams-5-lessons-from-the-trenches",
     sourceLabel: "Finout",
-    tweet: "$0 to $10,000 in 30 minutes from a compromised API key. One AWS AI agent desktop preview click = 500,000 tokens. 2026's AI billing incidents are structural. Finout's 5 lessons for FinOps teams managing production AI. [link]",
+    tweet: "$0 to $10,000 in 30 minutes from a compromised API key. One AWS AI agent desktop preview click = 500,000 tokens. 2026's AI billing incidents are structural. Finout's 5 lessons for FinOps teams managing production AI. https://productgenesis.ai/#post-o20",
     body: [
       "2026 is the year AI billing produced its first wave of genuine enterprise-scale surprise invoices — and the native cost monitoring tools that enterprise teams reasonably trusted didn't catch them. Finout's May 24 analysis documents two incidents that illustrate the structural nature of the problem. First: a compromised API key generated $10,000 in inference charges in 30 minutes. The monitoring system that would have caught $10,000 in EC2 spend the same day didn't trigger, because AI inference runs through a different billing pipeline with different alert thresholds. Second: AWS shipped a preview that lets AI agents drive virtual desktops with GUI access. A single dropdown menu click in that environment burns 500,000 tokens of context — because the agent takes a screenshot of the full screen, processes it, generates a response, and loops. One interaction. 500,000 tokens. No alert.",
       "The root cause Finout identifies is consistent across cases: teams are routing AI spend through the same monitoring, alerting, and attribution infrastructure used for traditional compute. That infrastructure was not designed for AI billing surfaces — it doesn't model anomalies in the same way, can't attribute costs to specific agent workflows without tagging, and lacks the credit and cap policies needed to bound unexpected spend. The practical fix is treating AI as a separate compute layer with its own governance model. Every AI agent in production needs an owner tag, a workload tag, and a cost-per-task baseline before it ships — not after the first incident.",
@@ -1123,7 +1123,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://leanopstech.com/blog/agentic-ai-cost-runaway-token-budget-2026/",
     sourceLabel: "LeanOps",
-    tweet: "An autonomous refactoring run: $4,200 in API fees over a long weekend. The mechanism: agentic AI sends the full accumulated context on every reasoning step. By step 20, you're paying for the same system prompt 20 times. LeanOps audited 30 teams. [link]",
+    tweet: "An autonomous refactoring run: $4,200 in API fees over a long weekend. The mechanism: agentic AI sends the full accumulated context on every reasoning step. By step 20, you're paying for the same system prompt 20 times. LeanOps audited 30 teams. https://productgenesis.ai/#post-o21",
     body: [
       "LeanOps audited 30 engineering teams running production AI agents and found the average agentic developer generates $400-$1,500 per month in API fees. One developer hit $4,200 in fees over a single long weekend from an autonomous refactoring run. The mechanism that explains the scale of costs is specific: an agent doesn't make one inference call per task. It runs a reasoning loop with tool calls, file reads, edits, validations, and re-checks. Each step in that loop sends the entire accumulated context — system prompt, conversation history, tool outputs — to the LLM. By step 20, the team is paying for the same system prompt 20 times. By step 50, the context window itself has become the cost driver.",
       "The LeanOps data places average agentic workloads at 10-100x higher token consumption than chatbot interactions for equivalent business outcomes. Autonomous agents that resolve support cases autonomously consume 15-30x more tokens per case than a human with AI assistance. The four control levers that actually move the numbers: context window limits per agent session, tool call budgets per reasoning loop, automatic escalation to human when token budget is approaching the threshold, and routing lower-complexity tasks to cheaper models before the agent burns through context on them. Teams that instrument these controls before deploying agentic workflows at scale avoid the surprise invoice. Teams that deploy first and govern later typically find out about the problem from their finance team.",
@@ -1143,7 +1143,7 @@ window.PG_POSTS = [
     videoLabel: "Summit · FinOps Foundation 2026",
     sourceUrl: "https://www.youtube.com/watch?v=ZDWElwO0KSI",
     sourceLabel: "FinOps Foundation · YouTube",
-    tweet: "FinOps for AI: the dashboard shows you what's happening. The governance layer tells you who owns it, how to allocate it, and how to make the decisions that change it. Most teams have one but not the other. [link] #llmops",
+    tweet: "FinOps for AI: the dashboard shows you what's happening. The governance layer tells you who owns it, how to allocate it, and how to make the decisions that change it. Most teams have one but not the other. https://productgenesis.ai/#post-o22 #llmops",
     body: [
       "Most AI FinOps implementations stop at visibility: a dashboard that shows token spend, GPU utilisation, and cost per model call. The FinOps Foundation's 2026 virtual summit session on AI and data workloads argues that visibility is table stakes — the governance infrastructure that turns a cost dashboard into a cost management capability is what almost no team has built yet. The session covers chargeback models that attribute AI spend to the specific features and teams generating it, team structures that give engineers direct ownership of cost outcomes, approval workflows for high-cost inference calls, and budget frameworks that let product teams make real-time cost trade-offs without escalating every decision. For AI product teams moving from pilot to production scale — where cost variability becomes a P&L problem, not just an engineering one — this is the governance layer most teams build too late.",
     ],
@@ -1161,7 +1161,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://www.cnbc.com/2026/05/21/ai-spending-expected-to-top-1-trillion-in-2-years-why-that-estimate-may-be-too-low.html",
     sourceLabel: "CNBC",
-    tweet: "AI spending is expected to hit $1 trillion in 2 years — and even that may be too conservative. Hyperscalers are committing $600B+ in capex this year alone. The infrastructure build is not slowing down. [link]",
+    tweet: "AI spending is expected to hit $1 trillion in 2 years — and even that may be too conservative. Hyperscalers are committing $600B+ in capex this year alone. The infrastructure build is not slowing down. https://productgenesis.ai/#post-o15",
     body: [
       "The five largest cloud providers — Amazon, Alphabet, Microsoft, Meta, and Oracle — are collectively forecast to exceed $600 billion in capital expenditure in 2026, with roughly $450 billion of that tied to AI infrastructure. Microsoft raised its capex outlook to $190 billion, a 130% year-over-year increase. Google tightened and raised its range to $180-190 billion, more than doubling its spend. The figures do not include the $1 to $2 trillion that enterprise customers will spend fitting out their own data centres with GPUs and networking infrastructure.",
       "CNBC's May 21 analysis argues that even the headline $1 trillion number understates the actual commitment, because it doesn't account for the degree to which AI infrastructure spending has become self-reinforcing. As inference demand grows — driven by agentic workloads that consume 5 to 30 times more tokens per task than standard chatbots — the infrastructure build-out accelerates rather than stabilises. Gartner's forecast that per-token costs will fall 90% by 2030 provides the wrong comfort: the same forecast notes that token demand is rising faster than costs are falling, which means total inference spend is increasing even as individual tokens get cheaper.",
@@ -1181,7 +1181,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://venturebeat.com/infrastructure/5-gpu-utilization-the-401-billion-ai-infrastructure-problem-enterprises-cant-keep-ignoring",
     sourceLabel: "VentureBeat",
-    tweet: "Enterprise AI infrastructure: average GPU utilisation is stuck at 5%. Gartner puts the total AI infrastructure spend at $401 billion this year. That's a lot of idle hardware. [link]",
+    tweet: "Enterprise AI infrastructure: average GPU utilisation is stuck at 5%. Gartner puts the total AI infrastructure spend at $401 billion this year. That's a lot of idle hardware. https://productgenesis.ai/#post-o16",
     body: [
       "VentureBeat's analysis of enterprise GPU utilisation lands on a number that is both specific and damning: 5%. The average enterprise AI infrastructure deployment is utilising 5% of its GPU capacity. Against a $401 billion infrastructure spend, that figure represents a structural waste problem — not a budget optimisation opportunity, but a signal that most enterprise AI deployments were designed for a pilot-era cost structure that doesn't match how AI infrastructure is now priced.",
       "The root cause is traceable. During the initial AI pilot phase, flat-fee enterprise licenses and bundled token deals meant that architectural decisions had no direct cost consequence. Teams built long-context agents, complex retrieval pipelines, and multi-model orchestration because tokens were effectively a sunk cost. As the industry shifted to usage-based pricing in 2025 and 2026, those same architectures became liabilities — generating inference spend that had no corresponding cost signal when they were designed.",
@@ -1201,7 +1201,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://www.spheron.network/blog/ai-inference-cost-economics-2026/",
     sourceLabel: "Spheron Blog",
-    tweet: "Inference is 80%+ of AI GPU spend. The FinOps playbook to cut it: FP8 quantization (1.3-2x throughput), KV cache reuse (3-10x savings), spot instances (70-90% off). These aren't theoretical — they're production numbers. [link]",
+    tweet: "Inference is 80%+ of AI GPU spend. The FinOps playbook to cut it: FP8 quantization (1.3-2x throughput), KV cache reuse (3-10x savings), spot instances (70-90% off). These aren't theoretical — they're production numbers. https://productgenesis.ai/#post-o17",
     body: [
       "Inference now accounts for more than 80% of enterprise AI GPU spend — a shift from 2024, when training dominated the cost conversation. That shift has made inference optimisation a core financial discipline, not an engineering afterthought. The GPU FinOps playbook for 2026 breaks down into three layers: model-level optimisations, runtime optimisations, and infrastructure choices. Each layer offers independent savings; together, they can reduce total inference spend by 60-80% for teams running at scale.",
       "At the model level, quantization is the highest-leverage lever. FP8 quantization on H100 GPUs delivers 1.3 to 2x throughput gains over FP16 with under 2% quality loss on most production workloads — a near-free performance improvement for teams running on modern hardware. Model right-sizing — routing tasks to the smallest model that meets quality requirements — produces 30 to 75% savings depending on how aggressively teams route. The 85/15 principle applies broadly: 85% of inference queries in most production systems can be handled by a budget model; 15% genuinely require a frontier model. Teams that route indiscriminately — sending everything to the frontier model by default — are paying 5-10x more than necessary for the same output quality.",
@@ -1222,7 +1222,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://aicostguard.com/llm-cost-guide",
     sourceLabel: "AI Cost Guard",
-    tweet: "You shipped an AI feature. Usage picked up. Three weeks later: a bill 3x your estimate — and nobody knows which feature, model, or user caused it. This is the LLM cost visibility gap most teams hit eventually. [link]",
+    tweet: "You shipped an AI feature. Usage picked up. Three weeks later: a bill 3x your estimate — and nobody knows which feature, model, or user caused it. This is the LLM cost visibility gap most teams hit eventually. https://productgenesis.ai/#post-o12",
     body: [
       "The LLM cost monitoring market now covers 52+ production models across 11 providers spanning a 1,700× cost range. In that environment, teams without systematic cost visibility aren't just paying more — they can't answer the question that every AI finance conversation eventually asks: which feature, team, model, or pipeline stage is responsible for this bill? The visibility gap is structural: provider dashboards offer no cross-platform view, DIY logging requires engineering maintenance that rarely happens, and token leaks — oversized prompts, accidental data dumps, logging artifacts — can inflate costs silently for weeks.",
       "Output tokens are the highest-leverage optimization target, running 2–6× more expensive than input tokens, but many teams have no per-feature breakdown that would reveal this. Real-world optimization cases show 77% cost reductions achieved through systematic monitoring and model right-sizing — reductions that were invisible to teams without the attribution layer in place. The pattern that repeats: ship a feature, usage grows, three weeks later the bill has tripled and nobody can explain it.",
@@ -1242,7 +1242,7 @@ window.PG_POSTS = [
     feature: false,
     sourceUrl: "https://cast.ai/blog/llm-cost-optimization-how-to-run-gen-ai-apps-cost-efficiently/",
     sourceLabel: "Cast AI",
-    tweet: "The highest-ROI LLM cost optimization: route each task to the cheapest model that meets quality requirements. Most teams route everything to the frontier model. That's the most expensive possible default. [link]",
+    tweet: "The highest-ROI LLM cost optimization: route each task to the cheapest model that meets quality requirements. Most teams route everything to the frontier model. That's the most expensive possible default. https://productgenesis.ai/#post-o13",
     body: [
       "Model right-sizing is the practice of routing each task to the cheapest model that meets the quality requirements for that specific task. It's consistently identified as the highest-ROI LLM cost optimization available to teams running production AI — typically delivering 40–60% cost reductions without any user-visible degradation in output quality. And it's consistently skipped. Most teams route all their LLM calls to the same frontier model by default, because the routing layer requires an upfront classification step that feels like added complexity. The complexity is real. The savings are larger.",
       "The classification logic is straightforward in principle: identify which tasks in your system actually require frontier model capabilities and which don't. A simple intent classification or summarization task does not need the most capable model available. A complex, multi-step reasoning task that produces content a customer will act on might. The split is rarely 50/50 — in most production systems, a significant majority of calls handle tasks where a cheaper model performs at the same quality level when properly prompted. Teams that have run this analysis typically find that 60–80% of their LLM calls can be routed to a model costing a fraction of their current default.",
