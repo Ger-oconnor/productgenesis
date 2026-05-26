@@ -33,7 +33,7 @@ development   → Full build loop (5 sub-categories below)
   uiux        → Generative UI, interaction design, AI UX patterns
   cicd        → Deployment pipelines, eval-driven CI, observability
 marketing     → GTM, positioning, demos, content strategy for AI products
-sales         → Pricing, enterprise objections, closing AI deals
+sales         → How AI is used in sales: prospecting, pipeline management, deal intelligence, outreach automation
 operations    → Cost control, team structure, incident response, AI ops
 ```
 

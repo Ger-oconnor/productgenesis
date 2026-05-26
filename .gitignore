@@ -12,3 +12,7 @@ uploads/
 
 # Analytics dashboard — contains live GA traffic data, regenerated locally by Claude
 analytics.html
+
+# Google Analytics credentials — never commit
+ga-service-account.json
+ga_token.json

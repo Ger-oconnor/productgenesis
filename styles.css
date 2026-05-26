@@ -118,6 +118,39 @@ img { max-width: 100%; display: block; }
 .pg-cta.ghost:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 @media (max-width: 760px) { .pg-nav, .pg-issue { display: none; } }
 
+/* ───────────────────── VOL BAR ───────────────────── */
+.vol-bar {
+  position: sticky; top: 67px; z-index: 40;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule-2);
+  animation: vol-bar-in .2s ease;
+}
+@keyframes vol-bar-in {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+.vol-bar-inner {
+  display: flex; align-items: center; gap: 16px;
+  padding: 8px var(--pad);
+  max-width: var(--maxw); margin: 0 auto;
+}
+.vol-bar-label {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--ink-mute); letter-spacing: .08em; text-transform: uppercase;
+}
+.vol-bar-chips { display: flex; gap: 6px; }
+.vol-chip {
+  appearance: none; border: 1px solid var(--rule); background: transparent;
+  padding: 4px 12px; border-radius: 999px;
+  font-size: 12px; font-weight: 500; color: var(--ink-soft);
+  cursor: pointer; transition: background .15s, color .15s, border-color .15s;
+}
+.vol-chip:hover { background: var(--rule-2); color: var(--ink); }
+.vol-chip.active {
+  background: var(--ink); color: var(--bg);
+  border-color: var(--ink);
+}
+
 /* ───────────────────── HERO ───────────────────── */
 .pg-hero {
   padding: clamp(36px, 6vw, 72px) var(--pad) clamp(40px, 6vw, 88px);

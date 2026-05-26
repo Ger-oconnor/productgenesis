@@ -25,6 +25,19 @@ function smoothScrollTo(id) {
   window.scrollTo({ top: y, behavior: "smooth" });
 }
 
+// ─── Dispatch / Vol helpers ──────────────────────────────────────────
+const _dispatchDates = [...new Set(POSTS.filter(p => p.date.includes('2026')).map(p => p.date))]
+  .sort((a, b) => new Date(a) - new Date(b));
+const VOL_TOTAL = _dispatchDates.length;
+const VOL_LABEL = String(VOL_TOTAL).padStart(2, '0');
+const VOL_LATEST_DATE = _dispatchDates[VOL_TOTAL - 1] || '';
+const VOL_LATEST_MONTH = VOL_LATEST_DATE.replace(/\s*\d+,\s*/, ' ').trim();
+const VOL_LATEST_COUNT = POSTS.filter(p => p.date === VOL_LATEST_DATE).length;
+function volOf(post) {
+  const i = _dispatchDates.indexOf(post.date);
+  return i >= 0 ? i + 1 : null;
+}
+
 // ─── Hero: Honeycomb ─────────────────────────────────────────────────
 function HoneycombHero({ onCategory }) {
   const R = 78;
@@ -103,7 +116,7 @@ function EditorialHero({ onCategory }) {
         <div className="stamp">
           <span>Product Genesis</span>
           <span className="bar"></span>
-          <span>Vol. 02</span>
+          <span>Vol. {VOL_LABEL}</span>
         </div>
         <h2>
           What <span className="accent">design</span><br/>
@@ -294,15 +307,17 @@ function spanFor(p) {
 }
 
 // ─── Bento feed (homepage Latest) ───────────────────────────────────
-function LatestFeed({ expandedId, setExpandedId, density }) {
+function LatestFeed({ expandedId, setExpandedId, density, volFilter }) {
   const layout = useMemo(() => {
-    const featured = POSTS.find(p => p.feature && p.type === 'essay') || POSTS[0];
-    const v = POSTS.find(p => p.type === 'video' && p.id !== featured.id);
-    const cs = POSTS.find(p => p.type === 'case-study' && p.id !== featured.id);
-    const t1 = POSTS.find(p => p.type === 'thought');
-    const n1 = POSTS.find(p => p.type === 'note');
-    const e2 = POSTS.find(p => p.type === 'essay' && p.id !== featured.id);
-    const t2 = POSTS.find(p => p.type === 'thought' && p.id !== t1?.id);
+    const pool = volFilter !== null ? POSTS.filter(p => volOf(p) === volFilter) : POSTS;
+    const featured = pool.find(p => p.feature && p.type === 'essay') || pool[0];
+    if (!featured) return [];
+    const v = pool.find(p => p.type === 'video' && p.id !== featured.id);
+    const cs = pool.find(p => p.type === 'case-study' && p.id !== featured.id);
+    const t1 = pool.find(p => p.type === 'thought');
+    const n1 = pool.find(p => p.type === 'note');
+    const e2 = pool.find(p => p.type === 'essay' && p.id !== featured.id);
+    const t2 = pool.find(p => p.type === 'thought' && p.id !== t1?.id);
     return [
       { p: featured, span: 'span-8' },
       v && { p: v, span: 'span-4' },
@@ -312,7 +327,7 @@ function LatestFeed({ expandedId, setExpandedId, density }) {
       n1 && { p: n1, span: 'span-4' },
       t2 && { p: t2, span: 'span-4' },
     ].filter(Boolean);
-  }, []);
+  }, [volFilter]);
   return (
     <div className={`bento ${density}`}>
       {layout.map(({ p, span }) => (
@@ -326,9 +341,10 @@ function LatestFeed({ expandedId, setExpandedId, density }) {
 }
 
 // ─── Category section ───────────────────────────────────────────────
-function CategorySection({ cat, posts, expandedId, setExpandedId, density }) {
+function CategorySection({ cat, posts, expandedId, setExpandedId, density, volFilter }) {
   const [subFilter, setSubFilter] = useState('all');
-  const filtered = (subFilter === 'all' ? posts : posts.filter(p => p.sub === subFilter)).slice(0, 10);
+  const volPosts = volFilter !== null ? posts.filter(p => volOf(p) === volFilter) : posts;
+  const filtered = (subFilter === 'all' ? volPosts : volPosts.filter(p => p.sub === subFilter)).slice(0, 10);
   return (
     <section id={`cat-${cat.id}`} className="pg-section scroll-anchor">
       <div className="sec-head">
@@ -418,9 +434,32 @@ function AboutBlock() {
   );
 }
 
+// ─── Vol bar ─────────────────────────────────────────────────────────
+function VolBar({ volFilter, setVolFilter }) {
+  return (
+    <div className="vol-bar">
+      <div className="vol-bar-inner">
+        <span className="vol-bar-label">Vol. {VOL_LABEL}</span>
+        <div className="vol-bar-chips">
+          <button
+            className={`vol-chip${volFilter === null ? ' active' : ''}`}
+            onClick={() => setVolFilter(null)}
+          >All dispatches</button>
+          <button
+            className={`vol-chip${volFilter === VOL_TOTAL ? ' active' : ''}`}
+            onClick={() => setVolFilter(VOL_TOTAL)}
+          >Vol. {VOL_LABEL} · {VOL_LATEST_COUNT} new</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ─── App ─────────────────────────────────────────────────────────────
 function App() {
   const [t, setTweak] = useTweaks(window.TWEAK_DEFAULTS);
+  const [volFilter, setVolFilter] = useState(null);
+  const [showVolBar, setShowVolBar] = useState(false);
   const [expandedId, setExpandedId] = useState(() => {
     const hash = window.location.hash;
     return hash.startsWith('#post-') ? hash.slice(6) : null;
@@ -465,6 +504,14 @@ function App() {
     }
   }, [t.palette]);
 
+  useEffect(() => {
+    const hero = document.querySelector('.pg-hero');
+    if (!hero) return;
+    const obs = new IntersectionObserver(([e]) => setShowVolBar(!e.isIntersecting), { threshold: 0 });
+    obs.observe(hero);
+    return () => obs.disconnect();
+  }, []);
+
   const onCategoryClick = (id) => {
     setExpandedId(null);
     setTimeout(() => smoothScrollTo(`cat-${id}`), 30);
@@ -494,19 +541,21 @@ function App() {
             <a href="#about" onClick={(e) => { e.preventDefault(); smoothScrollTo('about'); }}>About</a>
           </nav>
           <span className="pg-spacer"></span>
-          <span className="pg-issue">Vol. 02 · May 2026</span>
+          <span className="pg-issue">Vol. {VOL_LABEL} · {VOL_LATEST_MONTH} 2026</span>
           <button className="pg-cta">Book a call</button>
         </div>
       </header>
+
+      {showVolBar && <VolBar volFilter={volFilter} setVolFilter={setVolFilter} />}
 
       <section className="pg-hero">
         <div className="hero-inner">
           <div className="hero-copy">
             <div className="hero-meta">
               <span className="pip"></span>
-              <span>Vol. 02 · Field manual</span>
+              <span>Vol. {VOL_LABEL} · Field manual</span>
               <span>·</span>
-              <span>{POSTS.length} dispatches</span>
+              <span>{VOL_LATEST_COUNT} new dispatches</span>
             </div>
             <h1 className="hero-title">
               Product design,<br/>
@@ -530,7 +579,7 @@ function App() {
             <p className="sec-sub">Click any card to read in place. Or pick a zone from the cover to jump straight to its archive.</p>
           </div>
         </div>
-        <LatestFeed expandedId={expandedId} setExpandedId={openPost} density={t.density} />
+        <LatestFeed expandedId={expandedId} setExpandedId={openPost} density={t.density} volFilter={volFilter} />
       </section>
 
       {CATS.map((cat, i) => {
@@ -539,7 +588,7 @@ function App() {
           <div key={cat.id} className={i % 2 === 0 ? 'tinted' : ''}>
             <CategorySection cat={cat} posts={catPosts}
               expandedId={expandedId} setExpandedId={openPost}
-              density={t.density} />
+              density={t.density} volFilter={volFilter} />
           </div>
         );
       })}

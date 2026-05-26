@@ -13,7 +13,7 @@ You are running the daily content curation for Product Genesis, a site about pro
 2. **Strategy** — AI moats, roadmaps, competitive positioning, pricing, and bets for AI-native products
 3. **Development** — five sub-areas: Discovery (user research, problem framing), Development (LLM patterns, AI coding), Testing (evals, QA), UI/UX (generative UI, interaction design), CI/CD (deployment, eval pipelines)
 4. **Marketing** — AI-era go-to-market, positioning, content strategy, demos, messaging
-5. **Sales** — selling AI products, enterprise objections, pricing conversations, closing
+5. **Sales** — how AI is being used in sales: prospecting tools, CRM automation, deal intelligence, outreach personalisation, pipeline analysis, revenue ops
 6. **Operations** — running AI products: cost control, team structure, incident response, tooling
 
 ## What to find
@@ -39,14 +39,19 @@ Each category must also include exactly one video pick. Search YouTube for the m
 **Strategy:** `site:youtube.com AI product strategy moat competitive 2026`, `site:youtube.com AI startup strategy talk`
 **Development:** `site:youtube.com LLM engineering workflow coding 2026`, `site:youtube.com AI developer tools walkthrough`
 **Marketing:** `site:youtube.com AI product marketing positioning storytelling 2026`
-**Sales:** `site:youtube.com selling AI enterprise pricing 2026`, `site:youtube.com AI sales strategy`
+**Sales:** `site:youtube.com AI sales tools prospecting 2026`, `site:youtube.com AI CRM automation deal intelligence`
 **Operations:** `site:youtube.com LLM inference cost production 2026`, `site:youtube.com AI ops cost control`
 
 For each video, record: title, channel, YouTube URL, approximate length (from search metadata if visible), and upload date.
 
 ## Hard rules — enforce before selecting any item
 
-### 1. Freshness cap — 7 days maximum
+### 1. Current happenings only — no broad guides
+**Reject any article or video framed as a broad survey, evergreen reference, or year-spanning overview.** Titles like "The Complete Guide to X", "Everything You Need to Know About X", "The Ultimate Guide to X", "X in 2026: A Full Overview", or "Year in Review" are disqualified regardless of publication date. The digest covers what is happening right now — specific announcements, new data or research, practitioner takes on a recent event, product launches, conference recaps, arguments made in response to something that just occurred.
+
+Ask this question before including any item: **"Is this about something specific that happened recently?"** If the answer is no — if the piece would have been equally valid to publish six months ago — skip it.
+
+### 2. Freshness cap — 7 days maximum
 **No item may be older than 7 days from today's date.** This applies to all content types: written articles, tweets, newsletters, podcast episodes, and videos. If the only available video is older than 7 days, leave the video slot empty rather than include stale content. Do not extend the window beyond 7 days under any circumstances.
 
 ### 2. No duplicates — check data.js before finalising
@@ -82,7 +87,7 @@ Run at least 2–3 searches per category:
 **Development (UI/UX):** `generative UI design`, `AI interaction design`, `streaming UX patterns`
 **Development (CI/CD):** `AI deployment pipeline`, `eval driven CI`, `LLM observability`
 **Marketing:** `AI product marketing`, `AI go to market`, `AI demo storytelling`
-**Sales:** `selling AI enterprise`, `AI pricing model`, `AI procurement objections`
+**Sales:** `AI sales prospecting tools`, `AI CRM automation 2026`, `AI deal intelligence pipeline`
 **Operations:** `AI inference cost control`, `AI ops team`, `LLM cost per user`
 
 ## Writing the tweet
@@ -103,11 +108,58 @@ Good example:
 Bad example:
 > Great read on AI strategy! So many insights here 🔥 Check it out! #AI #strategy [link]
 
+## Writing the draft body
+
+**After selecting all items, fetch each source URL and write the full post body directly in the review file.** Gerald reads the draft body before approving — he should never be approving blind.
+
+The body must be written from the source content itself — not from the search snippet. Fetch the URL and read the article. If the source is paywalled or returns no readable content, write what you can from the search metadata and add a note: `⚠️ Source paywalled — body written from search preview only.` so Gerald knows the draft is partial.
+
+Body rules by type:
+
+- **thought:** No body. The dek is the post. Omit the Draft body section entirely.
+- **note:** 2–3 paragraphs. Summarise the source's key insight in your own words. End with one sharp takeaway sentence.
+- **essay:** 3–5 paragraphs. Open with the problem or tension the source identifies. Cover the main argument. Pull one strong quote or stat if available. End with the implication for product teams.
+- **video:** 1 paragraph describing what the video covers and why it's worth watching. Include what format it is (talk, walkthrough, interview) and who it's for.
+- **case-study:** 3–4 paragraphs: setup → approach → result → lesson.
+- **story:** 500–600 words following SCR structure. Open with a strong hook. Include at least one direct quote from the source. Repeat the central message in the hook and the resolution.
+
+Write in the Product Genesis voice: direct, specific, no hype, practitioner-first. 3–6 sentences per paragraph. No padding.
+
+**Suggested read time:** estimate from body length. Notes = 2–3 min. Essays = 5–7 min. Videos = the video length in minutes.
+
+## Carry-over tweet check
+
+Before writing the review file, check yesterday's review file (`reviews/YYYY-MM-DD.md` for the day before today):
+
+1. Look for the `## Recommended Tweets` section at the top of that file.
+2. Collect any items where the tweet checkbox is **NOT** ticked (`- [ ]`). These are stories Gerald has not yet tweeted.
+3. Carry each unchecked item forward as a candidate for today's Recommended Tweets list — include its title, tweet text, source URL, category, and the original date.
+4. If there is no previous review file, or no Recommended Tweets section, skip this step.
+
+## Recommended Tweets section
+
+At the very top of the review file — before the category sections — write a `## Recommended Tweets` section listing up to 10 stories to tweet today.
+
+**Ranking the list:** Pool together (a) today's curated items and (b) any carry-overs from yesterday. Rank by tweet quality: sharp insight, punchy phrasing, likely engagement. Pick the best 10. If fewer than 10 are genuinely tweet-worthy, keep the list shorter — quality over completeness.
+
+**Carry-over labelling:** Any item carried over from a previous day must include `*(Carried over from YYYY-MM-DD)*` so Gerald knows it is not new.
+
+**Format each entry as:**
+
+```markdown
+- [ ] **[Story title]** · [Category]
+  > [Full tweet text including [link] placeholder]
+  - Source: URL
+  - *(Carried over from YYYY-MM-DD)*   ← only for carry-overs
+```
+
+**How Gerald uses this section:** He ticks `[x]` after he tweets a story. Unticked items are candidates for carry-over into tomorrow's list. This section is separate from the publish approval checkboxes — ticking here means "I tweeted it", not "publish it to the site".
+
 ## Output format
 
 Save the result to: `reviews/YYYY-MM-DD.md` (today's date).
 
-Each category section must include a `· Video ·` item using this format:
+Each item must include the full draft body. The format for each written item:
 
 ```markdown
 # Product Genesis · Daily Digest — YYYY-MM-DD
@@ -119,18 +171,44 @@ Each category section must include a `· Video ·` item using this format:
 
 ---
 
+## Recommended Tweets
+
+> Tick `[x]` after you tweet a story. Unticked items may carry forward to tomorrow.
+
+- [ ] **[Story title]** · [Category]
+  > [Tweet text including [link]]
+  - Source: URL
+
+- [ ] **[Story title]** · [Category]  *(Carried over from YYYY-MM-DD)*
+  > [Tweet text including [link]]
+  - Source: URL
+
+(up to 10 entries — fewer is fine if not all are tweet-worthy)
+
+---
+
 ## 01 · Vision
 
 ### V1 · Essay · [Short label]
 - [ ] **Approve for publishing**
 - **Source:** [Title](url) · Author · Publication
 - **Type:** essay | note | thought | case-study | story
+- **Published:** date
 - **Why publish:** One sentence on why this matters.
 - **Suggested site title:** "..."
 - **Suggested dek:** "..."
 - **Suggested tweet:** "... [link]"
 - **Recommended post type:** essay | note | thought | case-study | story
+- **Suggested read time:** N min
 - **Suggested central message:** "..."   ← include only when Recommended post type is story
+
+**Draft body:**
+
+First paragraph of the post body.
+
+Second paragraph of the post body.
+
+Third paragraph of the post body.
 
 ---
 
@@ -147,10 +225,14 @@ Each category section must include a `· Video ·` item using this format:
 - **Video label:** e.g. "Talk · Re:Design Berlin" or "Walkthrough · Matt Pocock"
 - **Recommended post type:** video
 
+**Draft body:**
+
+One paragraph describing what the video covers, what format it takes, and who it's for.
+
 ---
 
 ## 02 · Strategy
-(same structure — always include one Video item)
+(same structure — always include one Video item with draft body)
 
 (continue for all six categories)
 
@@ -163,4 +245,4 @@ Brief paragraph on today's overall theme — what's the one big thing in AI + pr
 ## After writing the file
 
 Tell the editor:
-> "Today's digest is ready at `reviews/YYYY-MM-DD.md`. Each category includes a video pick from the past week. Mark the items you want published with [x], then tell me 'publish the digest for YYYY-MM-DD'."
+> "Today's digest is ready at `reviews/YYYY-MM-DD.md`. Every item includes a draft body for you to read before approving. Mark what you want published with [x], then tell me 'publish the digest for YYYY-MM-DD'."
