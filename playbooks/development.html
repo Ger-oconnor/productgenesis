@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Development AI Playbook — Product Genesis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff; --bg-2: #f3f6fb; --bg-3: #e4ecf6;
+      --ink: #14244C; --ink-soft: rgba(20,36,76,.70); --ink-mute: rgba(20,36,76,.46);
+      --rule: rgba(20,36,76,.14); --accent: #4A95D0; --accent-soft: rgba(74,149,208,.14);
+      --radius: 14px; --radius-sm: 10px; --pad: clamp(20px,4vw,56px); --maxw: 800px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--bg); color: var(--ink); font-family: "Poppins", ui-sans-serif, sans-serif; font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+    nav { border-bottom: 1px solid var(--rule); padding: 18px 0; }
+    nav .wrap { display: flex; align-items: center; gap: 10px; }
+    nav a { color: var(--accent); text-decoration: none; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing:.04em; }
+    nav a:hover { text-decoration: underline; }
+    .sep { color: var(--ink-mute); font-size: 11px; }
+    .crumb { color: var(--ink-mute); font-family: "JetBrains Mono", monospace; font-size: 11px; }
+    .hero { padding: 52px 0 44px; border-bottom: 1px solid var(--rule); }
+    .tag { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing:.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+    .hero h1 { font-size: clamp(24px,4vw,38px); font-weight: 700; line-height: 1.15; margin-bottom: 10px; }
+    .hero-role { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--ink-mute); margin-bottom: 18px; }
+    .hero-dek { font-size: 16px; font-weight: 300; color: var(--ink-soft); max-width: 580px; margin-bottom: 20px; line-height: 1.65; }
+    .hero-meta { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+    .section { padding: 44px 0; border-bottom: 1px solid var(--rule); }
+    .section:last-child { border-bottom: none; padding-bottom: 60px; }
+    .s-label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing:.12em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 6px; }
+    .section h2 { font-size: 19px; font-weight: 600; margin-bottom: 6px; }
+    .section-intro { font-size: 13px; color: var(--ink-soft); margin-bottom: 28px; max-width: 560px; }
+    .stages { display: flex; flex-direction: column; gap: 2px; }
+    .stage { background: var(--bg-2); padding: 22px 26px; }
+    .stage:first-child { border-radius: var(--radius) var(--radius) 0 0; }
+    .stage:last-child { border-radius: 0 0 var(--radius) var(--radius); background: var(--ink); }
+    .stage-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .s-num { width: 26px; height: 26px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .stage:last-child .s-num { background: rgba(74,149,208,.22); color: #88c0ea; }
+    .s-title { font-weight: 600; font-size: 14px; }
+    .stage:last-child .s-title { color: #eef3fb; }
+    .s-body { font-size: 13px; color: var(--ink-soft); line-height: 1.65; margin-bottom: 10px; }
+    .stage:last-child .s-body { color: rgba(238,243,251,.70); }
+    .s-tell { font-size: 12px; color: var(--ink-mute); font-style: italic; }
+    .stage:last-child .s-tell { color: rgba(238,243,251,.46); }
+    .signals { display: flex; flex-direction: column; gap: 22px; }
+    .signal { display: grid; grid-template-columns: 3px 1fr; gap: 18px; }
+    .s-bar { background: var(--accent); border-radius: 2px; min-height: 50px; }
+    .sig-head { font-weight: 600; font-size: 13px; margin-bottom: 4px; line-height: 1.4; }
+    .sig-body { font-size: 13px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 6px; }
+    .sig-src { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+    .sig-src a { color: var(--accent); text-decoration: none; }
+    .sig-src a:hover { text-decoration: underline; }
+    .act-block { margin-bottom: 24px; }
+    .act-label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing:.1em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+    .act-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .act-list li { display: flex; gap: 10px; font-size: 13px; color: var(--ink-soft); line-height: 1.55; }
+    .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 9px; }
+    .ev-grid { display: flex; flex-direction: column; gap: 8px; }
+    .ev-item { background: var(--bg-2); border-radius: var(--radius-sm); padding: 13px 18px; display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; text-decoration: none; transition: background .15s; }
+    .ev-item:hover { background: var(--bg-3); }
+    .ev-title { font-size: 13px; font-weight: 500; color: var(--ink); line-height: 1.35; margin-bottom: 2px; }
+    .ev-meta { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+    .ev-arr { color: var(--ink-mute); font-size: 13px; }
+    footer { border-top: 1px solid var(--rule); padding: 32px 0; }
+    footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .f-brand { font-weight: 600; font-size: 13px; }
+    .f-note { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="../index.html">Product Genesis</a>
+    <span class="sep">/</span>
+    <span class="crumb">Development Playbook</span>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="tag">AI Action Plan · Development</div>
+    <h1>Engineering &amp; Development</h1>
+    <div class="hero-role">For: CTO · VP Engineering · Head of Engineering · Engineering Manager</div>
+    <p class="hero-dek">57% of engineering teams have agents in production. The bottleneck has shifted from capability to quality and observability — and most teams have one but not the other.</p>
+    <div class="hero-meta">Last updated: May 26, 2026 &nbsp;·&nbsp; Synthesised from 10 published posts</div>
+  </div>
+
+  <div class="section">
+    <div class="s-label">Maturity Framework</div>
+    <h2>Where does your function stand?</h2>
+    <p class="section-intro">Four stages of AI maturity for engineering leaders. The distinction that matters most: evaluation infrastructure and observability are not the same thing, and most teams have only built one.</p>
+    <div class="stages">
+      <div class="stage">
+        <div class="stage-head"><div class="s-num">1</div><div class="s-title">Aware</div></div>
+        <p class="s-body">Your engineers use AI coding assistants — GitHub Copilot, Claude Code, Cursor, or similar. Code is produced faster. Individual productivity has improved. But the development function's operating model hasn't changed: tickets still flow the same way, review processes are the same, and the concept of "a developer's job" is unchanged. AI is a tool engineers use, not a system the team operates.</p>
+        <p class="s-tell">Tell: "Our engineers use AI coding assistants. Velocity is up."</p>
+      </div>
+      <div class="stage">
+        <div class="stage-head"><div class="s-num">2</div><div class="s-title">Piloting</div></div>
+        <p class="s-body">You've shipped AI features to production. Some agents are running. Quality is the primary concern — you're seeing failure modes that didn't exist in demos. You may have basic monitoring in place but lack formal evaluation infrastructure. The engineering challenge has shifted from "can we build this?" to "how do we know it's working correctly?"</p>
+        <p class="s-tell">Tell: "We've shipped AI features. Quality and reliability are our current blockers."</p>
+      </div>
+      <div class="stage">
+        <div class="stage-head"><div class="s-num">3</div><div class="s-title">Embedding</div></div>
+        <p class="s-body">You have both evaluation infrastructure (offline testing, benchmark suites, red-teaming) AND production observability (tool call success rates, reasoning quality signals, latency distributions, quality drift monitoring). Every agent in production has an owner, a cost baseline, and a defined failure mode. Red-teaming has a dedicated owner and a scheduled cadence before each release.</p>
+        <p class="s-tell">Tell: "Every agent has eval coverage and production monitoring. Red-teaming is in our release process."</p>
+      </div>
+      <div class="stage">
+        <div class="stage-head"><div class="s-num">4</div><div class="s-title">Leading</div></div>
+        <p class="s-body">Your development function is AI-native. Developers are System Architects — they describe goals, review outputs, and intervene when agents fail silently. Managed agent infrastructure (Google Antigravity, Claude Managed Agents, OpenAI Codex on-prem) has replaced significant portions of the traditional code-edit loop. The skills you're hiring for and developing have shifted from implementation to system design, prompt engineering, agent evaluation, and failure mode analysis.</p>
+        <p class="s-tell">Tell: "Developers architect agent systems. Agents do the implementation. We hire for judgment."</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="s-label">Frontier Signals</div>
+    <h2>Where best practice is moving</h2>
+    <p class="section-intro">Synthesised from the most recent and impactful content in the Development category.</p>
+    <div class="signals">
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">The hardest engineering problem in agentic development just became someone else's problem.</div>
+          <p class="sig-body">Google's Managed Agents API provisions a fully operational sandboxed Linux agent — isolated execution environment, persistent state, tool execution, security controls — with a single API call. Anthropic added MCP tunnels (agents reaching private networks without internet exposure) and self-hosted sandboxes (tool execution inside customer infrastructure). The data sovereignty and compliance barriers that blocked regulated industries from deploying production agents have been addressed at the platform level. The cost-benefit calculation for moving from prototyped agents to production-ready agentic workflows has changed materially.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-d27">Google</a> &nbsp;·&nbsp; <a href="../index.html#post-d23">9to5Mac / Anthropic</a></div>
+        </div>
+      </div>
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">Eval tells you if an agent can work. Observability tells you if it is. Most teams have one.</div>
+          <p class="sig-body">LangChain's survey of 1,300+ professionals found 89% of teams have observability for tracing agent behaviour — but only 52% run offline testing and 37% have online monitoring. The failure mode this creates is specific: teams can see what agents are doing, but can't systematically measure whether they're doing it correctly. LLM systems don't fail with errors — they degrade gradually, in ways that don't show up in standard uptime metrics. Both layers are required, and they address different failure modes.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-d29">JetBrains PyCharm Blog</a> &nbsp;·&nbsp; <a href="../index.html#post-d18">LangChain</a></div>
+        </div>
+      </div>
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">Red-teaming is moving from engineering nice-to-have to compliance requirement.</div>
+          <p class="sig-body">OpenAI's acquisition of Promptfoo — the most widely adopted open-source LLM red-teaming framework — is a governance signal, not a developer tooling story. When the company that builds the model acquires the leading tool for testing that model's safety, evaluation is no longer peripheral to model deployment. Development teams should treat this as a signal to build evaluation infrastructure now, before it is required externally. Teams that build this practice before the mandate have an advantage when the requirement arrives.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-d28">DEV Community</a></div>
+        </div>
+      </div>
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">The developer's job has changed. The teams that acknowledge it first will hire for the right skills.</div>
+          <p class="sig-body">The creator of Claude Code hasn't written a line of code in 2026 — shipping dozens of pull requests per day from his phone. Google Antigravity 2.0 ships as an agent orchestration platform, not a coding assistant. The dev role is shifting from primary code author to System Architect and Prompt Director. The teams that invest in system design, prompt engineering, agent evaluation, and failure mode analysis now will have a meaningful advantage over teams that spend 2026 optimising code-generation prompts.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-d24">DEV Community</a> &nbsp;·&nbsp; <a href="../index.html#post-v23">Sequoia AI Ascent 2026</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="s-label">Priority Actions</div>
+    <h2>Your next move</h2>
+    <p class="section-intro">Locate your maturity stage above, then focus on the actions that move you to the next one.</p>
+    <div class="act-block">
+      <div class="act-label">Stage 1 → 2 &nbsp;·&nbsp; Aware to Piloting</div>
+      <ul class="act-list">
+        <li><span class="dot"></span>Establish team norms for AI coding tools: what's in scope, what requires review, what's off-limits for sensitive code paths. Unmanaged AI tool use is the first risk to address before expanding.</li>
+        <li><span class="dot"></span>Ship one AI feature to production with a clear failure mode definition. Know in advance what "broken" looks like — because AI systems don't throw errors when they degrade.</li>
+        <li><span class="dot"></span>Measure your current cycle times. You need a baseline before you can evaluate the change that agentic workflows create.</li>
+      </ul>
+    </div>
+    <div class="act-block">
+      <div class="act-label">Stage 2 → 3 &nbsp;·&nbsp; Piloting to Embedding</div>
+      <ul class="act-list">
+        <li><span class="dot"></span>Build eval infrastructure for every agent before it ships: a benchmark suite of representative failure cases, and a defined quality threshold. If you don't have both, the agent isn't ready for production.</li>
+        <li><span class="dot"></span>Add production observability tuned for AI: tool call success rates, reasoning quality signals, latency distributions, and quality drift — not just uptime. Standard application monitoring is insufficient.</li>
+        <li><span class="dot"></span>Assign a dedicated owner for red-teaming. Schedule a session before every agent release. Build it into the release process, not as an optional hardening step.</li>
+      </ul>
+    </div>
+    <div class="act-block">
+      <div class="act-label">Stage 3 → 4 &nbsp;·&nbsp; Embedding to Leading</div>
+      <ul class="act-list">
+        <li><span class="dot"></span>Evaluate managed agent infrastructure: Google Managed Agents, Claude Managed Agents, or OpenAI Codex on-prem. Assess which workflows justify the managed sandbox trade-off (reduced observability for managed execution environment).</li>
+        <li><span class="dot"></span>Audit your hiring profile. Are you hiring for implementation skills or for system design, prompt engineering, and agent failure analysis? The skills that matter in 2026 are shifting faster than most job descriptions.</li>
+        <li><span class="dot"></span>Define what "developer as System Architect" means in your team's daily workflow. Which engineers are leading agents? Which are still editing files? That ratio is the maturity metric.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="s-label">Evidence from the Field</div>
+    <h2>Stories behind this playbook</h2>
+    <p class="section-intro">The published posts that informed this synthesis.</p>
+    <div class="ev-grid">
+      <a class="ev-item" href="../index.html#post-d18">
+        <div><div class="ev-title">57% of teams have agents in production. Quality is what's blocking the rest.</div><div class="ev-meta">note &nbsp;·&nbsp; LangChain &nbsp;·&nbsp; May 22, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-d29">
+        <div><div class="ev-title">Evaluation tells you if an agent can work. Observability tells you if it is.</div><div class="ev-meta">note &nbsp;·&nbsp; JetBrains PyCharm Blog &nbsp;·&nbsp; May 25, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-d28">
+        <div><div class="ev-title">OpenAI's Promptfoo acquisition is a compliance story, not an engineering story</div><div class="ev-meta">essay &nbsp;·&nbsp; DEV Community &nbsp;·&nbsp; May 25, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-d27">
+        <div><div class="ev-title">One API call. One fully operational sandboxed agent. Google made agent infrastructure a managed service.</div><div class="ev-meta">note &nbsp;·&nbsp; Google &nbsp;·&nbsp; May 25, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-d24">
+        <div><div class="ev-title">Developers are becoming System Architects. Antigravity 2.0 is why.</div><div class="ev-meta">essay &nbsp;·&nbsp; DEV Community &nbsp;·&nbsp; May 23, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-d23">
+        <div><div class="ev-title">Claude agents can now reach your private network — without exposing it to the internet</div><div class="ev-meta">note &nbsp;·&nbsp; 9to5Mac &nbsp;·&nbsp; May 23, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-d22">
+        <div><div class="ev-title">Google Antigravity 2.0 isn't a coding assistant. It's an agent orchestration platform.</div><div class="ev-meta">note &nbsp;·&nbsp; TechCrunch &nbsp;·&nbsp; May 23, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand">Product Genesis</div>
+    <div class="f-note">Regenerated each publish run &nbsp;·&nbsp; Offline — not yet published</div>
+  </div>
+</footer>
+
+</body>
+</html>

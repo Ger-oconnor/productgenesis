@@ -103,7 +103,27 @@ After writing data.js, tell the editor:
 
 If the dev server is not running, remind them to start it with `npx serve .` from the project folder.
 
-## Step 7 — Mark the publish checklist
+## Step 7 — Regenerate affected playbook(s)
+
+After publishing posts for a category, regenerate that category's HTML playbook in `playbooks/{category}.html`.
+
+Each playbook synthesises insights from ALL current posts in the category (not just new ones) into:
+- A 4-stage maturity framework (Aware / Piloting / Embedding / Leading) specific to that function
+- 3–4 "frontier signals" from the most impactful current posts, each with a body paragraph and `../index.html#post-{id}` link
+- Priority actions per maturity stage
+- An evidence library of linked posts
+
+To regenerate:
+1. Read all current posts for the affected category from `data.js`
+2. Synthesise the most impactful insights — what has changed, what is the current frontier?
+3. Update the `Last updated` date and the post count in the hero section
+4. Refresh the frontier signals section with the 3–4 strongest insights from current posts
+5. Refresh the evidence library with current post links (most recent first, max 7–8 items)
+6. Write the updated HTML to `playbooks/{category}.html`
+
+The maturity stages and priority actions are stable — only update them if a new post materially changes what "leading practice" looks like. The frontier signals and evidence library update every run.
+
+## Step 8 — Mark the publish checklist
 
 Open `reviews/YYYY-MM-DD.md` and find the `## Volume Update Checklist` section.
 
@@ -132,6 +152,12 @@ The full volume update requires all three stages. This is the reference — the 
 - [ ] Posts inserted at top of correct category blocks in data.js
 - [ ] 10-post cap enforced for each affected category
 - [ ] Tweet [link] placeholders replaced with real post URLs
+
+### Playbooks ← publish-digest (Step 7)
+- [ ] Affected category playbook(s) regenerated in playbooks/{category}.html
+- [ ] Frontier signals updated with current post insights
+- [ ] Evidence library refreshed with current post links
+- [ ] Last-updated date and post count updated in hero
 
 ### Actions Update ← update-actions
 - [ ] New posts scanned for CTA signals across all 6 categories

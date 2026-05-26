@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales AI Playbook — Product Genesis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff; --bg-2: #f3f6fb; --bg-3: #e4ecf6;
+      --ink: #14244C; --ink-soft: rgba(20,36,76,.70); --ink-mute: rgba(20,36,76,.46);
+      --rule: rgba(20,36,76,.14); --accent: #4A95D0; --accent-soft: rgba(74,149,208,.14);
+      --radius: 14px; --radius-sm: 10px; --pad: clamp(20px,4vw,56px); --maxw: 800px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--bg); color: var(--ink); font-family: "Poppins", ui-sans-serif, sans-serif; font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+    nav { border-bottom: 1px solid var(--rule); padding: 18px 0; }
+    nav .wrap { display: flex; align-items: center; gap: 10px; }
+    nav a { color: var(--accent); text-decoration: none; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing:.04em; }
+    nav a:hover { text-decoration: underline; }
+    .sep { color: var(--ink-mute); font-size: 11px; }
+    .crumb { color: var(--ink-mute); font-family: "JetBrains Mono", monospace; font-size: 11px; }
+    .hero { padding: 52px 0 44px; border-bottom: 1px solid var(--rule); }
+    .tag { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing:.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+    .hero h1 { font-size: clamp(24px,4vw,38px); font-weight: 700; line-height: 1.15; margin-bottom: 10px; }
+    .hero-role { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--ink-mute); margin-bottom: 18px; }
+    .hero-dek { font-size: 16px; font-weight: 300; color: var(--ink-soft); max-width: 580px; margin-bottom: 20px; line-height: 1.65; }
+    .hero-meta { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+    .section { padding: 44px 0; border-bottom: 1px solid var(--rule); }
+    .section:last-child { border-bottom: none; padding-bottom: 60px; }
+    .s-label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing:.12em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 6px; }
+    .section h2 { font-size: 19px; font-weight: 600; margin-bottom: 6px; }
+    .section-intro { font-size: 13px; color: var(--ink-soft); margin-bottom: 28px; max-width: 560px; }
+    .stages { display: flex; flex-direction: column; gap: 2px; }
+    .stage { background: var(--bg-2); padding: 22px 26px; }
+    .stage:first-child { border-radius: var(--radius) var(--radius) 0 0; }
+    .stage:last-child { border-radius: 0 0 var(--radius) var(--radius); background: var(--ink); }
+    .stage-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .s-num { width: 26px; height: 26px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .stage:last-child .s-num { background: rgba(74,149,208,.22); color: #88c0ea; }
+    .s-title { font-weight: 600; font-size: 14px; }
+    .stage:last-child .s-title { color: #eef3fb; }
+    .s-body { font-size: 13px; color: var(--ink-soft); line-height: 1.65; margin-bottom: 10px; }
+    .stage:last-child .s-body { color: rgba(238,243,251,.70); }
+    .s-tell { font-size: 12px; color: var(--ink-mute); font-style: italic; }
+    .stage:last-child .s-tell { color: rgba(238,243,251,.46); }
+    .signals { display: flex; flex-direction: column; gap: 22px; }
+    .signal { display: grid; grid-template-columns: 3px 1fr; gap: 18px; }
+    .s-bar { background: var(--accent); border-radius: 2px; min-height: 50px; }
+    .sig-head { font-weight: 600; font-size: 13px; margin-bottom: 4px; line-height: 1.4; }
+    .sig-body { font-size: 13px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 6px; }
+    .sig-src { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+    .sig-src a { color: var(--accent); text-decoration: none; }
+    .sig-src a:hover { text-decoration: underline; }
+    .act-block { margin-bottom: 24px; }
+    .act-label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing:.1em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+    .act-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .act-list li { display: flex; gap: 10px; font-size: 13px; color: var(--ink-soft); line-height: 1.55; }
+    .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 9px; }
+    .ev-grid { display: flex; flex-direction: column; gap: 8px; }
+    .ev-item { background: var(--bg-2); border-radius: var(--radius-sm); padding: 13px 18px; display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; text-decoration: none; transition: background .15s; }
+    .ev-item:hover { background: var(--bg-3); }
+    .ev-title { font-size: 13px; font-weight: 500; color: var(--ink); line-height: 1.35; margin-bottom: 2px; }
+    .ev-meta { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+    .ev-arr { color: var(--ink-mute); font-size: 13px; }
+    footer { border-top: 1px solid var(--rule); padding: 32px 0; }
+    footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .f-brand { font-weight: 600; font-size: 13px; }
+    .f-note { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="../index.html">Product Genesis</a>
+    <span class="sep">/</span>
+    <span class="crumb">Sales Playbook</span>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="tag">AI Action Plan · Sales</div>
+    <h1>Sales</h1>
+    <div class="hero-role">For: CRO · VP Sales · Head of Sales · RevOps Lead</div>
+    <p class="hero-dek">87% of sales teams use AI. Only 24% have the kind that compounds. And 72% are wasting the productivity gains AI creates — not because AI isn't working, but because they haven't redesigned what sellers do with the time it saves.</p>
+    <div class="hero-meta">Last updated: May 26, 2026 &nbsp;·&nbsp; Synthesised from 10 published posts</div>
+  </div>
+
+  <div class="section">
+    <div class="s-label">Maturity Framework</div>
+    <h2>Where does your function stand?</h2>
+    <p class="section-intro">Four stages of AI maturity for sales leaders. The distinction that matters is between AI that makes individual sellers faster and AI that changes your team's competitive position.</p>
+    <div class="stages">
+      <div class="stage">
+        <div class="stage-head"><div class="s-num">1</div><div class="s-title">Aware</div></div>
+        <p class="s-body">Your reps use AI tools for drafting outreach, summarising calls, researching accounts, and updating CRM records. Individual productivity has improved. But the sales process itself — discovery, qualification, objection handling, deal progression — follows the same motion as before. AI is making individuals faster at the existing workflow, not changing the workflow.</p>
+        <p class="s-tell">Tell: "Our reps use AI tools and save time. Process and targets haven't changed."</p>
+      </div>
+      <div class="stage">
+        <div class="stage-head"><div class="s-num">2</div><div class="s-title">Piloting</div></div>
+        <p class="s-body">You're running AI SDR experiments or hybrid outreach models. AI handles some prospecting volume. You're evaluating which parts of the top-of-funnel can be handled autonomously and which require human judgment. You've started asking what reps do with AI-freed time — but haven't yet given them an explicit answer or redesigned their role around it.</p>
+        <p class="s-tell">Tell: "We're running AI SDR tests and hybrid outreach. Still figuring out the right model."</p>
+      </div>
+      <div class="stage">
+        <div class="stage-head"><div class="s-num">3</div><div class="s-title">Embedding</div></div>
+        <p class="s-body">AI is workflow-level: researching accounts, qualifying leads, updating CRM, routing deals, and running outreach plays autonomously. Sellers have explicit reinvestment targets for AI-freed time — redirected to discovery quality, multi-threaded relationship building, and enterprise navigation. The discovery call's purpose has been redefined: it's validation and context-adding, not information delivery. You measure seller activity quality, not just volume.</p>
+        <p class="s-tell">Tell: "AI runs the workflow. Reps focus on validation, relationship depth, and complex deals."</p>
+      </div>
+      <div class="stage">
+        <div class="stage-head"><div class="s-num">4</div><div class="s-title">Leading</div></div>
+        <p class="s-body">AI handles the full top-of-funnel at scale: processing 1,000+ contacts daily, adapting messaging based on engagement signals, escalating to a human at the right threshold. Sellers are expert validators and relationship depth builders — the trust layer in a world where buyers arrive having done AI research. Your AI system compounds every quarter through closed-loop learning: every interaction updates the next prospecting decision. CRM, conversation intelligence, and forecasting are connected.</p>
+        <p class="s-tell">Tell: "AI runs top-of-funnel. Reps are expert validators. The system compounds quarter over quarter."</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="s-label">Frontier Signals</div>
+    <h2>Where best practice is moving</h2>
+    <p class="section-intro">Synthesised from the most recent and impactful content in the Sales category.</p>
+    <div class="signals">
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">69% of B2B buyers validate AI research with a sales rep. The meeting is now validation, not discovery.</div>
+          <p class="sig-body">Gartner data from the CSO & Sales Leader Conference settles the replacement question: the rep meeting hasn't become redundant, but its function has changed fundamentally. Buyers arrive better-informed than ever — having done multi-turn AI research sessions before the first sales meeting. What sellers are needed for is validating that information, adding context the AI couldn't access, and providing the human accountability that makes a purchasing decision feel safe. Sales teams that retrain around this function will outperform those still running product-feature demos at buyers who already know the product.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-sa16">Gartner</a></div>
+        </div>
+      </div>
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">AI saves 5 hours per seller per week. 72% of sales teams waste it.</div>
+          <p class="sig-body">Gartner's CSO conference data frames the core problem precisely: AI is delivering time savings, but those savings default to administrative tasks and lower-value work unless the organisation actively redesigns seller workflows to redirect them. The organisations that do reinvest AI time savings are 2.2× more likely to exceed customer growth goals and 3.1× more likely to exceed lead-to-opportunity conversion goals. The reinvestment problem — not the adoption problem — is where 2026 sales advantage is being built or lost.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-sa15">Gartner</a></div>
+        </div>
+      </div>
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">22% of teams replaced SDRs with AI. Only 2% made it stick.</div>
+          <p class="sig-body">The deployment rate looks like momentum. The success rate looks like a problem. AI SDRs excel at volume — executing 500 to 2,000 personalised sequences per day. They fail at relationship context, enterprise navigation, live objection handling, and multi-threaded champion building. Teams that succeed with AI SDRs deploy them precisely: top-of-funnel prospecting and qualification for sub-$5,000 ACV products, with human AEs taking over at the first positive reply. Teams that fail deploy them as a cost-reduction play and discover the tools can't compensate for the relationship depth human SDRs provided.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-sa17">Unify GTM</a></div>
+        </div>
+      </div>
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">The advantage in 2026 isn't AI adoption — it's operationalisation. 87% vs. 24%.</div>
+          <p class="sig-body">87% of sales organisations use AI in some form. Only 24% have implemented agentic, workflow-level AI — the kind that compresses sales cycles by 25% and drives 7–25% revenue gains. The gap between "using AI" (a chat tool, an email drafter) and "compounding AI" (connected to CRM, conversation intelligence, and forecast, with closed-loop learning updating every prospecting decision) is where 2026 competitive differentiation is being built.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-sa10">R-Sun AI</a> &nbsp;·&nbsp; <a href="../index.html#post-sa14">Alta HQ</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="s-label">Priority Actions</div>
+    <h2>Your next move</h2>
+    <p class="section-intro">Locate your maturity stage above, then focus on the actions that move you to the next one.</p>
+    <div class="act-block">
+      <div class="act-label">Stage 1 → 2 &nbsp;·&nbsp; Aware to Piloting</div>
+      <ul class="act-list">
+        <li><span class="dot"></span>Audit your reps' AI time savings. Ask each rep where the saved time is going. If the answer is "more of the same tasks," you have a reinvestment problem — not an adoption problem.</li>
+        <li><span class="dot"></span>Redesign the discovery call's stated purpose. Brief your team: buyers now arrive having done AI research. The meeting is validation and context-adding, not information delivery. What does that call look like?</li>
+        <li><span class="dot"></span>Run a controlled test: one group using AI for outreach and prospecting, one not. Measure response rates, conversion rates, and time-to-first-meeting separately.</li>
+      </ul>
+    </div>
+    <div class="act-block">
+      <div class="act-label">Stage 2 → 3 &nbsp;·&nbsp; Piloting to Embedding</div>
+      <ul class="act-list">
+        <li><span class="dot"></span>Set explicit reinvestment targets for AI-freed time. Define what 3–4 of those hours per seller per week should go toward: deeper account research, multi-threaded champion building, enterprise navigation. Make it measurable.</li>
+        <li><span class="dot"></span>Redesign at least one AI SDR deployment to match the 2% that works: precise deployment at the top of funnel for a specific ACV range, with a clear human handoff trigger at the first positive reply.</li>
+        <li><span class="dot"></span>Connect your AI outreach tools to your CRM. Closed-loop learning — where every interaction updates the next prospecting decision — requires the connection. Without it, AI improves volume but doesn't compound.</li>
+      </ul>
+    </div>
+    <div class="act-block">
+      <div class="act-label">Stage 3 → 4 &nbsp;·&nbsp; Embedding to Leading</div>
+      <ul class="act-list">
+        <li><span class="dot"></span>Evaluate autonomous CRM: Clarify has opened its Agents feature to startups, and Salesforce Agentforce is available at enterprise. Assess whether your CRM is a system of record (where humans update it) or a system of action (where agents research, draft, and update autonomously).</li>
+        <li><span class="dot"></span>Build a signal quality framework for your AI prospecting. Volume is not the win — understanding buyer readiness signals (internal movement, trigger events, urgency indicators) is what separates the 15% AI SDR conversion rate from the 25%+ human rate.</li>
+        <li><span class="dot"></span>Connect all four data layers: CRM, conversation intelligence, forecast, and AI outreach. The compound effect requires the full loop — and most teams are missing at least one connection.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="s-label">Evidence from the Field</div>
+    <h2>Stories behind this playbook</h2>
+    <p class="section-intro">The published posts that informed this synthesis.</p>
+    <div class="ev-grid">
+      <a class="ev-item" href="../index.html#post-sa15">
+        <div><div class="ev-title">AI saves sellers 5 hours a week. 72% of sales teams waste it.</div><div class="ev-meta">note &nbsp;·&nbsp; Gartner &nbsp;·&nbsp; May 23, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-sa16">
+        <div><div class="ev-title">69% of B2B buyers still validate AI research with a sales rep. That's not declining.</div><div class="ev-meta">note &nbsp;·&nbsp; Gartner &nbsp;·&nbsp; May 23, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-sa17">
+        <div><div class="ev-title">22% of sales teams replaced SDRs with AI. Only 2% made it stick.</div><div class="ev-meta">note &nbsp;·&nbsp; Unify GTM &nbsp;·&nbsp; May 23, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-sa10">
+        <div><div class="ev-title">87% of sales teams use AI. Only 24% have the kind that compounds.</div><div class="ev-meta">note &nbsp;·&nbsp; R-Sun AI &nbsp;·&nbsp; May 21, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-sa19">
+        <div><div class="ev-title">AI can match the filters. It can't tell you why this account matters right now.</div><div class="ev-meta">note &nbsp;·&nbsp; Technori &nbsp;·&nbsp; May 25, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-sa20">
+        <div><div class="ev-title">Autonomous CRM is no longer enterprise-only. Clarify opens its Agents feature to early access.</div><div class="ev-meta">note &nbsp;·&nbsp; Clarify &nbsp;·&nbsp; May 25, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-sa12">
+        <div><div class="ev-title">AI outreach agents: what they actually do, and what reps do instead</div><div class="ev-meta">note &nbsp;·&nbsp; Monday CRM Blog &nbsp;·&nbsp; May 22, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand">Product Genesis</div>
+    <div class="f-note">Regenerated each publish run &nbsp;·&nbsp; Offline — not yet published</div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Playbooks — Product Genesis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff; --bg-2: #f3f6fb; --bg-3: #e4ecf6;
+      --ink: #14244C; --ink-soft: rgba(20,36,76,.70); --ink-mute: rgba(20,36,76,.46);
+      --rule: rgba(20,36,76,.14); --accent: #4A95D0; --accent-soft: rgba(74,149,208,.14);
+      --radius: 14px; --radius-sm: 10px; --pad: clamp(20px,4vw,56px); --maxw: 800px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--bg); color: var(--ink); font-family: "Poppins", ui-sans-serif, sans-serif; font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+    nav { border-bottom: 1px solid var(--rule); padding: 18px 0; }
+    nav .wrap { display: flex; align-items: center; gap: 10px; }
+    nav a { color: var(--accent); text-decoration: none; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing:.04em; }
+    nav a:hover { text-decoration: underline; }
+    .sep { color: var(--ink-mute); font-size: 11px; }
+    .crumb { color: var(--ink-mute); font-family: "JetBrains Mono", monospace; font-size: 11px; }
+    .hero { padding: 52px 0 44px; border-bottom: 1px solid var(--rule); }
+    .tag { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing:.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+    .hero h1 { font-size: clamp(26px,4vw,40px); font-weight: 700; line-height: 1.15; margin-bottom: 12px; }
+    .hero-dek { font-size: 16px; font-weight: 300; color: var(--ink-soft); max-width: 560px; margin-bottom: 20px; line-height: 1.65; }
+    .hero-meta { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; padding: 44px 0 60px; }
+    .card { background: var(--bg-2); border-radius: var(--radius); padding: 28px 28px 22px; text-decoration: none; display: flex; flex-direction: column; gap: 8px; transition: background .15s; }
+    .card:hover { background: var(--bg-3); }
+    .card-num { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing:.1em; text-transform: uppercase; color: var(--accent); }
+    .card-title { font-weight: 700; font-size: 18px; color: var(--ink); line-height: 1.2; }
+    .card-role { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); margin-top: 2px; }
+    .card-dek { font-size: 13px; color: var(--ink-soft); line-height: 1.6; margin-top: 6px; }
+    .card-cta { margin-top: 16px; font-size: 12px; font-weight: 500; color: var(--accent); }
+    footer { border-top: 1px solid var(--rule); padding: 32px 0; }
+    footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .f-brand { font-weight: 600; font-size: 13px; }
+    .f-note { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="../index.html">Product Genesis</a>
+    <span class="sep">/</span>
+    <span class="crumb">AI Playbooks</span>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="tag">AI Action Plans</div>
+    <h1>Function-by-Function AI Playbooks</h1>
+    <p class="hero-dek">Where does your function stand against industry best practice? Each playbook synthesises what the best practitioners are doing now — and what your next move should be.</p>
+    <div class="hero-meta">Updated each publish run &nbsp;·&nbsp; Offline — not yet published publicly</div>
+  </div>
+
+  <div class="grid">
+    <a class="card" href="vision.html">
+      <div class="card-num">01 &nbsp;·&nbsp; Vision</div>
+      <div class="card-title">Vision &amp; Product Strategy</div>
+      <div class="card-role">CPO · VP Product · Head of Product</div>
+      <p class="card-dek">Speed of execution is table stakes. Strategic judgment — choosing what matters — is the only edge AI doesn't compress.</p>
+      <div class="card-cta">Open playbook →</div>
+    </a>
+    <a class="card" href="strategy.html">
+      <div class="card-num">02 &nbsp;·&nbsp; Strategy</div>
+      <div class="card-title">Strategy &amp; Competitive Positioning</div>
+      <div class="card-role">CEO · CPO · Chief Strategy Officer</div>
+      <p class="card-dek">AI is commoditising execution advantages faster than most boards realise. The three moats that actually compound are different from the ones you've been building.</p>
+      <div class="card-cta">Open playbook →</div>
+    </a>
+    <a class="card" href="development.html">
+      <div class="card-num">03 &nbsp;·&nbsp; Development</div>
+      <div class="card-title">Engineering &amp; Development</div>
+      <div class="card-role">CTO · VP Engineering · Head of Engineering</div>
+      <p class="card-dek">57% of teams have agents in production. The bottleneck has shifted from capability to quality — and most teams have eval or observability, not both.</p>
+      <div class="card-cta">Open playbook →</div>
+    </a>
+    <a class="card" href="marketing.html">
+      <div class="card-num">04 &nbsp;·&nbsp; Marketing</div>
+      <div class="card-title">Marketing</div>
+      <div class="card-role">CMO · VP Marketing · Head of Demand Gen</div>
+      <p class="card-dek">AI search sends fewer visitors but 4.4× higher engagement value. Most marketing teams are still optimising for the buyer journey that precedes them.</p>
+      <div class="card-cta">Open playbook →</div>
+    </a>
+    <a class="card" href="sales.html">
+      <div class="card-num">05 &nbsp;·&nbsp; Sales</div>
+      <div class="card-title">Sales</div>
+      <div class="card-role">CRO · VP Sales · Head of Sales · RevOps</div>
+      <p class="card-dek">87% of teams use AI. Only 24% have the kind that compounds. And 72% are wasting the 5 hours per seller per week that AI already saves them.</p>
+      <div class="card-cta">Open playbook →</div>
+    </a>
+    <a class="card" href="operations.html">
+      <div class="card-num">06 &nbsp;·&nbsp; Operations</div>
+      <div class="card-title">Operations &amp; AI FinOps</div>
+      <div class="card-role">COO · VP Operations · FinOps Lead</div>
+      <p class="card-dek">Microsoft cancelled most of its Claude Code licences. Uber burned its 2026 AI budget in four months. Cost governance built before scale avoids the incident.</p>
+      <div class="card-cta">Open playbook →</div>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand">Product Genesis</div>
+    <div class="f-note">Regenerated each publish run &nbsp;·&nbsp; Offline — not yet published</div>
+  </div>
+</footer>
+
+</body>
+</html>

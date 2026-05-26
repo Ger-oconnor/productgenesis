@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strategy AI Playbook — Product Genesis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff; --bg-2: #f3f6fb; --bg-3: #e4ecf6;
+      --ink: #14244C; --ink-soft: rgba(20,36,76,.70); --ink-mute: rgba(20,36,76,.46);
+      --rule: rgba(20,36,76,.14); --accent: #4A95D0; --accent-soft: rgba(74,149,208,.14);
+      --radius: 14px; --radius-sm: 10px; --pad: clamp(20px,4vw,56px); --maxw: 800px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--bg); color: var(--ink); font-family: "Poppins", ui-sans-serif, sans-serif; font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+    nav { border-bottom: 1px solid var(--rule); padding: 18px 0; }
+    nav .wrap { display: flex; align-items: center; gap: 10px; }
+    nav a { color: var(--accent); text-decoration: none; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing:.04em; }
+    nav a:hover { text-decoration: underline; }
+    .sep { color: var(--ink-mute); font-size: 11px; }
+    .crumb { color: var(--ink-mute); font-family: "JetBrains Mono", monospace; font-size: 11px; }
+    .hero { padding: 52px 0 44px; border-bottom: 1px solid var(--rule); }
+    .tag { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing:.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+    .hero h1 { font-size: clamp(24px,4vw,38px); font-weight: 700; line-height: 1.15; margin-bottom: 10px; }
+    .hero-role { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--ink-mute); margin-bottom: 18px; }
+    .hero-dek { font-size: 16px; font-weight: 300; color: var(--ink-soft); max-width: 580px; margin-bottom: 20px; line-height: 1.65; }
+    .hero-meta { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+    .section { padding: 44px 0; border-bottom: 1px solid var(--rule); }
+    .section:last-child { border-bottom: none; padding-bottom: 60px; }
+    .s-label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing:.12em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 6px; }
+    .section h2 { font-size: 19px; font-weight: 600; margin-bottom: 6px; }
+    .section-intro { font-size: 13px; color: var(--ink-soft); margin-bottom: 28px; max-width: 560px; }
+    .stages { display: flex; flex-direction: column; gap: 2px; }
+    .stage { background: var(--bg-2); padding: 22px 26px; }
+    .stage:first-child { border-radius: var(--radius) var(--radius) 0 0; }
+    .stage:last-child { border-radius: 0 0 var(--radius) var(--radius); background: var(--ink); }
+    .stage-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .s-num { width: 26px; height: 26px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .stage:last-child .s-num { background: rgba(74,149,208,.22); color: #88c0ea; }
+    .s-title { font-weight: 600; font-size: 14px; }
+    .stage:last-child .s-title { color: #eef3fb; }
+    .s-body { font-size: 13px; color: var(--ink-soft); line-height: 1.65; margin-bottom: 10px; }
+    .stage:last-child .s-body { color: rgba(238,243,251,.70); }
+    .s-tell { font-size: 12px; color: var(--ink-mute); font-style: italic; }
+    .stage:last-child .s-tell { color: rgba(238,243,251,.46); }
+    .signals { display: flex; flex-direction: column; gap: 22px; }
+    .signal { display: grid; grid-template-columns: 3px 1fr; gap: 18px; }
+    .s-bar { background: var(--accent); border-radius: 2px; min-height: 50px; }
+    .sig-head { font-weight: 600; font-size: 13px; margin-bottom: 4px; line-height: 1.4; }
+    .sig-body { font-size: 13px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 6px; }
+    .sig-src { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+    .sig-src a { color: var(--accent); text-decoration: none; }
+    .sig-src a:hover { text-decoration: underline; }
+    .act-block { margin-bottom: 24px; }
+    .act-label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing:.1em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+    .act-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .act-list li { display: flex; gap: 10px; font-size: 13px; color: var(--ink-soft); line-height: 1.55; }
+    .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 9px; }
+    .ev-grid { display: flex; flex-direction: column; gap: 8px; }
+    .ev-item { background: var(--bg-2); border-radius: var(--radius-sm); padding: 13px 18px; display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; text-decoration: none; transition: background .15s; }
+    .ev-item:hover { background: var(--bg-3); }
+    .ev-title { font-size: 13px; font-weight: 500; color: var(--ink); line-height: 1.35; margin-bottom: 2px; }
+    .ev-meta { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+    .ev-arr { color: var(--ink-mute); font-size: 13px; }
+    footer { border-top: 1px solid var(--rule); padding: 32px 0; }
+    footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .f-brand { font-weight: 600; font-size: 13px; }
+    .f-note { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="../index.html">Product Genesis</a>
+    <span class="sep">/</span>
+    <span class="crumb">Strategy Playbook</span>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="tag">AI Action Plan · Strategy</div>
+    <h1>Strategy &amp; Competitive Positioning</h1>
+    <div class="hero-role">For: CEO · CPO · Chief Strategy Officer · General Manager</div>
+    <p class="hero-dek">AI is commoditising execution advantages faster than most boards realise. The moats that matter now are different from the ones you've spent years building — and the window to build new ones is closing.</p>
+    <div class="hero-meta">Last updated: May 26, 2026 &nbsp;·&nbsp; Synthesised from 10 published posts</div>
+  </div>
+
+  <div class="section">
+    <div class="s-label">Maturity Framework</div>
+    <h2>Where does your function stand?</h2>
+    <p class="section-intro">Four stages of AI strategy maturity. The question isn't whether you're using AI — it's whether the advantage you're building compounds over time.</p>
+    <div class="stages">
+      <div class="stage">
+        <div class="stage-head"><div class="s-num">1</div><div class="s-title">Aware</div></div>
+        <p class="s-body">You track AI competitor moves and have an AI strategy section in your board deck. Your team uses AI tools and you've approved internal experiments. But you haven't yet audited which of your existing competitive advantages are defensible against AI pressure — and which are quietly eroding.</p>
+        <p class="s-tell">Tell: "We have an AI strategy. We're watching what competitors do."</p>
+      </div>
+      <div class="stage">
+        <div class="stage-head"><div class="s-num">2</div><div class="s-title">Piloting</div></div>
+        <p class="s-body">You've identified 2–3 AI use cases and are building business cases for them. You understand that some existing moats are under pressure but haven't yet mapped which ones specifically. You're watching whether to build or buy, which model to use, which use case to prioritise — but haven't committed to a structural answer.</p>
+        <p class="s-tell">Tell: "We're building business cases and watching which bets hold up."</p>
+      </div>
+      <div class="stage">
+        <div class="stage-head"><div class="s-num">3</div><div class="s-title">Embedding</div></div>
+        <p class="s-body">You've audited your existing moats against AI pressure and identified which are eroding (seat-based licenses, workflow automation built on human labour) and which are holding (network effects, proprietary data). You're actively building one of the three durable AI advantages. Your AI investments have a clear "why this compounds" logic, not just a "why this is efficient" logic.</p>
+        <p class="s-tell">Tell: "We know which moats hold and we're compounding one of them."</p>
+      </div>
+      <div class="stage">
+        <div class="stage-head"><div class="s-num">4</div><div class="s-title">Leading</div></div>
+        <p class="s-body">Your AI advantage is one of the three durable types: proprietary data that improves with use, organisational velocity where AI is embedded in decision-making workflows, or physical-world integration that software alone can't replicate. You've designed your operating model for autonomous execution — humans set direction, AI executes — and built the governance infrastructure that makes that trustworthy. You have a genuine, defensible point of view your product stands for that AI can't generate.</p>
+        <p class="s-tell">Tell: "Our AI advantage compounds. Competitors can't replicate it by buying a better model."</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="s-label">Frontier Signals</div>
+    <h2>Where best practice is moving</h2>
+    <p class="section-intro">Synthesised from the most recent and impactful content in the Strategy category.</p>
+    <div class="signals">
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">Enterprise AI is no longer piloting. KPMG: 276,000 people. EY: $1B over five years.</div>
+          <p class="sig-body">The largest professional services firms have stopped evaluating AI integration and committed to it as operating infrastructure. PwC, KPMG, EY, and Deloitte have all made firm-wide strategic commitments in the past 60 days. For enterprise product teams selling to these firms, the baseline expectation for AI integration is rising with every partnership. The "exploring AI" positioning that was credible in 2024 is no longer credible in this environment.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-s17">Anthropic / KPMG</a> &nbsp;·&nbsp; <a href="../index.html#post-s21">Microsoft News / EY</a></div>
+        </div>
+      </div>
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">Three types of AI moats actually compound. Most strategies are building none of them.</div>
+          <p class="sig-body">McKinsey's analysis identifies the three mechanisms through which AI advantage compounds: Amazon's proprietary data flywheel (every transaction generates signal competitors can't access), DBS Bank's organisational velocity (AI embedded so deeply in decision workflows that competitive speed is structural, not technical), and John Deere's physical-world integration (training data that requires an equipment fleet to collect). When a competitor accesses the same foundation model next month, these three things are what your product still has.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-s22">McKinsey & Company</a></div>
+        </div>
+      </div>
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">SAP named the next era: the Autonomous Enterprise. Humans govern. AI executes.</div>
+          <p class="sig-body">SAP — with 300 million users across every major industry — restructured its keynote around a precise operating model: AI agents execute core business workflows while human teams set strategic direction and govern outcomes. This isn't a vision statement; it's a product architecture decision. Teams still designing for AI-assisted workflows are designing for a model their platform vendors have already moved past. The governance layer — approval workflows, rollback capabilities, audit trails — is now as important as the execution layer.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-s19">SAP · YouTube</a></div>
+        </div>
+      </div>
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">Point of view is the only moat AI can't commoditise. Most products don't have one.</div>
+          <p class="sig-body">In a market where every team accesses the same models and synthesises the same public data, a genuine, intellectually defensible position creates pricing power, simplifies messaging, and filters for aligned clients. A positioning statement is not a point of view. The test: when a well-resourced competitor builds the same capabilities in 90 days, what does your product still stand for that they don't?</p>
+          <div class="sig-src">Source: <a href="../index.html#post-s13">Greenbook</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="s-label">Priority Actions</div>
+    <h2>Your next move</h2>
+    <p class="section-intro">Locate your maturity stage above, then focus on the actions that move you to the next one.</p>
+    <div class="act-block">
+      <div class="act-label">Stage 1 → 2 &nbsp;·&nbsp; Aware to Piloting</div>
+      <ul class="act-list">
+        <li><span class="dot"></span>Answer one question honestly: when a competitor has the same model access next month, what does your product still have that they don't? If the answer is "nothing yet," that's your strategic priority.</li>
+        <li><span class="dot"></span>Run the Morningstar moat audit on your business: which of your competitive advantages are built on human labour and workflow clicks (collapsing under AI), versus network effects and proprietary data (holding)?</li>
+        <li><span class="dot"></span>Stop treating AI strategy and product strategy as separate conversations. Schedule one combined session.</li>
+      </ul>
+    </div>
+    <div class="act-block">
+      <div class="act-label">Stage 2 → 3 &nbsp;·&nbsp; Piloting to Embedding</div>
+      <ul class="act-list">
+        <li><span class="dot"></span>Pick one durable advantage to compound. Data flywheel, org velocity, or physical-world integration — and start generating that asset deliberately, not as a by-product.</li>
+        <li><span class="dot"></span>Define your product's genuine point of view. Not a positioning statement — a specific intellectual position on how the problem should be solved that AI can't generate and competitors can't copy in a sprint.</li>
+        <li><span class="dot"></span>Map your existing enterprise relationships. If your buyers are inside KPMG, EY, or PwC ecosystems, the AI model they've committed to is now a decision factor for your integration story.</li>
+      </ul>
+    </div>
+    <div class="act-block">
+      <div class="act-label">Stage 3 → 4 &nbsp;·&nbsp; Embedding to Leading</div>
+      <ul class="act-list">
+        <li><span class="dot"></span>Design your operating model for the Autonomous Enterprise framing: humans set direction, AI executes. Which of your core business workflows can be redesigned for agent execution with human governance?</li>
+        <li><span class="dot"></span>Build the governance infrastructure alongside the execution layer. Approval workflows, rollback capabilities, audit trails. Autonomous execution without governance is a compliance risk, not a productivity win.</li>
+        <li><span class="dot"></span>Assess whether your AI advantage is replicable. If a well-resourced competitor can match it by buying a better model in Q3, it's not a moat — it's table stakes.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="s-label">Evidence from the Field</div>
+    <h2>Stories behind this playbook</h2>
+    <p class="section-intro">The published posts that informed this synthesis.</p>
+    <div class="ev-grid">
+      <a class="ev-item" href="../index.html#post-s22">
+        <div><div class="ev-title">McKinsey: the three types of AI advantage that compound — and what Amazon, DBS, and John Deere built</div><div class="ev-meta">essay &nbsp;·&nbsp; McKinsey & Company &nbsp;·&nbsp; May 25, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-s19">
+        <div><div class="ev-title">SAP Sapphire 2026: 'People set the direction. AI executes.' That's the new enterprise operating model.</div><div class="ev-meta">essay &nbsp;·&nbsp; SAP · YouTube &nbsp;·&nbsp; May 23, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-s13">
+        <div><div class="ev-title">When AI commoditises research, point of view is the only moat left</div><div class="ev-meta">essay &nbsp;·&nbsp; Greenbook &nbsp;·&nbsp; May 22, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-s17">
+        <div><div class="ev-title">KPMG is deploying Claude to 276,000 people. That's not a pilot.</div><div class="ev-meta">note &nbsp;·&nbsp; Anthropic &nbsp;·&nbsp; May 23, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-s21">
+        <div><div class="ev-title">Microsoft and EY commit $1B to move enterprise AI from experimentation to production</div><div class="ev-meta">note &nbsp;·&nbsp; Microsoft News &nbsp;·&nbsp; May 25, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-s14">
+        <div><div class="ev-title">Which moats survive AI? Morningstar's data tells you what to build — and what to avoid.</div><div class="ev-meta">note &nbsp;·&nbsp; Morningstar &nbsp;·&nbsp; May 22, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-s15">
+        <div><div class="ev-title">Same category, same model access. One was copied in 90 days. The other wasn't.</div><div class="ev-meta">note &nbsp;·&nbsp; Codurance &nbsp;·&nbsp; May 22, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand">Product Genesis</div>
+    <div class="f-note">Regenerated each publish run &nbsp;·&nbsp; Offline — not yet published</div>
+  </div>
+</footer>
+
+</body>
+</html>

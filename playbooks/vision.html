@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vision AI Playbook — Product Genesis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff; --bg-2: #f3f6fb; --bg-3: #e4ecf6;
+      --ink: #14244C; --ink-2: #1f2f5a;
+      --ink-soft: rgba(20,36,76,.70); --ink-mute: rgba(20,36,76,.46);
+      --rule: rgba(20,36,76,.14); --accent: #4A95D0;
+      --accent-soft: rgba(74,149,208,.14);
+      --radius: 14px; --radius-sm: 10px;
+      --pad: clamp(20px,4vw,56px); --maxw: 800px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--bg); color: var(--ink); font-family: "Poppins", ui-sans-serif, sans-serif; font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+
+    /* Nav */
+    nav { border-bottom: 1px solid var(--rule); padding: 18px 0; }
+    nav .wrap { display: flex; align-items: center; gap: 10px; }
+    nav a { color: var(--accent); text-decoration: none; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing:.04em; }
+    nav a:hover { text-decoration: underline; }
+    .sep { color: var(--ink-mute); font-size: 11px; }
+    .crumb { color: var(--ink-mute); font-family: "JetBrains Mono", monospace; font-size: 11px; }
+
+    /* Hero */
+    .hero { padding: 52px 0 44px; border-bottom: 1px solid var(--rule); }
+    .tag { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing:.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+    .hero h1 { font-size: clamp(24px,4vw,38px); font-weight: 700; line-height: 1.15; margin-bottom: 10px; }
+    .hero-role { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--ink-mute); margin-bottom: 18px; }
+    .hero-dek { font-size: 16px; font-weight: 300; color: var(--ink-soft); max-width: 580px; margin-bottom: 20px; line-height: 1.65; }
+    .hero-meta { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+
+    /* Sections */
+    .section { padding: 44px 0; border-bottom: 1px solid var(--rule); }
+    .section:last-child { border-bottom: none; padding-bottom: 60px; }
+    .s-label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing:.12em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 6px; }
+    .section h2 { font-size: 19px; font-weight: 600; margin-bottom: 6px; }
+    .section-intro { font-size: 13px; color: var(--ink-soft); margin-bottom: 28px; max-width: 560px; }
+
+    /* Maturity stages */
+    .stages { display: flex; flex-direction: column; gap: 2px; }
+    .stage { background: var(--bg-2); padding: 22px 26px; }
+    .stage:first-child { border-radius: var(--radius) var(--radius) 0 0; }
+    .stage:last-child { border-radius: 0 0 var(--radius) var(--radius); background: var(--ink); }
+    .stage-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .s-num { width: 26px; height: 26px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .stage:last-child .s-num { background: rgba(74,149,208,.22); color: #88c0ea; }
+    .s-title { font-weight: 600; font-size: 14px; }
+    .stage:last-child .s-title { color: #eef3fb; }
+    .s-body { font-size: 13px; color: var(--ink-soft); line-height: 1.65; margin-bottom: 10px; }
+    .stage:last-child .s-body { color: rgba(238,243,251,.70); }
+    .s-tell { font-size: 12px; color: var(--ink-mute); font-style: italic; }
+    .stage:last-child .s-tell { color: rgba(238,243,251,.46); }
+
+    /* Signals */
+    .signals { display: flex; flex-direction: column; gap: 22px; }
+    .signal { display: grid; grid-template-columns: 3px 1fr; gap: 18px; }
+    .s-bar { background: var(--accent); border-radius: 2px; min-height: 50px; }
+    .sig-head { font-weight: 600; font-size: 13px; margin-bottom: 4px; line-height: 1.4; }
+    .sig-body { font-size: 13px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 6px; }
+    .sig-src { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+    .sig-src a { color: var(--accent); text-decoration: none; }
+    .sig-src a:hover { text-decoration: underline; }
+
+    /* Actions */
+    .act-block { margin-bottom: 24px; }
+    .act-label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing:.1em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+    .act-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .act-list li { display: flex; gap: 10px; font-size: 13px; color: var(--ink-soft); line-height: 1.55; }
+    .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 9px; }
+
+    /* Evidence */
+    .ev-grid { display: flex; flex-direction: column; gap: 8px; }
+    .ev-item { background: var(--bg-2); border-radius: var(--radius-sm); padding: 13px 18px; display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; text-decoration: none; transition: background .15s; }
+    .ev-item:hover { background: var(--bg-3); }
+    .ev-title { font-size: 13px; font-weight: 500; color: var(--ink); line-height: 1.35; margin-bottom: 2px; }
+    .ev-meta { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+    .ev-arr { color: var(--ink-mute); font-size: 13px; }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--rule); padding: 32px 0; }
+    footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .f-brand { font-weight: 600; font-size: 13px; }
+    .f-note { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="../index.html">Product Genesis</a>
+    <span class="sep">/</span>
+    <span class="crumb">Vision Playbook</span>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="tag">AI Action Plan · Vision</div>
+    <h1>Vision &amp; Product Strategy</h1>
+    <div class="hero-role">For: CPO · VP Product · Head of Product Design · Senior PM</div>
+    <p class="hero-dek">Speed of execution is now table stakes. Strategic judgment — choosing what matters and making it mean something — is the only edge AI doesn't compress.</p>
+    <div class="hero-meta">Last updated: May 26, 2026 &nbsp;·&nbsp; Synthesised from 10 published posts</div>
+  </div>
+
+  <!-- MATURITY -->
+  <div class="section">
+    <div class="s-label">Maturity Framework</div>
+    <h2>Where does your function stand?</h2>
+    <p class="section-intro">Four stages of AI maturity for product leaders. Read each and locate yourself honestly — not aspirationally.</p>
+    <div class="stages">
+      <div class="stage">
+        <div class="stage-head">
+          <div class="s-num">1</div>
+          <div class="s-title">Aware</div>
+        </div>
+        <p class="s-body">Your team uses AI tools individually — faster first drafts, research summaries, meeting notes, spec generation. AI makes people more productive but hasn't changed how the product function operates. Your roadmap process, discovery methodology, and decision-making structure are the same as they were two years ago.</p>
+        <p class="s-tell">Tell: "We've added AI tools to our PM workflow and saved time on admin tasks."</p>
+      </div>
+      <div class="stage">
+        <div class="stage-head">
+          <div class="s-num">2</div>
+          <div class="s-title">Piloting</div>
+        </div>
+        <p class="s-body">You've shipped AI features and started redesigning some discovery workflows around AI synthesis. Cycle times have improved. PMs are using AI earlier in the discovery process. But the split between "product that uses AI" and "product that is AI" hasn't been addressed at the strategic level — your product still has AI as a feature layer, not as its core.</p>
+        <p class="s-tell">Tell: "We've shipped AI features and our PMs use AI in discovery. Cycles are faster."</p>
+      </div>
+      <div class="stage">
+        <div class="stage-head">
+          <div class="s-num">3</div>
+          <div class="s-title">Embedding</div>
+        </div>
+        <p class="s-body">Your product strategy process has been redesigned around AI, not just assisted by it. You've articulated where your product is "AI as the product" versus "AI as a feature" and made architectural decisions accordingly. Agentic playbooks run in discovery and development. You measure outcomes, not AI tool adoption. Execution has been handed to AI; judgment is what PMs bring.</p>
+        <p class="s-tell">Tell: "Our PMs focus on judgment and strategy. Execution throughput is AI's job."</p>
+      </div>
+      <div class="stage">
+        <div class="stage-head">
+          <div class="s-num">4</div>
+          <div class="s-title">Leading</div>
+        </div>
+        <p class="s-body">Product strategy and AI strategy are indistinguishable. Your product is AI — the intelligence layer is the experience, not a feature layered onto it. You're designing for generative UI, questioning every static information architecture, and building toward interfaces that adapt at runtime. Your PMs are strategic architects who think in systems, not in features.</p>
+        <p class="s-tell">Tell: "Our product is AI. Strategy and AI strategy are one conversation."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRONTIER -->
+  <div class="section">
+    <div class="s-label">Frontier Signals</div>
+    <h2>Where best practice is moving</h2>
+    <p class="section-intro">Synthesised from the most recent and impactful content in the Vision category.</p>
+    <div class="signals">
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">94% of PMs use AI daily. 95% of enterprise AI pilots still fail to deliver ROI.</div>
+          <p class="sig-body">Tool adoption is at an all-time high. Practice transformation is not keeping pace. The PMs who are compressing cycles are the ones who redesigned the work itself — not the ones who bolted AI onto existing processes. The "architect of impact" function — connecting business outcomes to product decisions clearly — is now the primary differentiator, and AI doesn't compress it.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-v20">Ant Murphy · Medium</a></div>
+        </div>
+      </div>
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">Google I/O 2026: AI stopped being a feature. It became the product.</div>
+          <p class="sig-body">Every Google surface now runs on the same intelligence layer. More critically: Generative UI is rolling out to Search this summer — interfaces that adapt at runtime based on context and intent. Static page architecture is no longer a design choice; it's a design constraint relative to competitors who've removed it. The product design question is no longer "how do we add AI?" but "how do we design for AI execution?"</p>
+          <div class="sig-src">Source: <a href="../index.html#post-v17">Data Science Collective · Medium</a></div>
+        </div>
+      </div>
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">AI removes the cover of execution busyness — and exposes what's underneath.</div>
+          <p class="sig-body">The PM role isn't dying because it's irreplaceable. It's protected because AI is commoditising execution, not direction. PMs who built value around process throughput — artefact volume, coordination, requirements documentation — have lost their cover. PMs whose value was always in framing and judgment have more leverage, not less. The pruning is happening along that line.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-v22">Edi Sipka · Medium</a></div>
+        </div>
+      </div>
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">Agentic playbooks compress 10-day product cycles to 3–4 days.</div>
+          <p class="sig-body">The teams doing this aren't just using AI tools — they've redesigned how discovery happens, how requirements get written, and how the product team communicates. The constraint has moved from information gathering to judgment: what to build, why now, what trade-off to accept. Teams still at the tool adoption stage are widening the gap with teams at the practice redesign stage every week.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-v14">Next Gen Product Manager</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="section">
+    <div class="s-label">Priority Actions</div>
+    <h2>Your next move</h2>
+    <p class="section-intro">Locate your maturity stage above, then focus on the actions that move you to the next one.</p>
+
+    <div class="act-block">
+      <div class="act-label">Stage 1 → 2 &nbsp;·&nbsp; Aware to Piloting</div>
+      <ul class="act-list">
+        <li><span class="dot"></span>Audit your team's AI usage. Separate "faster output" (execution throughput) from "better decisions" (strategic judgment). Most teams are almost entirely in the first category.</li>
+        <li><span class="dot"></span>Run at least one product discovery process redesigned around AI synthesis — not assisted by it. Can AI handle the research synthesis? What does the PM actually add when it does?</li>
+        <li><span class="dot"></span>Set a cycle time benchmark now. You need a baseline before you can measure the change that agentic playbooks create.</li>
+      </ul>
+    </div>
+    <div class="act-block">
+      <div class="act-label">Stage 2 → 3 &nbsp;·&nbsp; Piloting to Embedding</div>
+      <ul class="act-list">
+        <li><span class="dot"></span>Define explicitly what "product that is AI" means for your specific product — not as a positioning statement, but as an architectural decision. What changes about the interface, the data model, the delivery mechanism?</li>
+        <li><span class="dot"></span>Redesign at least one PM role around strategic judgment, not execution throughput. What does that PM's day look like when AI handles the artefacts?</li>
+        <li><span class="dot"></span>Establish agentic playbooks for discovery and requirements. Target 10-day cycles compressing to 3–4 days within two quarters.</li>
+      </ul>
+    </div>
+    <div class="act-block">
+      <div class="act-label">Stage 3 → 4 &nbsp;·&nbsp; Embedding to Leading</div>
+      <ul class="act-list">
+        <li><span class="dot"></span>Question every static information architecture in your product. Which interfaces should adapt at runtime? Start with one surface and design for generative UI.</li>
+        <li><span class="dot"></span>Review your product strategy and AI strategy. Are they the same document or two separate conversations? If separate, that's the gap to close.</li>
+        <li><span class="dot"></span>Map your team's skill profile. How many of your senior PMs are strategic architects who think in systems? That's the capability to grow — not execution throughput.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- EVIDENCE -->
+  <div class="section">
+    <div class="s-label">Evidence from the Field</div>
+    <h2>Stories behind this playbook</h2>
+    <p class="section-intro">The published posts that informed this synthesis. Read the ones most relevant to your current stage.</p>
+    <div class="ev-grid">
+      <a class="ev-item" href="../index.html#post-v20">
+        <div><div class="ev-title">94% of PMs use AI daily. 95% of enterprise AI pilots still fail to deliver ROI.</div><div class="ev-meta">essay &nbsp;·&nbsp; Ant Murphy · Medium &nbsp;·&nbsp; May 25, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-v22">
+        <div><div class="ev-title">The PM's job isn't dying. But what it was covering for is being exposed.</div><div class="ev-meta">note &nbsp;·&nbsp; Edi Sipka · Medium &nbsp;·&nbsp; May 25, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-v17">
+        <div><div class="ev-title">Google I/O 2026: AI stopped being a feature. It became the product.</div><div class="ev-meta">essay &nbsp;·&nbsp; Data Science Collective &nbsp;·&nbsp; May 23, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-v14">
+        <div><div class="ev-title">Agentic AI has already changed how PMs work. Most haven't caught up.</div><div class="ev-meta">note &nbsp;·&nbsp; Next Gen Product Manager &nbsp;·&nbsp; May 22, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-v21">
+        <div><div class="ev-title">83% of designers use ChatGPT. More than half are worried it's hurting quality.</div><div class="ev-meta">note &nbsp;·&nbsp; Designlab &nbsp;·&nbsp; May 25, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-v23">
+        <div><div class="ev-title">The creator of Claude Code hasn't written a line of code in 2026</div><div class="ev-meta">video &nbsp;·&nbsp; Sequoia AI Ascent 2026 &nbsp;·&nbsp; May 25, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-v16">
+        <div><div class="ev-title">When AI can make anything, the edge is knowing what matters</div><div class="ev-meta">note &nbsp;·&nbsp; TechRadar Pro &nbsp;·&nbsp; May 23, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand">Product Genesis</div>
+    <div class="f-note">Regenerated each publish run &nbsp;·&nbsp; Offline — not yet published</div>
+  </div>
+</footer>
+
+</body>
+</html>

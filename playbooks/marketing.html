@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketing AI Playbook — Product Genesis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff; --bg-2: #f3f6fb; --bg-3: #e4ecf6;
+      --ink: #14244C; --ink-soft: rgba(20,36,76,.70); --ink-mute: rgba(20,36,76,.46);
+      --rule: rgba(20,36,76,.14); --accent: #4A95D0; --accent-soft: rgba(74,149,208,.14);
+      --radius: 14px; --radius-sm: 10px; --pad: clamp(20px,4vw,56px); --maxw: 800px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--bg); color: var(--ink); font-family: "Poppins", ui-sans-serif, sans-serif; font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+    nav { border-bottom: 1px solid var(--rule); padding: 18px 0; }
+    nav .wrap { display: flex; align-items: center; gap: 10px; }
+    nav a { color: var(--accent); text-decoration: none; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing:.04em; }
+    nav a:hover { text-decoration: underline; }
+    .sep { color: var(--ink-mute); font-size: 11px; }
+    .crumb { color: var(--ink-mute); font-family: "JetBrains Mono", monospace; font-size: 11px; }
+    .hero { padding: 52px 0 44px; border-bottom: 1px solid var(--rule); }
+    .tag { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing:.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+    .hero h1 { font-size: clamp(24px,4vw,38px); font-weight: 700; line-height: 1.15; margin-bottom: 10px; }
+    .hero-role { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--ink-mute); margin-bottom: 18px; }
+    .hero-dek { font-size: 16px; font-weight: 300; color: var(--ink-soft); max-width: 580px; margin-bottom: 20px; line-height: 1.65; }
+    .hero-meta { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+    .section { padding: 44px 0; border-bottom: 1px solid var(--rule); }
+    .section:last-child { border-bottom: none; padding-bottom: 60px; }
+    .s-label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing:.12em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 6px; }
+    .section h2 { font-size: 19px; font-weight: 600; margin-bottom: 6px; }
+    .section-intro { font-size: 13px; color: var(--ink-soft); margin-bottom: 28px; max-width: 560px; }
+    .stages { display: flex; flex-direction: column; gap: 2px; }
+    .stage { background: var(--bg-2); padding: 22px 26px; }
+    .stage:first-child { border-radius: var(--radius) var(--radius) 0 0; }
+    .stage:last-child { border-radius: 0 0 var(--radius) var(--radius); background: var(--ink); }
+    .stage-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .s-num { width: 26px; height: 26px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .stage:last-child .s-num { background: rgba(74,149,208,.22); color: #88c0ea; }
+    .s-title { font-weight: 600; font-size: 14px; }
+    .stage:last-child .s-title { color: #eef3fb; }
+    .s-body { font-size: 13px; color: var(--ink-soft); line-height: 1.65; margin-bottom: 10px; }
+    .stage:last-child .s-body { color: rgba(238,243,251,.70); }
+    .s-tell { font-size: 12px; color: var(--ink-mute); font-style: italic; }
+    .stage:last-child .s-tell { color: rgba(238,243,251,.46); }
+    .signals { display: flex; flex-direction: column; gap: 22px; }
+    .signal { display: grid; grid-template-columns: 3px 1fr; gap: 18px; }
+    .s-bar { background: var(--accent); border-radius: 2px; min-height: 50px; }
+    .sig-head { font-weight: 600; font-size: 13px; margin-bottom: 4px; line-height: 1.4; }
+    .sig-body { font-size: 13px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 6px; }
+    .sig-src { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+    .sig-src a { color: var(--accent); text-decoration: none; }
+    .sig-src a:hover { text-decoration: underline; }
+    .act-block { margin-bottom: 24px; }
+    .act-label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing:.1em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+    .act-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .act-list li { display: flex; gap: 10px; font-size: 13px; color: var(--ink-soft); line-height: 1.55; }
+    .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 9px; }
+    .ev-grid { display: flex; flex-direction: column; gap: 8px; }
+    .ev-item { background: var(--bg-2); border-radius: var(--radius-sm); padding: 13px 18px; display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; text-decoration: none; transition: background .15s; }
+    .ev-item:hover { background: var(--bg-3); }
+    .ev-title { font-size: 13px; font-weight: 500; color: var(--ink); line-height: 1.35; margin-bottom: 2px; }
+    .ev-meta { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+    .ev-arr { color: var(--ink-mute); font-size: 13px; }
+    footer { border-top: 1px solid var(--rule); padding: 32px 0; }
+    footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .f-brand { font-weight: 600; font-size: 13px; }
+    .f-note { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="../index.html">Product Genesis</a>
+    <span class="sep">/</span>
+    <span class="crumb">Marketing Playbook</span>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="tag">AI Action Plan · Marketing</div>
+    <h1>Marketing</h1>
+    <div class="hero-role">For: CMO · VP Marketing · Head of Marketing · Head of Demand Generation</div>
+    <p class="hero-dek">AI search has changed who arrives at your brand. The buyer who finds you through ChatGPT or Perplexity has already completed their research. Most marketing teams are still optimising for the buyer journey that precedes them.</p>
+    <div class="hero-meta">Last updated: May 26, 2026 &nbsp;·&nbsp; Synthesised from 10 published posts</div>
+  </div>
+
+  <div class="section">
+    <div class="s-label">Maturity Framework</div>
+    <h2>Where does your function stand?</h2>
+    <p class="section-intro">Four stages of AI maturity for marketing leaders. The shift from keyword-ranked discovery to AI-cited authority is a structural change — not an update to existing tactics.</p>
+    <div class="stages">
+      <div class="stage">
+        <div class="stage-head"><div class="s-num">1</div><div class="s-title">Aware</div></div>
+        <p class="s-body">Your team uses AI tools for content creation, campaign management, copy drafting, and performance analysis. Efficiency is up. But your marketing strategy is still built for the previous era: SEO-optimised content, keyword-first content planning, and a buyer journey that starts with search and ends with a form fill. You haven't yet measured your brand's AI search presence.</p>
+        <p class="s-tell">Tell: "We use AI to create faster. Our strategy and measurement framework are unchanged."</p>
+      </div>
+      <div class="stage">
+        <div class="stage-head"><div class="s-num">2</div><div class="s-title">Piloting</div></div>
+        <p class="s-body">You've started tracking AI search visibility and know roughly where your brand stands in ChatGPT, Perplexity, and Gemini responses. You've tested AEO content formats and understand that the buyers arriving from AI search are fewer in number but further along in intent. You're running experiments but haven't yet restructured your content strategy or creator relationships around AI discoverability.</p>
+        <p class="s-tell">Tell: "We know our AI search presence and we're testing AEO content. Still building the strategy."</p>
+      </div>
+      <div class="stage">
+        <div class="stage-head"><div class="s-num">3</div><div class="s-title">Embedding</div></div>
+        <p class="s-body">Your marketing stack connects data to AI assistants via MCP — retail media data, campaign performance, audience signals flow directly into the tools your team uses. You have a Creator AEO programme: systematic partnerships with creators whose content AI systems are trained on and cite. AI search referrals are tracked as a separate attribution source with its own conversion funnel. AI-driven personalisation is standard, not experimental.</p>
+        <p class="s-tell">Tell: "Creator AEO is a programme, not an experiment. Our stack is MCP-connected."</p>
+      </div>
+      <div class="stage">
+        <div class="stage-head"><div class="s-num">4</div><div class="s-title">Leading</div></div>
+        <p class="s-body">First-party data connectivity is your primary strategic asset — the infrastructure that enables AI-driven campaigns to outperform at a level competitors with the same model access can't match. Agentic campaign execution is standard: audience discovery, creative testing, and budget reallocation run autonomously within defined parameters. Your marketing team's role has shifted from operating tools to governing systems and setting strategic parameters that agents execute against.</p>
+        <p class="s-tell">Tell: "First-party data is our moat. Agentic execution is standard. We govern, AI executes."</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="s-label">Frontier Signals</div>
+    <h2>Where best practice is moving</h2>
+    <p class="section-intro">Synthesised from the most recent and impactful content in the Marketing category.</p>
+    <div class="signals">
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">Your brand's own site is 5–10% of what AI search references. Creators are the other 90–95%.</div>
+          <p class="sig-body">The Answer Engine Optimisation conversation has focused on what brands can do with their own properties — structured data, authoritative content, specific formats. That focus is misallocated. Creator AEO is the practice of systematically building brand presence in AI search through creator-generated content. Critically, sponsored creator content carries the same citation weight as independent editorial to LLM crawlers — which means the highest-leverage AI search investment is creator partnerships, not owned-property optimisation.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-m22">Later</a></div>
+        </div>
+      </div>
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">AI search sends fewer visitors — but 4.4× higher engagement value and 27% lower bounce rates.</div>
+          <p class="sig-body">AEO isn't SEO with a different acronym. Buyers using ChatGPT or Perplexity have already done multi-turn research before they click anything. By the time they land on your product page, they've evaluated your category, know your competitors, and have a specific question. The conversion funnel built for top-of-funnel awareness doesn't match this buyer. Teams optimising for AEO need content that answers real, specific questions — not content designed to rank for high-volume keywords.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-m14">Highspot</a> &nbsp;·&nbsp; <a href="../index.html#post-m15">Improvado</a></div>
+        </div>
+      </div>
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">The marketing stack is rewiring around MCP. The isolated dashboard era is ending.</div>
+          <p class="sig-body">Pacvue now feeds retail media data — share of voice, ad spend pacing, performance trends — directly to ChatGPT, Claude, Gemini, and Copilot. Adzymic launched AgenX: an autonomous ad layout agent that generates and tests creative variants without human input on each iteration. A marketer can now request a competitive analysis in plain English from their live campaign data, without switching tools. The pattern: data flowing directly into AI assistants rather than sitting in separate dashboards.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-m17">MarTech</a></div>
+        </div>
+      </div>
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">Google rewired Search at I/O. Content designed for the old Search is already misaligned.</div>
+          <p class="sig-body">AI Mode is the default interface, not an opt-in experiment. Information agents now monitor topics 24/7 and surface content proactively. Content designed to rank for keywords now needs to be designed to be cited in an answer — which requires different specificity, structure, and authority signals. The question for content marketers is no longer "can my content be found?" but "is my content substantive enough that an agent monitoring a topic would surface it?"</p>
+          <div class="sig-src">Source: <a href="../index.html#post-m18">Google Blog</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="s-label">Priority Actions</div>
+    <h2>Your next move</h2>
+    <p class="section-intro">Locate your maturity stage above, then focus on the actions that move you to the next one.</p>
+    <div class="act-block">
+      <div class="act-label">Stage 1 → 2 &nbsp;·&nbsp; Aware to Piloting</div>
+      <ul class="act-list">
+        <li><span class="dot"></span>Measure your brand's AI search presence today. Ask ChatGPT, Perplexity, and Gemini about your product category. Document what they say — and what they say about competitors. Use AIEthos for systematic tracking.</li>
+        <li><span class="dot"></span>Redesign 10–15% of your content for AEO: specific, authoritative, structured to be cited in an AI-generated answer rather than to rank for a keyword. Track the difference in AI referral traffic and engagement quality.</li>
+        <li><span class="dot"></span>Map where your buyers are now doing their research. How many have already done multi-turn AI research before their first interaction with your sales team?</li>
+      </ul>
+    </div>
+    <div class="act-block">
+      <div class="act-label">Stage 2 → 3 &nbsp;·&nbsp; Piloting to Embedding</div>
+      <ul class="act-list">
+        <li><span class="dot"></span>Launch a Creator AEO programme. Identify 5–10 creator partnerships — journalists, analysts, YouTubers, podcast hosts — whose content AI systems are trained on and cite in your category. Build the relationships now, before this becomes a standard marketing investment.</li>
+        <li><span class="dot"></span>Connect your marketing data stack to AI assistants via MCP. Start with one data source (retail media, campaign performance) and eliminate one dashboard your team currently switches to manually.</li>
+        <li><span class="dot"></span>Add AI search referrals as a separate attribution source in your analytics. Build a distinct conversion funnel for these buyers — they need different content and different CTAs than top-of-funnel organic traffic.</li>
+      </ul>
+    </div>
+    <div class="act-block">
+      <div class="act-label">Stage 3 → 4 &nbsp;·&nbsp; Embedding to Leading</div>
+      <ul class="act-list">
+        <li><span class="dot"></span>Map your first-party data assets and treat them as competitive infrastructure. The Publicis/LiveRamp acquisition thesis — that data connectivity is the moat in agentic marketing — is the strategic frame to build toward.</li>
+        <li><span class="dot"></span>Implement agentic campaign execution for one channel: audience discovery, creative testing, and budget reallocation running autonomously within defined parameters. Measure performance against human-managed equivalent.</li>
+        <li><span class="dot"></span>Redefine your marketing team's role: from operating tools to governing systems. Which decisions stay with humans? Which parameters do agents operate within? That governance design is the work.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="s-label">Evidence from the Field</div>
+    <h2>Stories behind this playbook</h2>
+    <p class="section-intro">The published posts that informed this synthesis.</p>
+    <div class="ev-grid">
+      <a class="ev-item" href="../index.html#post-m22">
+        <div><div class="ev-title">Brand's own sites are 5-10% of what AI search references. Creators are the other 90%.</div><div class="ev-meta">note &nbsp;·&nbsp; Later &nbsp;·&nbsp; May 25, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-m14">
+        <div><div class="ev-title">AEO isn't an SEO update. It's a different kind of buyer arriving at your product.</div><div class="ev-meta">note &nbsp;·&nbsp; Highspot &nbsp;·&nbsp; May 22, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-m21">
+        <div><div class="ev-title">Publicis is acquiring LiveRamp for $2.5B. The rationale is the agentic era of marketing.</div><div class="ev-meta">note &nbsp;·&nbsp; GlobeNewswire &nbsp;·&nbsp; May 25, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-m18">
+        <div><div class="ev-title">Google rewired Search at I/O. Here's what content marketers need to know.</div><div class="ev-meta">note &nbsp;·&nbsp; Google Blog &nbsp;·&nbsp; May 23, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-m17">
+        <div><div class="ev-title">The AI marketing stack is being rewired around MCP. This week's releases show it.</div><div class="ev-meta">note &nbsp;·&nbsp; MarTech &nbsp;·&nbsp; May 23, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-m15">
+        <div><div class="ev-title">AI-driven personalization generates 40% more revenue. The 2026 marketing trends that have numbers.</div><div class="ev-meta">note &nbsp;·&nbsp; Improvado &nbsp;·&nbsp; May 22, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-m19">
+        <div><div class="ev-title">Your brand might be invisible to AI search. Now there's a tool that tells you.</div><div class="ev-meta">note &nbsp;·&nbsp; Spark Novus &nbsp;·&nbsp; May 23, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand">Product Genesis</div>
+    <div class="f-note">Regenerated each publish run &nbsp;·&nbsp; Offline — not yet published</div>
+  </div>
+</footer>
+
+</body>
+</html>

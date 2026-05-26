@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operations AI Playbook — Product Genesis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff; --bg-2: #f3f6fb; --bg-3: #e4ecf6;
+      --ink: #14244C; --ink-soft: rgba(20,36,76,.70); --ink-mute: rgba(20,36,76,.46);
+      --rule: rgba(20,36,76,.14); --accent: #4A95D0; --accent-soft: rgba(74,149,208,.14);
+      --radius: 14px; --radius-sm: 10px; --pad: clamp(20px,4vw,56px); --maxw: 800px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--bg); color: var(--ink); font-family: "Poppins", ui-sans-serif, sans-serif; font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+    nav { border-bottom: 1px solid var(--rule); padding: 18px 0; }
+    nav .wrap { display: flex; align-items: center; gap: 10px; }
+    nav a { color: var(--accent); text-decoration: none; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing:.04em; }
+    nav a:hover { text-decoration: underline; }
+    .sep { color: var(--ink-mute); font-size: 11px; }
+    .crumb { color: var(--ink-mute); font-family: "JetBrains Mono", monospace; font-size: 11px; }
+    .hero { padding: 52px 0 44px; border-bottom: 1px solid var(--rule); }
+    .tag { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing:.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+    .hero h1 { font-size: clamp(24px,4vw,38px); font-weight: 700; line-height: 1.15; margin-bottom: 10px; }
+    .hero-role { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--ink-mute); margin-bottom: 18px; }
+    .hero-dek { font-size: 16px; font-weight: 300; color: var(--ink-soft); max-width: 580px; margin-bottom: 20px; line-height: 1.65; }
+    .hero-meta { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+    .section { padding: 44px 0; border-bottom: 1px solid var(--rule); }
+    .section:last-child { border-bottom: none; padding-bottom: 60px; }
+    .s-label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing:.12em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 6px; }
+    .section h2 { font-size: 19px; font-weight: 600; margin-bottom: 6px; }
+    .section-intro { font-size: 13px; color: var(--ink-soft); margin-bottom: 28px; max-width: 560px; }
+    .stages { display: flex; flex-direction: column; gap: 2px; }
+    .stage { background: var(--bg-2); padding: 22px 26px; }
+    .stage:first-child { border-radius: var(--radius) var(--radius) 0 0; }
+    .stage:last-child { border-radius: 0 0 var(--radius) var(--radius); background: var(--ink); }
+    .stage-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .s-num { width: 26px; height: 26px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .stage:last-child .s-num { background: rgba(74,149,208,.22); color: #88c0ea; }
+    .s-title { font-weight: 600; font-size: 14px; }
+    .stage:last-child .s-title { color: #eef3fb; }
+    .s-body { font-size: 13px; color: var(--ink-soft); line-height: 1.65; margin-bottom: 10px; }
+    .stage:last-child .s-body { color: rgba(238,243,251,.70); }
+    .s-tell { font-size: 12px; color: var(--ink-mute); font-style: italic; }
+    .stage:last-child .s-tell { color: rgba(238,243,251,.46); }
+    .signals { display: flex; flex-direction: column; gap: 22px; }
+    .signal { display: grid; grid-template-columns: 3px 1fr; gap: 18px; }
+    .s-bar { background: var(--accent); border-radius: 2px; min-height: 50px; }
+    .sig-head { font-weight: 600; font-size: 13px; margin-bottom: 4px; line-height: 1.4; }
+    .sig-body { font-size: 13px; color: var(--ink-soft); line-height: 1.6; margin-bottom: 6px; }
+    .sig-src { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+    .sig-src a { color: var(--accent); text-decoration: none; }
+    .sig-src a:hover { text-decoration: underline; }
+    .act-block { margin-bottom: 24px; }
+    .act-label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing:.1em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+    .act-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .act-list li { display: flex; gap: 10px; font-size: 13px; color: var(--ink-soft); line-height: 1.55; }
+    .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 9px; }
+    .ev-grid { display: flex; flex-direction: column; gap: 8px; }
+    .ev-item { background: var(--bg-2); border-radius: var(--radius-sm); padding: 13px 18px; display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; text-decoration: none; transition: background .15s; }
+    .ev-item:hover { background: var(--bg-3); }
+    .ev-title { font-size: 13px; font-weight: 500; color: var(--ink); line-height: 1.35; margin-bottom: 2px; }
+    .ev-meta { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+    .ev-arr { color: var(--ink-mute); font-size: 13px; }
+    footer { border-top: 1px solid var(--rule); padding: 32px 0; }
+    footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .f-brand { font-weight: 600; font-size: 13px; }
+    .f-note { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-mute); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="../index.html">Product Genesis</a>
+    <span class="sep">/</span>
+    <span class="crumb">Operations Playbook</span>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="tag">AI Action Plan · Operations</div>
+    <h1>Operations &amp; AI FinOps</h1>
+    <div class="hero-role">For: COO · VP Operations · FinOps Lead · Head of Infrastructure</div>
+    <p class="hero-dek">The AI cost reckoning has arrived. Microsoft cancelled most of its Claude Code licences. Uber burned its 2026 AI tools budget in four months. The teams that build cost governance before scale avoid the incident. The ones that don't build it after.</p>
+    <div class="hero-meta">Last updated: May 26, 2026 &nbsp;·&nbsp; Synthesised from 10 published posts</div>
+  </div>
+
+  <div class="section">
+    <div class="s-label">Maturity Framework</div>
+    <h2>Where does your function stand?</h2>
+    <p class="section-intro">Four stages of AI operations maturity. The key distinction: visibility (seeing what you're spending) versus governance (managing it with the right model, attribution, and controls).</p>
+    <div class="stages">
+      <div class="stage">
+        <div class="stage-head"><div class="s-num">1</div><div class="s-title">Aware</div></div>
+        <p class="s-body">AI tool costs appear as a line item in your software budget. You review monthly invoices. You know the total spend on AI APIs and tools but can't attribute it to specific teams, features, or workflows. You're routing AI spend monitoring through the same dashboards used for traditional compute — which weren't designed for AI billing surfaces and will miss anomalies that traditional monitoring catches.</p>
+        <p class="s-tell">Tell: "We track AI costs in our software budget. We review the monthly total."</p>
+      </div>
+      <div class="stage">
+        <div class="stage-head"><div class="s-num">2</div><div class="s-title">Piloting</div></div>
+        <p class="s-body">You have basic API spend monitoring and alert thresholds set. You know roughly what AI costs per month and have some visibility into which models are used most. But you haven't yet tagged agents with owners and workloads, established cost-per-task baselines, or built anomaly detection tuned for AI billing surfaces. A compromised API key or an agentic workload that loops unexpectedly would still produce a surprise invoice.</p>
+        <p class="s-tell">Tell: "We have basic monitoring and alerts. Attribution at the task or agent level is still a gap."</p>
+      </div>
+      <div class="stage">
+        <div class="stage-head"><div class="s-num">3</div><div class="s-title">Embedding</div></div>
+        <p class="s-body">Every AI agent in production has an owner tag, a workload tag, and a cost-per-task baseline established before deployment. You have model routing: 80–85% of queries routed to budget models, 15–20% to frontier models, based on task complexity. Chargeback by team or feature is in place. Anomaly detection is tuned for AI billing surfaces separately from traditional compute monitoring. You can answer "which agent, team, or feature caused this bill?" within 24 hours.</p>
+        <p class="s-tell">Tell: "Every agent has an owner and baseline. Model routing is running. We can attribute any cost."</p>
+      </div>
+      <div class="stage">
+        <div class="stage-head"><div class="s-num">4</div><div class="s-title">Leading</div></div>
+        <p class="s-body">AI FinOps is a distinct governance layer with its own anomaly model, attribution model, and credit/cap policies. You run model routing and compute optimization continuously — FP8 quantization, KV cache reuse, spot GPU pricing for interruptible workloads, idle GPU shutdown policies. Engineers have direct ownership of cost outcomes for their features. Your effective AI infrastructure cost is 40–70% lower than teams running equivalent workloads without this governance layer.</p>
+        <p class="s-tell">Tell: "AI FinOps is a governance layer, not a dashboard. Engineers own their cost outcomes."</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="s-label">Frontier Signals</div>
+    <h2>Where best practice is moving</h2>
+    <p class="section-intro">Synthesised from the most recent and impactful content in the Operations category.</p>
+    <div class="signals">
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">Microsoft cancelled most of its Claude Code licences. Uber burned its 2026 AI budget in four months.</div>
+          <p class="sig-body">Fortune's May 22 piece documents the first wave of enterprise AI cost reckonings from named companies. Microsoft's cancellation came six months after opening Claude Code access to thousands of employees — the economics of frontier-model coding assistance at enterprise scale, without tight usage controls, produced a bill that didn't match the productivity delivered. Uber's CTO: the firm burned its entire 2026 AI tools budget in four months. An Nvidia executive: "For my team, the cost of compute is far beyond the costs of the employees." These are not edge cases — they are the predictable outcome of scaling AI access before cost governance is in place.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-o18">Fortune</a></div>
+        </div>
+      </div>
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">Tokenmaxxing: when you measure AI adoption by consumption, you create the wrong behaviour.</div>
+          <p class="sig-body">Amazon created an internal leaderboard tracking which employees consumed the most tokens. Meta ran "Claudeonomics" — tracking token consumption as a productivity signal — generating 60 trillion tokens in 30 days. Employees optimised for the metric, regardless of whether each use case delivered proportional value. Agentic AI can consume 100× to 1,000× more tokens than single LLM queries. The corporate pullbacks are the predictable response to measuring the wrong thing. The lesson: measure outcomes, not consumption.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-o19">Tom's Hardware</a></div>
+        </div>
+      </div>
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">$0 to $10,000 in 30 minutes from a compromised API key. One GUI click = 500,000 tokens.</div>
+          <p class="sig-body">Finout documents two incidents that illustrate why AI billing requires its own governance model. First: a compromised API key generated $10,000 in 30 minutes — the monitoring that would have caught the same EC2 spend didn't trigger, because AI inference runs through a different billing pipeline. Second: AWS's preview of AI agents driving virtual desktops burns 500,000 tokens per GUI click — the agent screenshots the full screen, processes it, generates a response, and loops. One interaction, 500,000 tokens, no alert. Native cloud monitoring wasn't designed for AI billing surfaces.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-o20">Finout</a> &nbsp;·&nbsp; <a href="../index.html#post-o21">LeanOps</a></div>
+        </div>
+      </div>
+      <div class="signal">
+        <div class="s-bar"></div>
+        <div>
+          <div class="sig-head">Enterprise GPU utilisation: 5%. The waste is $401 billion. Model routing cuts it 60–80%.</div>
+          <p class="sig-body">VentureBeat's analysis puts the average enterprise AI infrastructure at 5% GPU utilisation against a $401B spend — a structural waste problem traceable to pilot-era architectural decisions made when tokens were a sunk cost. The fix combines model right-sizing (routing 85% of queries to budget models, 15% to frontier), FP8 quantization (1.3–2× throughput gain), KV cache reuse (3–10× savings for long-context workloads), and idle GPU shutdown (eliminating 20–35% of total GPU spend). Teams implementing all layers routinely achieve 60–80% effective cost reductions without degrading product quality.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-o16">VentureBeat</a> &nbsp;·&nbsp; <a href="../index.html#post-o17">Spheron Blog</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="s-label">Priority Actions</div>
+    <h2>Your next move</h2>
+    <p class="section-intro">Locate your maturity stage above, then focus on the actions that move you to the next one.</p>
+    <div class="act-block">
+      <div class="act-label">Stage 1 → 2 &nbsp;·&nbsp; Aware to Piloting</div>
+      <ul class="act-list">
+        <li><span class="dot"></span>Tag every AI agent in production with an owner, workload, and monthly cost estimate. Do this today — before the next invoice, not after.</li>
+        <li><span class="dot"></span>Build anomaly detection tuned for AI billing separately from your existing cloud monitoring. Set tiered alerts at 50%, 80%, and 95% of monthly AI budget. Standard cloud monitoring won't catch AI billing anomalies at the rate they occur.</li>
+        <li><span class="dot"></span>Stop measuring AI adoption by consumption metrics. Token counts and tool usage rates measure the wrong thing. Identify two outcome metrics you can track instead.</li>
+      </ul>
+    </div>
+    <div class="act-block">
+      <div class="act-label">Stage 2 → 3 &nbsp;·&nbsp; Piloting to Embedding</div>
+      <ul class="act-list">
+        <li><span class="dot"></span>Establish cost-per-task baselines for every agent before it scales. The baseline is the reference point for catching drift — you can't govern what you haven't measured.</li>
+        <li><span class="dot"></span>Implement model routing: route 80–85% of queries to a budget model, 15–20% to frontier. For most production systems, this split is achievable with under 2% quality loss and 40–60% cost reduction.</li>
+        <li><span class="dot"></span>Implement chargeback by team or feature. When engineering teams own their AI cost outcomes directly, the governance problem largely solves itself — the incentive is aligned with the outcome.</li>
+      </ul>
+    </div>
+    <div class="act-block">
+      <div class="act-label">Stage 3 → 4 &nbsp;·&nbsp; Embedding to Leading</div>
+      <ul class="act-list">
+        <li><span class="dot"></span>Run the full GPU FinOps playbook: FP8 quantization for H100 workloads, KV cache reuse for long-context and multi-turn agents, spot GPU pricing for training and interruptible inference jobs, idle GPU shutdown policies. These are independent savings layers — implement in order of ease.</li>
+        <li><span class="dot"></span>Build approval workflows for high-cost inference calls. Agentic workloads that consume 100× more tokens than standard queries need human gates before they run at scale, not after they produce an incident.</li>
+        <li><span class="dot"></span>Treat AI FinOps as a separate governance discipline with dedicated ownership. If no one person is accountable for AI cost outcomes across your engineering organisation, the governance layer doesn't exist — it's just a dashboard nobody acts on.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="s-label">Evidence from the Field</div>
+    <h2>Stories behind this playbook</h2>
+    <p class="section-intro">The published posts that informed this synthesis.</p>
+    <div class="ev-grid">
+      <a class="ev-item" href="../index.html#post-o18">
+        <div><div class="ev-title">Microsoft cancelled most of its Claude Code licences. Uber burned its AI budget in 4 months.</div><div class="ev-meta">note &nbsp;·&nbsp; Fortune &nbsp;·&nbsp; May 25, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-o19">
+        <div><div class="ev-title">Amazon built a token consumption leaderboard. Meta generated 60 trillion tokens in 30 days.</div><div class="ev-meta">note &nbsp;·&nbsp; Tom's Hardware &nbsp;·&nbsp; May 25, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-o20">
+        <div><div class="ev-title">A compromised API key: $0 to $10,000 in 30 minutes. What 2026's AI billing disasters are teaching FinOps teams.</div><div class="ev-meta">essay &nbsp;·&nbsp; Finout &nbsp;·&nbsp; May 25, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-o21">
+        <div><div class="ev-title">Why one developer hit $4,200 in API fees over a long weekend</div><div class="ev-meta">note &nbsp;·&nbsp; LeanOps &nbsp;·&nbsp; May 25, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-o16">
+        <div><div class="ev-title">Enterprise GPU utilisation: 5%. The waste is $401 billion and growing.</div><div class="ev-meta">note &nbsp;·&nbsp; VentureBeat &nbsp;·&nbsp; May 23, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-o17">
+        <div><div class="ev-title">The GPU FinOps playbook for AI products: the techniques that actually move the numbers</div><div class="ev-meta">essay &nbsp;·&nbsp; Spheron Blog &nbsp;·&nbsp; May 23, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-o13">
+        <div><div class="ev-title">The highest-ROI LLM cost optimization is also the most skipped</div><div class="ev-meta">essay &nbsp;·&nbsp; Cast AI &nbsp;·&nbsp; May 22, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand">Product Genesis</div>
+    <div class="f-note">Regenerated each publish run &nbsp;·&nbsp; Offline — not yet published</div>
+  </div>
+</footer>
+
+</body>
+</html>
