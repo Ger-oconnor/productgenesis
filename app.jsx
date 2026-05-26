@@ -340,6 +340,42 @@ function LatestFeed({ expandedId, setExpandedId, density, volFilter }) {
   );
 }
 
+// ─── Action banner ───────────────────────────────────────────────────
+function ActionBanner({ actions, volFilter }) {
+  const [open, setOpen] = useState(false);
+  if (!actions?.length) return null;
+  if (volFilter !== null && !actions.some(a => a.vol === volFilter)) return null;
+  const primary = actions[0];
+  return (
+    <div className={`action-banner${open ? ' action-banner--open' : ''}`}>
+      <div className="action-header">
+        <span className="action-label">Call to Action</span>
+        {actions.length > 1 && (
+          <button className="action-toggle" onClick={() => setOpen(!open)}>
+            {open ? 'Collapse ↑' : `See ${actions.length - 1} more ↓`}
+          </button>
+        )}
+      </div>
+      {!open && (
+        <div className="action-primary">
+          <span className="action-text">{primary.text}</span>
+          <a className="action-src" href={primary.sourceUrl} target="_blank" rel="noopener noreferrer">{primary.sourceLabel} ↗</a>
+        </div>
+      )}
+      {open && (
+        <ol className="action-list">
+          {actions.map((a, i) => (
+            <li key={i} className="action-item">
+              <span className="action-text">{a.text}</span>
+              <a className="action-src" href={a.sourceUrl} target="_blank" rel="noopener noreferrer">{a.sourceLabel} ↗</a>
+            </li>
+          ))}
+        </ol>
+      )}
+    </div>
+  );
+}
+
 // ─── Category section ───────────────────────────────────────────────
 function CategorySection({ cat, posts, expandedId, setExpandedId, density, volFilter }) {
   const [subFilter, setSubFilter] = useState('all');
@@ -362,6 +398,7 @@ function CategorySection({ cat, posts, expandedId, setExpandedId, density, volFi
           </div>
         )}
       </div>
+      <ActionBanner actions={cat.actions} volFilter={volFilter} />
       <div className={`bento ${density}`}>
         {filtered.map(p => (
           <PostCard key={p.id} post={p} span={spanFor(p)}

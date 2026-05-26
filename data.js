@@ -10,6 +10,13 @@ window.PG_CATEGORIES = [
     label: "Vision",
     blurb: "Where product design is heading when intelligence is a primitive.",
     sub: null,
+    actions: [
+      { vol: 5, text: "Measure whether your team's AI time savings translate to business outcomes — 94% of PMs use AI daily but 95% of enterprise pilots still fail ROI.", sourceUrl: "https://antmurphy.medium.com/how-product-is-changing-in-2026-78a08f150aca", sourceLabel: "Ant Murphy · Medium" },
+      { vol: 5, text: "Audit whether your PM team's value is visible without the execution layer AI just removed — value hiding behind process is now exposed.", sourceUrl: "https://medium.com/design-bootcamp/my-take-on-the-future-of-product-management-in-the-age-of-ai-9b9f7125818b", sourceLabel: "Edi Sipka · Medium" },
+      { vol: 5, text: "Decide this week: is your product AI-assisted, or is AI your product? Google I/O 2026 drew that line publicly across 100 announcements.", sourceUrl: "https://medium.com/data-science-collective/google-just-declared-war-on-every-tech-company-at-once-heres-everything-announced-at-i-o-2026-fa980c62ec9b", sourceLabel: "Data Science Collective" },
+      { vol: 5, text: "Replace creation-speed goals with taste and judgment goals — when a nine-year-old can animate a story in minutes, speed is no longer the edge.", sourceUrl: "https://www.techradar.com/pro/designing-delight-what-product-engineering-looks-like-in-2026", sourceLabel: "TechRadar Pro" },
+      { vol: 5, text: "Watch Boris Cherny's Sequoia talk before your next roadmap meeting — the creator of Claude Code hasn't written a line of code in 2026.", sourceUrl: "https://www.youtube.com/watch?v=SlGRN8jh2RI", sourceLabel: "Sequoia AI Ascent · YouTube" },
+    ],
   },
   {
     id: "strategy",
@@ -17,6 +24,13 @@ window.PG_CATEGORIES = [
     label: "Strategy",
     blurb: "Picking the right bets, moats, and roadmaps for AI-native products.",
     sub: null,
+    actions: [
+      { vol: 5, text: "Map which of three compounding AI advantages your product is building: proprietary data flywheel, organisational velocity, or physical-world integration.", sourceUrl: "https://www.mckinsey.com/capabilities/quantumblack/our-insights/from-ai-table-stakes-to-ai-advantage-building-competitive-moats", sourceLabel: "McKinsey & Company" },
+      { vol: 5, text: "Write a one-paragraph answer to: when a competitor accesses the same model next month, what does your product still have that they don't?", sourceUrl: "https://www.codurance.com/publications/beyond-functionality-building-durable-moats-in-the-ai-era", sourceLabel: "Codurance" },
+      { vol: 5, text: "Audit your pricing architecture — if it's seat-based, model what happens when one agent replaces five users.", sourceUrl: "https://www.morningstar.com/markets/what-ai-means-software-companies-moats", sourceLabel: "Morningstar" },
+      { vol: 5, text: "Define a specific, defensible point of view your product stands for — one that AI commoditisation cannot replicate in a sprint.", sourceUrl: "https://www.greenbook.org/insights/artificial-intelligence-and-machine-learning/in-the-age-of-ai-point-of-view-is-the-only-moat-left", sourceLabel: "Greenbook" },
+      { vol: 5, text: "Map whether your enterprise deployment model matches what KPMG, EY, and SAP's customers now expect as standard AI baseline.", sourceUrl: "https://news.microsoft.com/source/2026/05/21/ey-and-microsoft-announce-global-initiative-to-help-clients-scale-ai-enterprisewide-value-creation-and-move-beyond-experimentation/", sourceLabel: "Microsoft News" },
+    ],
   },
   {
     id: "development",
@@ -30,6 +44,13 @@ window.PG_CATEGORIES = [
       { id: "uiux",      label: "UI / UX" },
       { id: "cicd",      label: "CI / CD" },
     ],
+    actions: [
+      { vol: 5, text: "Schedule a red-teaming session before your next agent ships — evaluation is becoming a compliance requirement, not an engineering choice.", sourceUrl: "https://dev.to/yujia_zhang_0328/openais-promptfoo-deal-puts-evaluation-and-red-teaming-at-the-centre-of-the-agent-stack-2208", sourceLabel: "DEV Community" },
+      { vol: 5, text: "Build both eval and observability infrastructure — 89% of teams have tracing, but only 37% have online production monitoring.", sourceUrl: "https://blog.jetbrains.com/pycharm/2026/05/llm-evaluation-and-ai-observability-for-agent-monitoring/", sourceLabel: "JetBrains" },
+      { vol: 5, text: "Define your agent's token budget and escalation trigger before it ships — not after the first runaway cost incident.", sourceUrl: "https://www.langchain.com/state-of-agent-engineering", sourceLabel: "LangChain" },
+      { vol: 5, text: "Evaluate whether Google's Managed Agents API changes your agentic architecture decision — one API call now provisions a full sandboxed agent.", sourceUrl: "https://blog.google/innovation-and-ai/technology/developers-tools/managed-agents-gemini-api/", sourceLabel: "Google" },
+      { vol: 5, text: "Assign an owner to every production agent before deployment — the same governance step as assigning a code owner.", sourceUrl: "https://dev.to/genisyscodes/-rise-of-the-managed-agent-why-antigravity-20-is-google-io-2026s-most-critical-developer-68f", sourceLabel: "DEV Community" },
+    ],
   },
   {
     id: "marketing",
@@ -37,6 +58,13 @@ window.PG_CATEGORIES = [
     label: "Marketing",
     blurb: "Telling the story of products that learn and surprise their users.",
     sub: null,
+    actions: [
+      { vol: 5, text: "Audit your brand's AI search presence — your owned properties account for just 5–10% of what AI systems cite about you.", sourceUrl: "https://later.com/blog/creator-aeo-marketing/", sourceLabel: "Later" },
+      { vol: 5, text: "Set up AI brand visibility tracking this week to baseline where ChatGPT, Perplexity, and Gemini currently position your brand.", sourceUrl: "https://sparknovus.com/blog/top-10-ai-driven-marketing-shifts-to-watch-closely-in-2026", sourceLabel: "Spark Novus" },
+      { vol: 5, text: "Redesign at least one content asset for AI citation rather than keyword ranking — specificity and authority signals are what get referenced.", sourceUrl: "https://blog.google/products-and-platforms/products/search/search-io-2026/", sourceLabel: "Google Blog" },
+      { vol: 5, text: "Map which creators are generating the 90% of AI-cited content about your category and build a systematic creator AEO programme.", sourceUrl: "https://later.com/blog/creator-aeo-marketing/", sourceLabel: "Later" },
+      { vol: 5, text: "Watch GML 2026 before finalising your Q3 Google Ads budget — the ad unit formats and bidding models just changed.", sourceUrl: "https://www.youtube.com/watch?v=T9585JkTPp8", sourceLabel: "Google Marketing Live · YouTube" },
+    ],
   },
   {
     id: "sales",
@@ -44,6 +72,13 @@ window.PG_CATEGORIES = [
     label: "Sales",
     blurb: "Pricing, pitching, and closing AI deals with skeptical buyers.",
     sub: null,
+    actions: [
+      { vol: 5, text: "Redesign what your reps do with the 5 hours AI saves them each week — 72% of sales orgs fail to reinvest that time in high-value work.", sourceUrl: "https://www.gartner.com/en/newsroom/press-releases/2026-05-19-gartner-survey-finds-ai-saves-sellers-nearly-five-hours-per-week-yet-seventy-two-percent-of-sales-organizations-fail-to-reinvest-time-in-high-value-activities", sourceLabel: "Gartner" },
+      { vol: 5, text: "Retrain your AEs to lead with validation rather than discovery — 69% of B2B buyers arrive having already researched you with AI.", sourceUrl: "https://www.gartner.com/en/newsroom/press-releases/2026-05-20-gartner-survey-finds-sixty-nine-percent-of-b-two-b-buyers-turn-to-sales-reps-to-validate-ai-generated-insights", sourceLabel: "Gartner" },
+      { vol: 5, text: "Audit your AI SDR deployment against the 2% success baseline — if it's not working, diagnose whether the failure is complexity or coverage.", sourceUrl: "https://www.unifygtm.com/explore/best-ai-sdr-software-2026", sourceLabel: "Unify GTM" },
+      { vol: 5, text: "Decide explicitly: is your next pipeline growth coming from AI SDR headcount replacement, or from deeper human relationship investment?", sourceUrl: "https://www.sybill.ai/blogs/ai-sales-tools", sourceLabel: "Sybill" },
+      { vol: 5, text: "Connect your AI prospecting stack to CRM, conversation intelligence, and forecast — closed-loop feedback is what makes the investment compound.", sourceUrl: "https://www.altahq.com/post/ai-driven-sales-acceleration-how-to-maximize-prospecting-in-2026", sourceLabel: "Alta HQ" },
+    ],
   },
   {
     id: "operations",
@@ -51,6 +86,13 @@ window.PG_CATEGORIES = [
     label: "Operations",
     blurb: "Running an AI product without burning the kitchen down.",
     sub: null,
+    actions: [
+      { vol: 5, text: "Tag every production AI agent with an owner and cost baseline today — before the first surprise invoice, not after.", sourceUrl: "https://www.finout.io/blog/what-the-latest-ai-cost-disasters-are-teaching-finops-teams-5-lessons-from-the-trenches", sourceLabel: "Finout" },
+      { vol: 5, text: "Implement model right-sizing this sprint: route 80% of queries to budget models and measure the quality delta before scaling.", sourceUrl: "https://cast.ai/blog/llm-cost-optimization-how-to-run-gen-ai-apps-cost-efficiently/", sourceLabel: "Cast AI" },
+      { vol: 5, text: "Set tiered cost alerts at 50%, 80%, and 95% of your monthly AI spend ceiling before the next billing cycle.", sourceUrl: "https://aicostguard.com/llm-cost-guide", sourceLabel: "AI Cost Guard" },
+      { vol: 5, text: "Audit GPU utilisation across your AI infrastructure — enterprise average is 5%, and idle GPU shutdown alone cuts 20–35% of total spend.", sourceUrl: "https://venturebeat.com/infrastructure/5-gpu-utilization-the-401-billion-ai-infrastructure-problem-enterprises-cant-keep-ignoring", sourceLabel: "VentureBeat" },
+      { vol: 5, text: "Build a chargeback model attributing AI spend to specific features and teams before you scale — visibility before optimisation.", sourceUrl: "https://www.youtube.com/watch?v=ZDWElwO0KSI", sourceLabel: "FinOps Foundation · YouTube" },
+    ],
   },
 ];
 
