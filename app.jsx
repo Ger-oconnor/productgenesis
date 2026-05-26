@@ -269,7 +269,9 @@ function ExpandedView({ post, cat, subLabel, onClose }) {
           {body.map((p) => <p key={p.substring(0, 32)}>{p}</p>)}
           {post.sourceUrl && post.type !== 'video' && (
             <div className="source-line">
-              Source: <a href={post.sourceUrl} target="_blank" rel="noopener noreferrer">{post.sourceLabel || post.sourceUrl}</a>
+              Source: <a href={post.sourceUrl} target="_blank" rel="noopener noreferrer"
+                onClick={() => gtag('event', 'outbound_click', { post_id: post.id, post_title: post.title, url: post.sourceUrl })}
+              >{post.sourceLabel || post.sourceUrl}</a>
             </div>
           )}
         </div>
@@ -282,7 +284,8 @@ function ExpandedView({ post, cat, subLabel, onClose }) {
                   Play video
                 </button>
               )}
-              <a className="watch-ext" href={post.sourceUrl} target="_blank" rel="noopener noreferrer">
+              <a className="watch-ext" href={post.sourceUrl} target="_blank" rel="noopener noreferrer"
+                onClick={() => gtag('event', 'outbound_click', { post_id: post.id, post_title: post.title, url: post.sourceUrl })}>
                 Open on YouTube ↗
               </a>
               {post.videoLabel && <div className="vid-label-text">{post.videoLabel}</div>}
