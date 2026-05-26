@@ -285,6 +285,101 @@ img { max-width: 100%; display: block; }
 .pg-filter:hover { border-color: var(--ink); color: var(--ink); }
 .pg-filter.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 
+/* ───────────────────── ACTION BANNER ───────────────────── */
+.action-banner {
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 14px 18px;
+  margin-bottom: clamp(16px, 2.5vw, 28px);
+}
+.action-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.action-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--accent);
+}
+.action-toggle {
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .06em;
+  color: var(--accent);
+  padding: 3px 10px;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.action-toggle:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+.action-primary {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.action-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink);
+  flex: 1 1 auto;
+}
+.action-src {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--accent);
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color .15s;
+}
+.action-src:hover { border-bottom-color: var(--accent); }
+.action-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  counter-reset: action-counter;
+}
+.action-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  counter-increment: action-counter;
+  padding-left: 24px;
+  position: relative;
+}
+.action-item::before {
+  content: counter(action-counter);
+  position: absolute;
+  left: 0;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--accent);
+  top: 2px;
+}
+@media (max-width: 560px) {
+  .action-primary, .action-item { flex-direction: column; gap: 4px; }
+  .action-src { align-self: flex-start; }
+}
+
 /* ───────────────────── BENTO + CARDS ───────────────────── */
 .bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
 .bento.compact { gap: 10px; }
