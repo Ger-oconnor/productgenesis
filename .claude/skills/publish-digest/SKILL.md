@@ -102,3 +102,39 @@ After writing data.js, tell the editor:
 > Refresh the browser to see them live."
 
 If the dev server is not running, remind them to start it with `npx serve .` from the project folder.
+
+## Step 7 — Mark the publish checklist
+
+Open `reviews/YYYY-MM-DD.md` and find the `## Volume Update Checklist` section.
+
+Mark all items under `### Publishing` as `[x]`.
+
+If the checklist section does not exist (older review file format), append the full template at the bottom of the review file with the Publishing items set to `[x]` and the other sections left as `[ ]`.
+
+---
+
+## Completion Checklist
+
+The full volume update requires all three stages. This is the reference — the live tracked copy lives in the review file.
+
+### Curation ← curate-daily
+- [ ] Web searches run for all 6 categories
+- [ ] YouTube video search run for all 6 categories
+- [ ] Duplicate check done against existing data.js sourceUrls
+- [ ] Draft bodies written for all curated items
+- [ ] Recommended Tweets section written
+- [ ] Review file saved to reviews/YYYY-MM-DD.md
+
+### Publishing ← this skill
+- [ ] Approved items identified from review file
+- [ ] Post IDs verified — no duplicates used
+- [ ] Post objects built for all approved items
+- [ ] Posts inserted at top of correct category blocks in data.js
+- [ ] 10-post cap enforced for each affected category
+- [ ] Tweet [link] placeholders replaced with real post URLs
+
+### Actions Update ← update-actions
+- [ ] New posts scanned for CTA signals across all 6 categories
+- [ ] CTAs drafted for qualifying categories
+- [ ] data.js updated — new CTAs prepended with vol number
+- [ ] 5th (oldest) action removed from each updated category
