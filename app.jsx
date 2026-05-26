@@ -1,8 +1,8 @@
 // app.jsx — Product Genesis (full rebuild, single file for reliability)
 
 const { useState, useEffect, useRef, useMemo } = React;
-const CATS = window.PG_CATEGORIES;
-const POSTS = window.PG_POSTS;
+const CATS = globalThis.PG_CATEGORIES;
+const POSTS = globalThis.PG_POSTS;
 
 // ─── helpers ──────────────────────────────────────────────────────────
 const TYPE = {
@@ -21,8 +21,8 @@ function ytThumb(url) {
 function smoothScrollTo(id) {
   const el = document.getElementById(id);
   if (!el) return;
-  const y = el.getBoundingClientRect().top + window.scrollY - 64;
-  window.scrollTo({ top: y, behavior: "smooth" });
+  const y = el.getBoundingClientRect().top + globalThis.scrollY - 64;
+  globalThis.scrollTo({ top: y, behavior: "smooth" });
 }
 
 // ─── Dispatch / Vol helpers ──────────────────────────────────────────
@@ -86,7 +86,9 @@ function OrbitalHero({ onCategory }) {
       <div className="orb">
         <div className="orb-ring r1"></div>
         <div className="orb-ring r2"></div>
-        <div className="orb-center" onClick={() => onCategory('vision')}>
+        <div className="orb-center" role="button" tabIndex={0}
+             onClick={() => onCategory('vision')}
+             onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onCategory('vision')}>
           <div className="num">01</div>
           <div className="lbl">{vision.label}</div>
           <div className="blurb">Where it all points.</div>
@@ -96,7 +98,10 @@ function OrbitalHero({ onCategory }) {
           const x = 50 + 42 * Math.cos(a);
           const y = 50 + 42 * Math.sin(a);
           return (
-            <div key={c.id} className="orb-node" style={{ left: `${x}%`, top: `${y}%` }} onClick={() => onCategory(c.id)}>
+            <div key={c.id} className="orb-node" style={{ left: `${x}%`, top: `${y}%` }}
+                 role="button" tabIndex={0}
+                 onClick={() => onCategory(c.id)}
+                 onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onCategory(c.id)}>
               <div className="num">{c.n}</div>
               <div className="lbl">{c.label}</div>
               <div className="blurb">{c.blurb.split('.')[0]}.</div>
@@ -112,7 +117,9 @@ function OrbitalHero({ onCategory }) {
 function EditorialHero({ onCategory }) {
   return (
     <div className="hero-editorial">
-      <div className="cover" onClick={() => onCategory('vision')}>
+      <div className="cover" role="button" tabIndex={0}
+           onClick={() => onCategory('vision')}
+           onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onCategory('vision')}>
         <div className="stamp">
           <span>Product Genesis</span>
           <span className="bar"></span>
@@ -130,7 +137,9 @@ function EditorialHero({ onCategory }) {
       <div className="ed-list">
         <h3>The six zones</h3>
         {CATS.map(c => (
-          <div key={c.id} className="ed-row" onClick={() => onCategory(c.id)}>
+          <div key={c.id} className="ed-row" role="button" tabIndex={0}
+               onClick={() => onCategory(c.id)}
+               onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onCategory(c.id)}>
             <div className="ed-num">{c.n}</div>
             <div>
               <div className="ed-label">{c.label}</div>
@@ -161,7 +170,9 @@ function PostCard({ post, span, expanded, onToggle }) {
   return (
     <article
       className={`card ${span} type-${post.type} ${tone} ${post.feature ? 'feature' : ''}`}
+      role="button" tabIndex={0}
       onClick={onToggle}
+      onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onToggle()}
     >
       <div className="card-head">
         <span className="pill cat">{cat.label}{subLabel ? ` · ${subLabel}` : ''}</span>
@@ -199,10 +210,10 @@ function ExpandedView({ post, cat, subLabel, onClose }) {
     return m ? m[1] : null;
   }, [post.sourceUrl]);
 
-  const shareUrl = `${window.location.origin}${window.location.pathname}#post-${post.id}`;
+  const shareUrl = `${globalThis.location.origin}${globalThis.location.pathname}#post-${post.id}`;
 
   const copyLink = () => {
-    try { navigator.clipboard?.writeText(shareUrl); } catch (e) {}
+    navigator.clipboard?.writeText(shareUrl).catch(() => {});
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   };
@@ -212,12 +223,12 @@ function ExpandedView({ post, cat, subLabel, onClose }) {
       ? post.tweet.replace('[link]', shareUrl)
       : `${post.title} ${shareUrl}`;
     const params = new URLSearchParams({ text });
-    window.open(`https://twitter.com/intent/tweet?${params}`, '_blank', 'noopener,width=600,height=400');
+    globalThis.open(`https://twitter.com/intent/tweet?${params}`, '_blank', 'noopener,width=600,height=400');
   };
 
   const shareLinkedIn = () => {
     const params = new URLSearchParams({ url: shareUrl });
-    window.open(`https://www.linkedin.com/sharing/share-offsite/?${params}`, '_blank', 'noopener,width=600,height=500');
+    globalThis.open(`https://www.linkedin.com/sharing/share-offsite/?${params}`, '_blank', 'noopener,width=600,height=500');
   };
 
   const body = post.body || [post.dek];
@@ -241,7 +252,11 @@ function ExpandedView({ post, cat, subLabel, onClose }) {
                     allowFullScreen
                   />
                 </div>
-              : <div className="vid-thumb large" onClick={ytId ? () => setPlaying(true) : undefined} style={ytId ? { cursor: 'pointer' } : undefined}>
+              : <div className="vid-thumb large"
+                    role={ytId ? 'button' : undefined} tabIndex={ytId ? 0 : undefined}
+                    onClick={ytId ? () => setPlaying(true) : undefined}
+                    onKeyDown={ytId ? (e) => (e.key === 'Enter' || e.key === ' ') && setPlaying(true) : undefined}
+                    style={ytId ? { cursor: 'pointer' } : undefined}>
                   {ytThumb(post.sourceUrl) && (
                     <img className="vid-img" src={ytThumb(post.sourceUrl)} alt="" />
                   )}
@@ -251,7 +266,7 @@ function ExpandedView({ post, cat, subLabel, onClose }) {
           )}
           <h2>{post.title}</h2>
           {post.dek && <p className="expand-dek">{post.dek}</p>}
-          {body.map((p, i) => <p key={i}>{p}</p>)}
+          {body.map((p) => <p key={p.substring(0, 32)}>{p}</p>)}
           {post.sourceUrl && post.type !== 'video' && (
             <div className="source-line">
               Source: <a href={post.sourceUrl} target="_blank" rel="noopener noreferrer">{post.sourceLabel || post.sourceUrl}</a>
@@ -309,7 +324,7 @@ function spanFor(p) {
 // ─── Bento feed (homepage Latest) ───────────────────────────────────
 function LatestFeed({ expandedId, setExpandedId, density, volFilter }) {
   const layout = useMemo(() => {
-    const pool = volFilter !== null ? POSTS.filter(p => volOf(p) === volFilter) : POSTS;
+    const pool = volFilter === null ? POSTS : POSTS.filter(p => volOf(p) === volFilter);
     const featured = pool.find(p => p.feature && p.type === 'essay') || pool[0];
     if (!featured) return [];
     const v = pool.find(p => p.type === 'video' && p.id !== featured.id);
@@ -343,7 +358,7 @@ function LatestFeed({ expandedId, setExpandedId, density, volFilter }) {
 // ─── Category section ───────────────────────────────────────────────
 function CategorySection({ cat, posts, expandedId, setExpandedId, density, volFilter }) {
   const [subFilter, setSubFilter] = useState('all');
-  const volPosts = volFilter !== null ? posts.filter(p => volOf(p) === volFilter) : posts;
+  const volPosts = volFilter === null ? posts : posts.filter(p => volOf(p) === volFilter);
   const filtered = (subFilter === 'all' ? volPosts : volPosts.filter(p => p.sub === subFilter)).slice(0, 10);
   return (
     <section id={`cat-${cat.id}`} className="pg-section scroll-anchor">
@@ -457,24 +472,24 @@ function VolBar({ volFilter, setVolFilter }) {
 
 // ─── App ─────────────────────────────────────────────────────────────
 function App() {
-  const [t, setTweak] = useTweaks(window.TWEAK_DEFAULTS);
+  const [t, setTweak] = useTweaks(globalThis.TWEAK_DEFAULTS);
   const [volFilter, setVolFilter] = useState(null);
   const [showVolBar, setShowVolBar] = useState(false);
   const [expandedId, setExpandedId] = useState(() => {
-    const hash = window.location.hash;
+    const hash = globalThis.location.hash;
     return hash.startsWith('#post-') ? hash.slice(6) : null;
   });
 
   const openPost = (id) => {
     setExpandedId(id);
     if (id) {
-      window.history.replaceState(null, '', `#post-${id}`);
+      globalThis.history.replaceState(null, '', `#post-${id}`);
       setTimeout(() => {
         const el = document.getElementById(`post-${id}`);
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 50);
     } else {
-      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      globalThis.history.replaceState(null, '', globalThis.location.pathname + globalThis.location.search);
     }
   };
 
@@ -490,11 +505,11 @@ function App() {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', t.dark ? 'dark' : 'light');
+    document.documentElement.dataset.theme = t.dark ? 'dark' : 'light';
   }, [t.dark]);
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-surface', t.surface || 'paper');
+    document.documentElement.dataset.surface = t.surface || 'paper';
   }, [t.surface]);
 
   useEffect(() => {
@@ -600,8 +615,8 @@ function App() {
         <div className="foot-links">
           <a href="#latest" onClick={(e) => { e.preventDefault(); smoothScrollTo('latest'); }}>Archive</a>
           <a href="#about" onClick={(e) => { e.preventDefault(); smoothScrollTo('about'); }}>About</a>
-          <a href="#" onClick={(e) => e.preventDefault()}>RSS</a>
-          <a href="#" onClick={(e) => e.preventDefault()}>Contact</a>
+          <button type="button" className="foot-link-btn">RSS</button>
+          <button type="button" className="foot-link-btn">Contact</button>
         </div>
       </footer>
 

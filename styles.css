@@ -306,10 +306,10 @@ img { max-width: 100%; display: block; }
 .card.tone-warm { background: var(--card-warm); }
 .card.tone-ink { background: var(--ink); color: var(--bg); border-color: transparent; }
 .card.tone-ink .card-meta, .card.tone-ink .card-dek { color: rgba(255,255,255,.7); }
-.card.tone-ink .pill { background: rgba(255,255,255,.1); color: rgba(255,255,255,.85); border-color: transparent; }
+.card.tone-ink .pill { background: rgba(255,255,255,.15); color: #ffffff; border-color: transparent; }
 .card.tone-accent { background: var(--accent); color: #fff; border-color: transparent; }
-.card.tone-accent .card-meta, .card.tone-accent .card-dek { color: rgba(255,255,255,.85); }
-.card.tone-accent .pill { background: rgba(255,255,255,.18); color: #fff; border-color: transparent; }
+.card.tone-accent .card-meta, .card.tone-accent .card-dek { color: #ffffff; }
+.card.tone-accent .pill { background: rgba(0,0,0,.25); color: #ffffff; border-color: transparent; }
 .card.tone-sand { background: var(--bg-3); }
 
 .card-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
@@ -455,5 +455,7 @@ img { max-width: 100%; display: block; }
 }
 .foot-links { display: flex; gap: 18px; }
 .foot-links a:hover { color: var(--accent); }
+.foot-link-btn { appearance: none; border: 0; background: transparent; padding: 0; cursor: pointer; font: inherit; color: inherit; letter-spacing: .04em; }
+.foot-link-btn:hover { color: var(--accent); }
 
 .scroll-anchor { scroll-margin-top: 80px; }

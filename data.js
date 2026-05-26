@@ -3,7 +3,7 @@
 // Sub-categories (only for development): discovery | dev | testing | uiux | cicd
 // Types: essay | note | video | case-study | thought
 
-window.PG_CATEGORIES = [
+globalThis.PG_CATEGORIES = [
   {
     id: "vision",
     n: "01",
@@ -54,7 +54,7 @@ window.PG_CATEGORIES = [
   },
 ];
 
-window.PG_POSTS = [
+globalThis.PG_POSTS = [
   // ── VISION ──────────────────────────────────────────────────────────────
   {
     id: "v20",

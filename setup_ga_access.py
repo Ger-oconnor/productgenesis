@@ -35,9 +35,9 @@ def main():
         parent=property_name,
         access_binding=binding,
     )
-    print(f"\nSuccess! Service account granted Viewer access:")
+    print("\nSuccess! Service account granted Viewer access:")
     print(f"  {result.name}")
-    print(f"\nYou can now run: python refresh_analytics.py")
+    print("\nYou can now run: python refresh_analytics.py")
 
 if __name__ == "__main__":
     main()

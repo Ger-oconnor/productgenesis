@@ -86,144 +86,127 @@ def pct_delta(curr, prev):
         return 0
 
 
-def fetch_data(property_id: str, days: int):
-    client = get_client()
-    end = date.today()
-    start = end - timedelta(days=days - 1)
-    prev_end = start - timedelta(days=1)
-    prev_start = prev_end - timedelta(days=days - 1)
+CAT_MAP = {
+    "vision": "vision", "strategy": "strategy", "development": "dev",
+    "discovery": "discovery", "dev": "dev", "testing": "testing",
+    "uiux": "uiux", "cicd": "cicd", "marketing": "marketing",
+    "sales": "sales", "operations": "operations",
+}
 
-    start_str = start.isoformat()
-    end_str = end.isoformat()
-    prev_start_str = prev_start.isoformat()
-    prev_end_str = prev_end.isoformat()
+FLAG = {
+    "United States": "🇺🇸", "Ireland": "🇮🇪", "United Kingdom": "🇬🇧",
+    "Canada": "🇨🇦", "Australia": "🇦🇺", "India": "🇮🇳", "Germany": "🇩🇪",
+    "France": "🇫🇷", "Netherlands": "🇳🇱", "Singapore": "🇸🇬",
+    "New Zealand": "🇳🇿", "Brazil": "🇧🇷", "Spain": "🇪🇸", "Sweden": "🇸🇪",
+    "Norway": "🇳🇴", "Denmark": "🇩🇰", "Finland": "🇫🇮", "Poland": "🇵🇱",
+    "Japan": "🇯🇵", "South Korea": "🇰🇷",
+}
 
-    print(f"Fetching {days}d: {start_str} to {end_str} (prev: {prev_start_str} to {prev_end_str})")
 
-    # ── Active users (current + prev) ────────────────────────────────────
+def parse_new_returning(result):
+    new_u, ret_u = 0, 0
+    for row in result.rows:
+        val = int(row.metric_values[0].value)
+        if row.dimension_values[0].value == "new":
+            new_u = val
+        else:
+            ret_u = val
+    total = new_u + ret_u or 1
+    return round(new_u / total * 100), round(ret_u / total * 100)
+
+
+def fetch_user_session_stats(client, property_id, start_str, end_str, prev_start_str, prev_end_str):
     r = run_report(client, property_id, start_str, end_str, ["activeUsers"])
     active_users = int(r.rows[0].metric_values[0].value) if r.rows else 0
-
     r_prev = run_report(client, property_id, prev_start_str, prev_end_str, ["activeUsers"])
     prev_active_users = int(r_prev.rows[0].metric_values[0].value) if r_prev.rows else 0
-    active_users_delta = round(pct_delta(active_users, prev_active_users))
 
-    # ── Sessions ──────────────────────────────────────────────────────────
     r = run_report(client, property_id, start_str, end_str, ["sessions"])
     sessions = int(r.rows[0].metric_values[0].value) if r.rows else 0
-
     r_prev = run_report(client, property_id, prev_start_str, prev_end_str, ["sessions"])
     prev_sessions = int(r_prev.rows[0].metric_values[0].value) if r_prev.rows else 0
-    sessions_delta = round(pct_delta(sessions, prev_sessions))
 
-    # ── Page views + top pages ────────────────────────────────────────────
+    return {
+        "activeUsers": active_users,
+        "activeUsersDelta": round(pct_delta(active_users, prev_active_users)),
+        "sessions": sessions,
+        "sessionsDelta": round(pct_delta(sessions, prev_sessions)),
+    }
+
+
+def fetch_page_views(client, property_id, start_str, end_str, prev_start_str, prev_end_str):
     r = run_report(client, property_id, start_str, end_str, ["screenPageViews"], ["pagePath", "pageTitle"])
     page_views = sum(int(row.metric_values[0].value) for row in r.rows)
-
     r_prev = run_report(client, property_id, prev_start_str, prev_end_str, ["screenPageViews"])
     prev_page_views = int(r_prev.rows[0].metric_values[0].value) if r_prev.rows else 0
-    page_views_delta = round(pct_delta(page_views, prev_page_views))
 
-    CAT_MAP = {
-        "vision": "vision", "strategy": "strategy", "development": "dev",
-        "discovery": "discovery", "dev": "dev", "testing": "testing",
-        "uiux": "uiux", "cicd": "cicd", "marketing": "marketing",
-        "sales": "sales", "operations": "operations",
-    }
     top_pages = []
     for row in r.rows[:10]:
         path = row.dimension_values[0].value
         title = row.dimension_values[1].value or path
         views = int(row.metric_values[0].value)
-        cat = None
-        for seg in path.strip("/").split("/"):
-            if seg in CAT_MAP:
-                cat = CAT_MAP[seg]
-                break
+        cat = next((CAT_MAP[seg] for seg in path.strip("/").split("/") if seg in CAT_MAP), None)
         top_pages.append({"path": path, "title": title, "cat": cat, "views": views})
 
-    # ── Bounce rate + engagement metrics ──────────────────────────────────
-    r = run_report(client, property_id, start_str, end_str,
-                   ["bounceRate", "averageSessionDuration", "screenPageViewsPerSession"])
-    bounce_rate = 0
-    avg_duration_secs = 0
-    pages_per_session = 0.0
+    return page_views, round(pct_delta(page_views, prev_page_views)), top_pages
+
+
+def fetch_engagement(client, property_id, start_str, end_str, prev_start_str, prev_end_str):
+    metrics = ["bounceRate", "averageSessionDuration", "screenPageViewsPerSession"]
+    r = run_report(client, property_id, start_str, end_str, metrics)
+    bounce_rate, avg_duration_secs, pages_per_session = 0, 0, 0.0
     if r.rows:
         bounce_rate = round(float(r.rows[0].metric_values[0].value) * 100)
         avg_duration_secs = r.rows[0].metric_values[1].value
         pages_per_session = round(float(r.rows[0].metric_values[2].value), 2)
 
-    r_prev = run_report(client, property_id, prev_start_str, prev_end_str,
-                        ["bounceRate", "averageSessionDuration", "screenPageViewsPerSession"])
-    prev_bounce_rate = 0
-    prev_avg_duration_secs = 0
-    prev_pages_per_session = 0.0
+    r_prev = run_report(client, property_id, prev_start_str, prev_end_str, metrics)
+    prev_bounce_rate, prev_avg_duration_secs, prev_pages_per_session = 0, 0, 0.0
     if r_prev.rows:
         prev_bounce_rate = round(float(r_prev.rows[0].metric_values[0].value) * 100)
         prev_avg_duration_secs = r_prev.rows[0].metric_values[1].value
         prev_pages_per_session = round(float(r_prev.rows[0].metric_values[2].value), 2)
 
-    bounce_rate_delta = round(bounce_rate - prev_bounce_rate)
-    avg_duration_delta_secs = round(float(avg_duration_secs) - float(prev_avg_duration_secs))
-    pages_per_session_delta = round(pages_per_session - prev_pages_per_session, 1)
+    return {
+        "bounceRate": bounce_rate,
+        "bounceRateDelta": round(bounce_rate - prev_bounce_rate),
+        "avgSessionDuration": parse_duration_secs(avg_duration_secs),
+        "avgSessionDurationDeltaSecs": round(float(avg_duration_secs) - float(prev_avg_duration_secs)),
+        "pagesPerSession": pages_per_session,
+        "pagesPerSessionDelta": round(pages_per_session - prev_pages_per_session, 1),
+    }
 
-    # ── New vs Returning ──────────────────────────────────────────────────
+
+def fetch_new_returning(client, property_id, start_str, end_str, prev_start_str, prev_end_str):
     r = run_report(client, property_id, start_str, end_str, ["activeUsers"], ["newVsReturning"])
     r_prev = run_report(client, property_id, prev_start_str, prev_end_str, ["activeUsers"], ["newVsReturning"])
-
-    def parse_new_returning(result):
-        new_u, ret_u = 0, 0
-        for row in result.rows:
-            val = int(row.metric_values[0].value)
-            if row.dimension_values[0].value == "new":
-                new_u = val
-            else:
-                ret_u = val
-        total = new_u + ret_u or 1
-        return round(new_u / total * 100), round(ret_u / total * 100)
-
     new_pct, ret_pct = parse_new_returning(r)
     prev_new_pct, _ = parse_new_returning(r_prev)
+    return new_pct, ret_pct, prev_new_pct
 
-    # ── Countries ─────────────────────────────────────────────────────────
-    FLAG = {
-        "United States": "🇺🇸", "Ireland": "🇮🇪", "United Kingdom": "🇬🇧",
-        "Canada": "🇨🇦", "Australia": "🇦🇺", "India": "🇮🇳", "Germany": "🇩🇪",
-        "France": "🇫🇷", "Netherlands": "🇳🇱", "Singapore": "🇸🇬",
-        "New Zealand": "🇳🇿", "Brazil": "🇧🇷", "Spain": "🇪🇸", "Sweden": "🇸🇪",
-        "Norway": "🇳🇴", "Denmark": "🇩🇰", "Finland": "🇫🇮", "Poland": "🇵🇱",
-        "Japan": "🇯🇵", "South Korea": "🇰🇷",
-    }
+
+def fetch_countries(client, property_id, start_str, end_str):
     r = run_report(client, property_id, start_str, end_str, ["activeUsers"], ["country"])
-    total_country_users = sum(int(row.metric_values[0].value) for row in r.rows)
+    total = sum(int(row.metric_values[0].value) for row in r.rows)
     countries = []
-    other_users = 0
+    top_users = 0
     for row in r.rows[:5]:
         country = row.dimension_values[0].value
         users = int(row.metric_values[0].value)
-        pct = round(users / total_country_users * 100, 1) if total_country_users else 0
-        countries.append({
-            "flag": FLAG.get(country, "🌐"),
-            "country": country,
-            "users": users,
-            "percent": pct,
-        })
-        other_users += users
+        pct = round(users / total * 100, 1) if total else 0
+        countries.append({"flag": FLAG.get(country, "🌐"), "country": country, "users": users, "percent": pct})
+        top_users += users
     if len(r.rows) > 5:
-        other = total_country_users - other_users
+        other = total - top_users
         if other > 0:
-            countries.append({
-                "flag": "🌐",
-                "country": "Other",
-                "users": other,
-                "percent": round(other / total_country_users * 100, 1),
-            })
+            countries.append({"flag": "🌐", "country": "Other", "users": other,
+                               "percent": round(other / total * 100, 1)})
+    return countries
 
-    # ── Events ────────────────────────────────────────────────────────────
+
+def fetch_events(client, property_id, start_str, end_str):
     r = run_report(client, property_id, start_str, end_str, ["eventCount"], ["eventName"])
-    events = []
-    newsletter_clicks = 0
-    share_x_clicks = 0
+    events, newsletter_clicks, share_x_clicks = [], 0, 0
     for row in r.rows:
         name = row.dimension_values[0].value
         count = int(row.metric_values[0].value)
@@ -232,36 +215,48 @@ def fetch_data(property_id: str, days: int):
             newsletter_clicks = count
         if name == "share_x":
             share_x_clicks = count
+    return events, newsletter_clicks, share_x_clicks
 
-    # ── KR current values ─────────────────────────────────────────────────
-    kr_current_values = {
-        "kr1": active_users,
-        "kr2": bounce_rate,
-    }
 
-    # ── Assemble ──────────────────────────────────────────────────────────
-    range_label = f"{days}d"
-    refreshed = date.today().strftime("%a %-d %b %Y") + f" · {__import__('datetime').datetime.now().strftime('%H:%M')}"
+def fetch_data(property_id: str, days: int):
+    import datetime as _dt
+    client = get_client()
+    end = date.today()
+    start = end - timedelta(days=days - 1)
+    prev_end = start - timedelta(days=1)
+    prev_start = prev_end - timedelta(days=days - 1)
 
+    start_str, end_str = start.isoformat(), end.isoformat()
+    prev_start_str, prev_end_str = prev_start.isoformat(), prev_end.isoformat()
+    print(f"Fetching {days}d: {start_str} to {end_str} (prev: {prev_start_str} to {prev_end_str})")
+
+    user_stats = fetch_user_session_stats(client, property_id, start_str, end_str, prev_start_str, prev_end_str)
+    page_views, page_views_delta, top_pages = fetch_page_views(client, property_id, start_str, end_str, prev_start_str, prev_end_str)
+    eng = fetch_engagement(client, property_id, start_str, end_str, prev_start_str, prev_end_str)
+    new_pct, ret_pct, prev_new_pct = fetch_new_returning(client, property_id, start_str, end_str, prev_start_str, prev_end_str)
+    countries = fetch_countries(client, property_id, start_str, end_str)
+    events, newsletter_clicks, share_x_clicks = fetch_events(client, property_id, start_str, end_str)
+
+    refreshed = date.today().strftime("%a %-d %b %Y") + f" · {_dt.datetime.now().strftime('%H:%M')}"
     return {
         "refreshed": refreshed,
-        "range": range_label,
+        "range": f"{days}d",
         "stats": {
-            "activeUsers": active_users,
-            "activeUsersDelta": active_users_delta,
-            "sessions": sessions,
-            "sessionsDelta": sessions_delta,
+            "activeUsers": user_stats["activeUsers"],
+            "activeUsersDelta": user_stats["activeUsersDelta"],
+            "sessions": user_stats["sessions"],
+            "sessionsDelta": user_stats["sessionsDelta"],
             "pageViews": page_views,
             "pageViewsDelta": page_views_delta,
-            "bounceRate": bounce_rate,
-            "bounceRateDelta": bounce_rate_delta,
+            "bounceRate": eng["bounceRate"],
+            "bounceRateDelta": eng["bounceRateDelta"],
         },
         "topPages": top_pages,
         "engagement": {
-            "avgSessionDuration": parse_duration_secs(avg_duration_secs),
-            "avgSessionDurationDeltaSecs": avg_duration_delta_secs,
-            "pagesPerSession": pages_per_session,
-            "pagesPerSessionDelta": pages_per_session_delta,
+            "avgSessionDuration": eng["avgSessionDuration"],
+            "avgSessionDurationDeltaSecs": eng["avgSessionDurationDeltaSecs"],
+            "pagesPerSession": eng["pagesPerSession"],
+            "pagesPerSessionDelta": eng["pagesPerSessionDelta"],
             "newUsersPercent": new_pct,
             "returningUsersPercent": ret_pct,
             "newUsersPrevPercent": prev_new_pct,
@@ -270,32 +265,26 @@ def fetch_data(property_id: str, days: int):
         },
         "countries": countries,
         "events": events,
-        "krCurrentValues": kr_current_values,
+        "krCurrentValues": {"kr1": user_stats["activeUsers"], "kr2": eng["bounceRate"]},
     }
+
+
+_JS_JOIN = ",\n    "
 
 
 def build_data_block(data: dict) -> str:
     """Render the ANALYTICS_DATA:BEGIN…END block."""
-    def js_val(v):
-        if isinstance(v, str):
-            return json.dumps(v)
-        if isinstance(v, bool):
-            return "true" if v else "false"
-        if isinstance(v, (int, float)):
-            return str(v)
-        return json.dumps(v)
-
     s = data["stats"]
     e = data["engagement"]
-    pages_js = ",\n    ".join(
+    pages_js = _JS_JOIN.join(
         f'{{ path: {json.dumps(p["path"])}, title: {json.dumps(p["title"])}, cat: {json.dumps(p["cat"])}, views: {p["views"]} }}'
         for p in data["topPages"]
     )
-    countries_js = ",\n    ".join(
+    countries_js = _JS_JOIN.join(
         f'{{ flag: {json.dumps(c["flag"])}, country: {json.dumps(c["country"])}, users: {c["users"]}, percent: {c["percent"]} }}'
         for c in data["countries"]
     )
-    events_js = ",\n    ".join(
+    events_js = _JS_JOIN.join(
         f'{{ name: {json.dumps(ev["name"])}, count: {ev["count"]} }}'
         for ev in data["events"]
     )
