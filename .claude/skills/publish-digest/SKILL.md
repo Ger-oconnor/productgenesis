@@ -78,7 +78,17 @@ Insert the new post object(s) at the **top** of that category's block (most rece
 
 **Enforce the 10-post cap:** after inserting, count all posts in that category. If the count exceeds 10, delete the oldest post(s) from the bottom of that category block until only 10 remain. The oldest posts are the ones furthest from the top of the category block (i.e. lowest in the file).
 
-## Step 5 — Update tweet links in the review file
+## Step 5 — Bump the cache-bust version in index.html
+
+Open `index.html` and update the `?v=` query string on the `data.js` script tag to today's publish date (YYYYMMDD format):
+
+```html
+<script src="data.js?v=20260528"></script>
+```
+
+This ensures returning visitors' browsers fetch the updated `data.js` rather than serving a cached copy.
+
+## Step 7 — Update tweet links in the review file
 
 After inserting all posts into `data.js`, go back to the review file (`reviews/YYYY-MM-DD.md`) and update the **Recommended Tweets** section.
 
@@ -91,7 +101,7 @@ Match each tweet to its post by title/category. Any carry-over items that were p
 
 If a tweet entry's story was **not** published (checkbox left unchecked), leave `[link]` as-is — it may be carried forward to tomorrow's digest.
 
-## Step 6 — Confirm
+## Step 8 — Confirm
 
 After writing data.js, tell the editor:
 
@@ -103,7 +113,7 @@ After writing data.js, tell the editor:
 
 If the dev server is not running, remind them to start it with `npx serve .` from the project folder.
 
-## Step 7 — Regenerate affected playbook(s)
+## Step 9 — Regenerate affected playbook(s)
 
 After publishing posts for a category, regenerate that category's HTML playbook in `playbooks/{category}.html`.
 
@@ -123,7 +133,7 @@ To regenerate:
 
 The maturity stages and priority actions are stable — only update them if a new post materially changes what "leading practice" looks like. The frontier signals and evidence library update every run.
 
-## Step 8 — Mark the publish checklist
+## Step 10 — Mark the publish checklist
 
 Open `reviews/YYYY-MM-DD.md` and find the `## Volume Update Checklist` section.
 
