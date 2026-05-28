@@ -87,7 +87,7 @@
     <h1>Operations &amp; AI FinOps</h1>
     <div class="hero-role">For: COO · VP Operations · FinOps Lead · Head of Infrastructure</div>
     <p class="hero-dek">The AI cost reckoning has arrived. Microsoft cancelled most of its Claude Code licences. Uber burned its 2026 AI tools budget in four months. The teams that build cost governance before scale avoid the incident. The ones that don't build it after.</p>
-    <div class="hero-meta">Last updated: May 27, 2026 &nbsp;·&nbsp; Synthesised from 10 published posts</div>
+    <div class="hero-meta">Last updated: May 28, 2026 &nbsp;·&nbsp; Synthesised from 10 published posts</div>
   </div>
 
   <div class="section">
@@ -126,33 +126,33 @@
       <div class="signal">
         <div class="s-bar"></div>
         <div>
-          <div class="sig-head">Microsoft cancelled most of its Claude Code licences. Uber burned its 2026 AI budget in four months.</div>
-          <p class="sig-body">Fortune's May 22 piece documents the first wave of enterprise AI cost reckonings from named companies. Microsoft's cancellation came six months after opening Claude Code access to thousands of employees — the economics of frontier-model coding assistance at enterprise scale, without tight usage controls, produced a bill that didn't match the productivity delivered. Uber's CTO: the firm burned its entire 2026 AI tools budget in four months. An Nvidia executive: "For my team, the cost of compute is far beyond the costs of the employees." These are not edge cases — they are the predictable outcome of scaling AI access before cost governance is in place.</p>
-          <div class="sig-src">Source: <a href="../index.html#post-o18">Fortune</a></div>
+          <div class="sig-head">AI governance and data governance have merged. 63% of enterprises can't enforce purpose limitations on their agents. 60% can't terminate a misbehaving one.</div>
+          <p class="sig-body">The framing that AI governance is a coming requirement is outdated in May 2026. The requirement is here. The convergence of AI and data governance into a single discipline is structural: purpose binding, kill switches, network isolation, and audit trails for AI activity are data governance controls applied to AI access and output. Organisations with solid data governance can extend it to AI governance with less marginal investment. Organisations with weak data governance have two problems simultaneously. EU AI Act high-risk system obligations activate in August 2026 — the teams treating August as the planning trigger are discovering the lead time is longer than assumed.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-o26">Cybersecurity Insiders</a></div>
         </div>
       </div>
       <div class="signal">
         <div class="s-bar"></div>
         <div>
-          <div class="sig-head">Tokenmaxxing: when you measure AI adoption by consumption, you create the wrong behaviour.</div>
-          <p class="sig-body">Amazon created an internal leaderboard tracking which employees consumed the most tokens. Meta ran "Claudeonomics" — tracking token consumption as a productivity signal — generating 60 trillion tokens in 30 days. Employees optimised for the metric, regardless of whether each use case delivered proportional value. Agentic AI can consume 100× to 1,000× more tokens than single LLM queries. The corporate pullbacks are the predictable response to measuring the wrong thing. The lesson: measure outcomes, not consumption.</p>
-          <div class="sig-src">Source: <a href="../index.html#post-o19">Tom's Hardware</a></div>
+          <div class="sig-head">Enterprises spend $1.2M/year on AI-native apps. The governance market is $492M globally. 92% say GenAI changed their data sharing. Only 13% adapted their security strategy.</div>
+          <p class="sig-body">The spending ratio is the story: organisations are spending roughly twice as much on deploying AI as on governing it. AI-related attacks increased nearly 490% year over year. The attack surface expanded at the same time as governance infrastructure failed to keep pace. When GenAI tools are adopted without formal IT approval, most organisations discover they cannot completely map where AI is running and what data it touches. The governance budget should track the deployment budget — not as a fixed percentage, but as a function of the risk surface created by each deployment category.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-o27">Security Boulevard</a></div>
         </div>
       </div>
       <div class="signal">
         <div class="s-bar"></div>
         <div>
-          <div class="sig-head">$0 to $10,000 in 30 minutes from a compromised API key. One GUI click = 500,000 tokens.</div>
-          <p class="sig-body">Finout documents two incidents that illustrate why AI billing requires its own governance model. First: a compromised API key generated $10,000 in 30 minutes — the monitoring that would have caught the same EC2 spend didn't trigger, because AI inference runs through a different billing pipeline. Second: AWS's preview of AI agents driving virtual desktops burns 500,000 tokens per GUI click — the agent screenshots the full screen, processes it, generates a response, and loops. One interaction, 500,000 tokens, no alert. Native cloud monitoring wasn't designed for AI billing surfaces.</p>
-          <div class="sig-src">Source: <a href="../index.html#post-o20">Finout</a> &nbsp;·&nbsp; <a href="../index.html#post-o21">LeanOps</a></div>
+          <div class="sig-head">OpenAI is losing $14B in 2026 against $13B in revenue. Current API pricing is cross-subsidised by venture capital. Repricing is a question of when, not if.</div>
+          <p class="sig-body">OpenAI spends $1.35 for every dollar it earns. Total 2026 spending is forecast at $22 billion. The company prices models below true inference cost to capture market share — funded by $110B+ in fundraising, but not sustainable indefinitely. Anthropic projects its burn rate falling to 9% of revenue by 2027. Both companies need API pricing to normalise toward sustainable unit economics within two to four years. Enterprise teams should stress-test their financial models against a 2x to 3x increase in per-token costs — not as pessimism, but as what OpenAI's own projections imply.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-o24">AI Insights News</a></div>
         </div>
       </div>
       <div class="signal">
         <div class="s-bar"></div>
         <div>
-          <div class="sig-head">Enterprise GPU utilisation: 5%. The waste is $401 billion. Model routing cuts it 60–80%.</div>
-          <p class="sig-body">VentureBeat's analysis puts the average enterprise AI infrastructure at 5% GPU utilisation against a $401B spend — a structural waste problem traceable to pilot-era architectural decisions made when tokens were a sunk cost. The fix combines model right-sizing (routing 85% of queries to budget models, 15% to frontier), FP8 quantization (1.3–2× throughput gain), KV cache reuse (3–10× savings for long-context workloads), and idle GPU shutdown (eliminating 20–35% of total GPU spend). Teams implementing all layers routinely achieve 60–80% effective cost reductions without degrading product quality.</p>
-          <div class="sig-src">Source: <a href="../index.html#post-o16">VentureBeat</a> &nbsp;·&nbsp; <a href="../index.html#post-o24">AI Insights News</a></div>
+          <div class="sig-head">Enterprise AI governance crossed from "best practice" to operational requirement in a single quarter. The infrastructure category went mainstream at Freshworks Refresh and Knowledge 2026.</div>
+          <p class="sig-body">The shift from AI-assisted to autonomous AI operations requires a governance architecture most enterprises haven't built: agent registries, approval workflows, audit trails, and accountability models. Microsoft Agent 365 (May 1) provides centralised governance and shadow AI detection. ServiceNow AI Control Tower (Knowledge 2026) positions ServiceNow as a governance layer for enterprise AI regardless of platform. The governance infrastructure category went from niche compliance tool to mainstream enterprise product in a single quarter. Teams still treating this as future-state planning are a quarter behind.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-o23">SiliconANGLE</a></div>
         </div>
       </div>
     </div>
@@ -193,8 +193,16 @@
     <h2>Stories behind this playbook</h2>
     <p class="section-intro">The published posts that informed this synthesis.</p>
     <div class="ev-grid">
+      <a class="ev-item" href="../index.html#post-o26">
+        <div><div class="ev-title">AI governance and data governance have merged. 63% of enterprises can't enforce either one.</div><div class="ev-meta">note &nbsp;·&nbsp; Cybersecurity Insiders &nbsp;·&nbsp; May 28, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-o27">
+        <div><div class="ev-title">Enterprises spend $1.2M/year on AI-native apps. The governance infrastructure to control them costs far less — and most haven't built it.</div><div class="ev-meta">note &nbsp;·&nbsp; Security Boulevard &nbsp;·&nbsp; May 28, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
       <a class="ev-item" href="../index.html#post-o23">
-        <div><div class="ev-title">Enterprise AI governance just became a mainstream operational requirement</div><div class="ev-meta">note &nbsp;·&nbsp; SiliconAngle &nbsp;·&nbsp; May 27, 2026</div></div>
+        <div><div class="ev-title">Enterprise AI governance just became a mainstream operational requirement</div><div class="ev-meta">note &nbsp;·&nbsp; SiliconANGLE &nbsp;·&nbsp; May 27, 2026</div></div>
         <div class="ev-arr">→</div>
       </a>
       <a class="ev-item" href="../index.html#post-o24">
@@ -202,15 +210,11 @@
         <div class="ev-arr">→</div>
       </a>
       <a class="ev-item" href="../index.html#post-o25">
-        <div><div class="ev-title">Why AI inference is cloud-native infrastructure's biggest challenge in 2026</div><div class="ev-meta">video &nbsp;·&nbsp; YouTube &nbsp;·&nbsp; May 27, 2026</div></div>
+        <div><div class="ev-title">Why AI inference is cloud-native infrastructure's biggest challenge in 2026</div><div class="ev-meta">video &nbsp;·&nbsp; CNCF 2026 · YouTube &nbsp;·&nbsp; May 27, 2026</div></div>
         <div class="ev-arr">→</div>
       </a>
       <a class="ev-item" href="../index.html#post-o18">
         <div><div class="ev-title">Microsoft cancelled most of its Claude Code licences. Uber burned its AI budget in 4 months.</div><div class="ev-meta">note &nbsp;·&nbsp; Fortune &nbsp;·&nbsp; May 25, 2026</div></div>
-        <div class="ev-arr">→</div>
-      </a>
-      <a class="ev-item" href="../index.html#post-o19">
-        <div><div class="ev-title">Amazon built a token consumption leaderboard. Meta generated 60 trillion tokens in 30 days.</div><div class="ev-meta">note &nbsp;·&nbsp; Tom's Hardware &nbsp;·&nbsp; May 25, 2026</div></div>
         <div class="ev-arr">→</div>
       </a>
       <a class="ev-item" href="../index.html#post-o20">
@@ -219,10 +223,6 @@
       </a>
       <a class="ev-item" href="../index.html#post-o21">
         <div><div class="ev-title">Why one developer hit $4,200 in API fees over a long weekend</div><div class="ev-meta">note &nbsp;·&nbsp; LeanOps &nbsp;·&nbsp; May 25, 2026</div></div>
-        <div class="ev-arr">→</div>
-      </a>
-      <a class="ev-item" href="../index.html#post-o16">
-        <div><div class="ev-title">Enterprise GPU utilisation: 5%. The waste is $401 billion and growing.</div><div class="ev-meta">note &nbsp;·&nbsp; VentureBeat &nbsp;·&nbsp; May 23, 2026</div></div>
         <div class="ev-arr">→</div>
       </a>
     </div>
