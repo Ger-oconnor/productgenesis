@@ -87,7 +87,7 @@
     <h1>Engineering &amp; Development</h1>
     <div class="hero-role">For: CTO · VP Engineering · Head of Engineering · Engineering Manager</div>
     <p class="hero-dek">57% of engineering teams have agents in production. The bottleneck has shifted from capability to quality and observability — and most teams have one but not the other.</p>
-    <div class="hero-meta">Last updated: May 27, 2026 &nbsp;·&nbsp; Synthesised from 10 published posts</div>
+    <div class="hero-meta">Last updated: May 28, 2026 &nbsp;·&nbsp; Synthesised from 10 published posts</div>
   </div>
 
   <div class="section">
@@ -126,33 +126,33 @@
       <div class="signal">
         <div class="s-bar"></div>
         <div>
-          <div class="sig-head">The hardest engineering problem in agentic development just became someone else's problem.</div>
-          <p class="sig-body">Google's Managed Agents API provisions a fully operational sandboxed Linux agent — isolated execution environment, persistent state, tool execution, security controls — with a single API call. Anthropic added MCP tunnels (agents reaching private networks without internet exposure) and self-hosted sandboxes (tool execution inside customer infrastructure). The data sovereignty and compliance barriers that blocked regulated industries from deploying production agents have been addressed at the platform level. The cost-benefit calculation for moving from prototyped agents to production-ready agentic workflows has changed materially.</p>
-          <div class="sig-src">Source: <a href="../index.html#post-d27">Google</a> &nbsp;·&nbsp; <a href="../index.html#post-d23">9to5Mac / Anthropic</a></div>
+          <div class="sig-head">Anthropic planned for 10x Claude Code growth. They got 80x. The productivity gap between AI-native and non-AI dev teams is compounding weekly.</div>
+          <p class="sig-body">Claude Code usage analytics — now in Team and Enterprise dashboards — reveal the adoption reality: 80x annualised growth in Q1 2026, API volume up nearly 70x year over year, and an average of 20 hours per developer per week. Weekly active users doubled between January 1 and February 12, 2026. The analytics dashboard surfaces lines of code accepted, suggestion accept rates, PRs shipped, and a contributor leaderboard. For engineering leaders evaluating AI tooling ROI, this is the measurement infrastructure that was previously missing — the ability to attribute productivity changes to specific tool adoption patterns across a team.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-d35">Anthropic · Claude Help Center</a></div>
         </div>
       </div>
       <div class="signal">
         <div class="s-bar"></div>
         <div>
-          <div class="sig-head">Eval tells you if an agent can work. Observability tells you if it is. Most teams have one.</div>
-          <p class="sig-body">LangChain's survey of 1,300+ professionals found 89% of teams have observability for tracing agent behaviour — but only 52% run offline testing and 37% have online monitoring. The failure mode this creates is specific: teams can see what agents are doing, but can't systematically measure whether they're doing it correctly. LLM systems don't fail with errors — they degrade gradually, in ways that don't show up in standard uptime metrics. Both layers are required, and they address different failure modes.</p>
-          <div class="sig-src">Source: <a href="../index.html#post-d29">JetBrains PyCharm Blog</a></div>
+          <div class="sig-head">Camunda's ProcessOS: agents don't just execute workflows — they discover, redesign, and continuously improve them.</div>
+          <p class="sig-body">Most enterprise business processes were designed for a pre-AI world: sequential steps, human handoffs, approval gates that make no sense when agents can execute in parallel. ProcessOS uses four specialised agents — discover, design, build-and-deploy, and improve — to systematically fix the mismatch. Running on AWS with deep Amazon Bedrock integration, it launched in closed beta May 20, 2026. For platform teams, this represents a new architectural layer: an AI-native mechanism for auditing and redesigning existing process infrastructure that enterprises already run.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-d34">BusinessWire</a></div>
         </div>
       </div>
       <div class="signal">
         <div class="s-bar"></div>
         <div>
-          <div class="sig-head">Red-teaming is moving from engineering nice-to-have to compliance requirement.</div>
-          <p class="sig-body">OpenAI's acquisition of Promptfoo — the most widely adopted open-source LLM red-teaming framework — is a governance signal, not a developer tooling story. When the company that builds the model acquires the leading tool for testing that model's safety, evaluation is no longer peripheral to model deployment. Development teams should treat this as a signal to build evaluation infrastructure now, before it is required externally. Teams that build this practice before the mandate have an advantage when the requirement arrives.</p>
-          <div class="sig-src">Source: <a href="../index.html#post-d28">DEV Community</a></div>
+          <div class="sig-head">Claude Mythos found 23,019 bugs in 1,000+ open-source projects at 90.6% confirmation rate. AI-powered security review has crossed a capability threshold.</div>
+          <p class="sig-body">Anthropic's Project Glasswing initial results: Claude Mythos scanned 1,000+ critical open-source projects and flagged 23,019 vulnerabilities — 6,202 high or critical severity. An independent firm confirmed 90.6% were real bugs. One wolfSSL vulnerability (CVE-2026-5194) would have allowed forging TLS certificates across billions of IoT devices. Mozilla patched 271 vulnerabilities in Firefox 150 from Mythos findings. Cloudflare found 2,000 vulnerabilities across its critical infrastructure. Development teams should treat this as a signal that AI-driven security review is no longer a supplement to expert human analysis — for certain vulnerability classes, it's the primary mechanism.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-d32">Help Net Security</a></div>
         </div>
       </div>
       <div class="signal">
         <div class="s-bar"></div>
         <div>
-          <div class="sig-head">Claude Mythos found 23,019 real bugs in critical open-source software in weeks — at 90.6% accuracy.</div>
-          <p class="sig-body">Anthropic's Project Glasswing scanned 1,000+ open-source projects. 23,019 vulnerabilities flagged; 90.6% confirmed real by an independent security firm. One wolfSSL bug would have allowed forging TLS certificates across billions of IoT devices. Mozilla patched 271 Firefox bugs in a single release driven by Mythos findings. Development teams building security into their agent release processes should treat this as a step-change signal: AI-driven security review is no longer a supplement to expert analysis — for certain vulnerability classes, it is now the primary mechanism.</p>
-          <div class="sig-src">Source: <a href="../index.html#post-d32">Help Net Security / Anthropic</a></div>
+          <div class="sig-head">OpenAI's Goal Mode is stable: agentic coding is no longer experimental. Assign an objective and the agent plans, executes, self-corrects, and keeps going.</div>
+          <p class="sig-body">Goal Mode exiting experimental and reaching stable status across app, IDE, and CLI changes the contract with AI coding agents fundamentally. Instead of giving Codex one instruction and waiting for output, teams assign an objective and the agent plans its own steps, executes them, self-corrects on failures, and continues across session breaks until it reaches the goal or hits a wall. Simultaneously: Appshots on macOS injects any frontmost window into the Codex thread, and Locked Mac access keeps Codex running after screen lock. For teams evaluating Cursor, Claude Code, and Antigravity 2.0, the product to compare just changed materially.</p>
+          <div class="sig-src">Source: <a href="../index.html#post-d31">9to5Mac</a></div>
         </div>
       </div>
     </div>
@@ -193,6 +193,14 @@
     <h2>Stories behind this playbook</h2>
     <p class="section-intro">The published posts that informed this synthesis.</p>
     <div class="ev-grid">
+      <a class="ev-item" href="../index.html#post-d34">
+        <div><div class="ev-title">Camunda built an operating system for business processes. Agents don't just execute workflows now — they redesign them.</div><div class="ev-meta">note &nbsp;·&nbsp; BusinessWire &nbsp;·&nbsp; May 28, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
+      <a class="ev-item" href="../index.html#post-d35">
+        <div><div class="ev-title">Anthropic planned for 10x growth in AI coding. They got 80x. Here's what the analytics show.</div><div class="ev-meta">note &nbsp;·&nbsp; Anthropic · Claude Help Center &nbsp;·&nbsp; May 28, 2026</div></div>
+        <div class="ev-arr">→</div>
+      </a>
       <a class="ev-item" href="../index.html#post-d31">
         <div><div class="ev-title">OpenAI shipped Goal Mode on May 22. Agentic coding is no longer experimental.</div><div class="ev-meta">note &nbsp;·&nbsp; 9to5Mac &nbsp;·&nbsp; May 27, 2026</div></div>
         <div class="ev-arr">→</div>
@@ -205,20 +213,16 @@
         <div><div class="ev-title">How to engineer AI inference systems: a practitioner's guide</div><div class="ev-meta">video &nbsp;·&nbsp; Baseten / Philip Kiely &nbsp;·&nbsp; May 27, 2026</div></div>
         <div class="ev-arr">→</div>
       </a>
-      <a class="ev-item" href="../index.html#post-d29">
-        <div><div class="ev-title">Evaluation tells you if an agent can work. Observability tells you if it is.</div><div class="ev-meta">note &nbsp;·&nbsp; JetBrains PyCharm Blog &nbsp;·&nbsp; May 25, 2026</div></div>
+      <a class="ev-item" href="../index.html#post-d27">
+        <div><div class="ev-title">One API call. One fully operational sandboxed agent. Google made agent infrastructure a managed service.</div><div class="ev-meta">note &nbsp;·&nbsp; Google &nbsp;·&nbsp; May 25, 2026</div></div>
         <div class="ev-arr">→</div>
       </a>
       <a class="ev-item" href="../index.html#post-d28">
         <div><div class="ev-title">OpenAI's Promptfoo acquisition is a compliance story, not an engineering story</div><div class="ev-meta">essay &nbsp;·&nbsp; DEV Community &nbsp;·&nbsp; May 25, 2026</div></div>
         <div class="ev-arr">→</div>
       </a>
-      <a class="ev-item" href="../index.html#post-d27">
-        <div><div class="ev-title">One API call. One fully operational sandboxed agent. Google made agent infrastructure a managed service.</div><div class="ev-meta">note &nbsp;·&nbsp; Google &nbsp;·&nbsp; May 25, 2026</div></div>
-        <div class="ev-arr">→</div>
-      </a>
-      <a class="ev-item" href="../index.html#post-d30">
-        <div><div class="ev-title">Google I/O '26 Developer Keynote: the full agentic stack in 75 minutes</div><div class="ev-meta">video &nbsp;·&nbsp; Google · YouTube &nbsp;·&nbsp; May 25, 2026</div></div>
+      <a class="ev-item" href="../index.html#post-d29">
+        <div><div class="ev-title">Evaluation tells you if an agent can work. Observability tells you if it is.</div><div class="ev-meta">note &nbsp;·&nbsp; JetBrains PyCharm Blog &nbsp;·&nbsp; May 25, 2026</div></div>
         <div class="ev-arr">→</div>
       </a>
     </div>
